@@ -13,14 +13,17 @@ namespace GG.CharacterSystem
         private bool _isMale;
         private int _age;
         private bool _isAgeless;
+        private int _level;
         private int _race;
-        private int _expPool;
+        private int _exp;
+        private int _expToLevel;
        // private int _personality;
         //Stats and vitals
         private Vital[] _vitals;
         private BaseStats[] _coreStats;
-        //Abilities
-
+        //Classes
+        private int _curJob;
+        private List<Job> _jobs;
         //Spells
 
         //Passives
@@ -53,6 +56,16 @@ namespace GG.CharacterSystem
             get { return _race; }
             set { _race = value; }
         }
+        public int curJob
+        {
+            set { _curJob = value; }
+            get { return _curJob; }
+        }
+        public List<Job> job
+        {
+            get { return _jobs; }
+            set { _jobs = value; }
+        }
         //Sets and gets for arrays
         public Vital GetVitals(int index)
         {
@@ -62,10 +75,22 @@ namespace GG.CharacterSystem
         {
             return _coreStats[index];
         }
-        public int expPool
+        public int expToLevel
         {
-            set { _expPool = value; }
-            get { return _expPool; }
+            get { return _expToLevel; }
+            set { _expToLevel = value; }
+        }
+        public int Exp
+        {
+            get
+            {
+                return _exp;
+            }
+
+            set
+            {
+                _exp = value;
+            }
         }
         #endregion
         #region Constructors
@@ -77,7 +102,8 @@ namespace GG.CharacterSystem
             RandomFirstName();
             RandomLastName();
             RandomAge();
-            _expPool = 0;
+            _exp = 0;
+            _expToLevel = 1000;
             _isAgeless = false;
             _coreStats = new BaseStats[Enum.GetNames(typeof(StatNames)).Length];
             for (int i = 0; i < _coreStats.Length; i++)
@@ -97,6 +123,8 @@ namespace GG.CharacterSystem
 
             }
             UpdateVitals();
+            _curJob = 0;
+            _jobs = new List<Job>();
         }
         #endregion
         #region Functions
@@ -242,14 +270,19 @@ namespace GG.CharacterSystem
         }
         public void AddToPool(int exp)
         {
-            _expPool += exp;
+            _exp += exp;
+            if(_exp >= _expToLevel)
+            {
+                _level++;
+                _exp -= _expToLevel;
+            }
         }
         public void UpdateVitals()
         {
             _vitals[0].UpdateStatEffect(_coreStats[2].fullValue);
             _vitals[1].UpdateStatEffect(_coreStats[4].fullValue);
             _vitals[2].UpdateStatEffect(_coreStats[1].fullValue);
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 _vitals[i].UpdateVital();
                 _vitals[i].curValue = _vitals[i].fullValue;
@@ -266,6 +299,10 @@ namespace GG.CharacterSystem
             {
                 _vitals[index].curValue = 0;
             }
+        }
+        public void AddNewJob(Job newJob)
+        {
+            _jobs.Add(newJob);
         }
         #endregion
     }

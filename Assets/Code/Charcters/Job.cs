@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 using System.Collections.Generic;
 
-namespace GG.CharacterSystem.Jobs
+namespace GG.CharacterSystem
 {
     /*
     This files is for testing purposes! Currently testing out the idea of classes withing the game and adding a form of evolution to the characters.

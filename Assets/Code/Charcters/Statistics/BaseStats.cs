@@ -57,6 +57,7 @@ namespace GG.CharacterSystem
         }
         #endregion
     }
+    #region Enums
     public enum StatNames
     {
         Strength,
@@ -75,4 +76,5 @@ namespace GG.CharacterSystem
         MND,
         CHR
     };
+    #endregion
 }
