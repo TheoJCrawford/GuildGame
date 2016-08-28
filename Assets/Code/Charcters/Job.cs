@@ -10,7 +10,7 @@ namespace GG.CharacterSystem.Jobs
     Ducumentation on classes will be filled in... soon(tm).
     if it works out as intended, this WILL replace the original system    
     */
-    public class Jobs
+    public class Job
     {
         #region variables
         private Sprite _icon;
@@ -65,7 +65,7 @@ namespace GG.CharacterSystem.Jobs
         }
         #endregion
         #region Constructor
-        public Jobs()
+        public Job()
         {
             _icon = new Sprite();
             _name = string.Empty;
