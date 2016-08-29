@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using UnityEditor;
+using Unitilities.Tuples;
 using System.Collections.Generic;
 namespace GG.CharacterSystem
 {
@@ -20,7 +21,7 @@ namespace GG.CharacterSystem
         private int _lvlUpReq;
         private int _abilityPoints;
         private int[] _statEvolvers;
-        private List<string> _unlcoklist;
+        private List<Tuple<string, int>> _unlocklist;
         #endregion
         #region Setters and getter
         public Sprite icon
@@ -72,6 +73,13 @@ namespace GG.CharacterSystem
 #endif
             get { return _statEvolvers; }
         }
+        public List<Tuple<string, int>> unlocklist
+        {
+#if UNITY_EDITOR
+            set { _unlocklist = value; }
+#endif
+            get { return _unlocklist; }
+        }
 #endregion
 #region Constructor
         public Job()
@@ -83,6 +91,7 @@ namespace GG.CharacterSystem
             _lvlUpReq = 1000;
             _abilityPoints = 0;
             _statEvolvers = new int[6] { 2, 2, 2, 2, 2, 2};
+            _unlocklist = new List<Tuple<string, int>>();
             
         }
 #endregion

@@ -304,6 +304,10 @@ namespace GG.CharacterSystem
         {
             _jobs.Add(newJob);
         }
+        public void UnlockClass()
+        {
+
+        }
         #endregion
     }
     #region Enums
