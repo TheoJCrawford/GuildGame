@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using UnityEditor;
 using System.Collections.Generic;
-
 namespace GG.CharacterSystem
 {
     /*
@@ -20,6 +20,7 @@ namespace GG.CharacterSystem
         private int _lvlUpReq;
         private int _abilityPoints;
         private int[] _statEvolvers;
+        private List<string> _unlcoklist;
         #endregion
         #region Setters and getter
         public Sprite icon
@@ -79,15 +80,17 @@ namespace GG.CharacterSystem
             _name = string.Empty;
             _level = 1;
             _exp = 0;
+            _lvlUpReq = 1000;
             _abilityPoints = 0;
             _statEvolvers = new int[6] { 2, 2, 2, 2, 2, 2};
+            
         }
 #endregion
 #region Functions
         public void AddExp(int Exp)
         {
             _exp += Exp;
-            _abilityPoints += Mathf.RoundToInt(Exp / 5);
+            _abilityPoints += Exp;
             if(_exp >= _lvlUpReq)
             {
                 LevelUp();
@@ -99,7 +102,8 @@ namespace GG.CharacterSystem
         }
         public void LevelUp()
         {
-
+            _level++;
+            _lvlUpReq *= _level;
         }
 #endregion
     }
