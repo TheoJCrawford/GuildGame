@@ -38,22 +38,30 @@ namespace GG.CharacterSystem
         }
         public int level
         {
+#if UNITY_EDITOR
             set { _level = value; }
+#endif
             get { return _level; }
         }
         public int lvlUpReq
         {
+#if UNITY_EDITOR
             set { _lvlUpReq = value; }
+#endif
             get { return _lvlUpReq; }
         }
         public int exp
         {
+#if UNITY_EDITOR
             set { _exp = value; }
+#endif
             get { return _exp; }
         }
         public int AP
         {
+#if UNIT_EDITOR
             set { _abilityPoints = value; }
+#endif
             get { return _abilityPoints; }
         }
         public int[] statEvolve
@@ -63,8 +71,8 @@ namespace GG.CharacterSystem
 #endif
             get { return _statEvolvers; }
         }
-        #endregion
-        #region Constructor
+#endregion
+#region Constructor
         public Job()
         {
             _icon = new Sprite();
@@ -74,13 +82,25 @@ namespace GG.CharacterSystem
             _abilityPoints = 0;
             _statEvolvers = new int[6] { 2, 2, 2, 2, 2, 2};
         }
-        #endregion
-        #region Functions
+#endregion
+#region Functions
         public void AddExp(int Exp)
         {
             _exp += Exp;
             _abilityPoints += Mathf.RoundToInt(Exp / 5);
+            if(_exp >= _lvlUpReq)
+            {
+                LevelUp();
+            }
         }
-        #endregion
+        public void AddAP(int Ap)
+        {
+            _abilityPoints += Ap;
+        }
+        public void LevelUp()
+        {
+
+        }
+#endregion
     }
 }
