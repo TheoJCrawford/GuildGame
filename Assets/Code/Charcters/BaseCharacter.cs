@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
 using System;
 
 namespace GG.CharacterSystem
@@ -273,8 +274,7 @@ namespace GG.CharacterSystem
             _exp += exp;
             if(_exp >= _expToLevel)
             {
-                _level++;
-                _exp -= _expToLevel;
+                
             }
         }
         public void UpdateVitals()
@@ -307,6 +307,16 @@ namespace GG.CharacterSystem
         public void UnlockClass()
         {
 
+        }
+        public void levelUp() {
+            Job temp = _jobs.ElementAt(_curJob);
+            _level++;
+            _exp -= _expToLevel;
+            for(int i = 0; i < temp.statEvolve.Length; i++)
+            {
+                _coreStats[i].baseValue += temp.statEvolve[i];
+                _coreStats[i].SetFullValue();
+            }
         }
         #endregion
     }
