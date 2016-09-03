@@ -269,12 +269,16 @@ namespace GG.CharacterSystem
                 _age++;
             }
         }
-        public void AddToPool(int exp)
+        public void AddExp(int Exp)
         {
-            _exp += exp;
+            _exp += Exp;
             if(_exp >= _expToLevel)
             {
-                
+                levelUp();
+            }
+            if(_jobs.ElementAt(_curJob).exp >= _jobs.ElementAt(_curJob).lvlUpReq)
+            {
+                _jobs.ElementAt(_curJob).LevelUp();
             }
         }
         public void UpdateVitals()
