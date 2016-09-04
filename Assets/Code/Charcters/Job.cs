@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using UnityEditor;
-using Unitilities.Tuples;
 using System.Collections.Generic;
 namespace GG.CharacterSystem
 {
@@ -21,6 +20,9 @@ namespace GG.CharacterSystem
         private int _lvlUpReq;
         private int _abilityPoints;
         private int[] _statEvolvers;
+        private List<string> _unlockClassNames;
+        private List<int> _unlockClasskLevels;
+        public List<bool> _unlockClassReq;
         #endregion
         #region Setters and getter
         public Sprite icon
@@ -72,13 +74,32 @@ namespace GG.CharacterSystem
 #endif
             get { return _statEvolvers; }
         }
+        public List<string> unlockNames
+        {
+            get { return _unlockClassNames; }
+#if UNITY_EDITOR
+            set { _unlockClassNames = value; }
+#endif
+        }
+        public List<int> unlockLevels
+        {
+            get { return _unlockClasskLevels; }
+#if UNITY_EDITOR
+            set { _unlockClasskLevels = value; }
+#endif
+        }
+        public List<bool> unlockMet
+        {
+            get { return _unlockClassReq; }
+            set { _unlockClassReq = value; }
+        }
 #endregion
 #region Constructor
         public Job()
         {
             _icon = new Sprite();
             _name = string.Empty;
-            _level = 1;
+            _level = 0;
             _exp = 0;
             _lvlUpReq = 1000;
             _abilityPoints = 0;
@@ -100,6 +121,16 @@ namespace GG.CharacterSystem
         {
             _level++;
             _lvlUpReq *= _level;
+        }
+        public void ActivateJob()
+        {
+            if (_level >= 1)
+            {
+                return;
+            }
+            else {
+                _level++;
+            }
         }
 #endregion
     }
