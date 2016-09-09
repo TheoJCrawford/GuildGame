@@ -32,6 +32,7 @@ namespace GG.CharacterSystem.Editor
         }
         void OnGUI()
         {
+            _tempJob = _classDb.Get(_selector);
             GUI.BeginGroup(new Rect(100, 0, 800,600)," ");
             GUI.Label(new Rect(0, 0, 70, 26), "Class name:");
             _tempJob.name = GUI.TextField(new Rect(80, 0, 100, 18), _tempJob.name);
