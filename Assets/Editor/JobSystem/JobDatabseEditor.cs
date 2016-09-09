@@ -18,10 +18,12 @@ namespace GG.CharacterSystem.Editor
         {
             JobDatabseEditor window = EditorWindow.GetWindow<JobDatabseEditor>();
             window.titleContent = new GUIContent("Classes Editor");
+            window.minSize = new Vector2(800, 800);
         }
         void OnEnable()
         {
             _classDb = JobsDatabase.GetDatabase<JobsDatabase>(DATABASE_FOLDER_NAME, DATABASE_NAME);
+
         }
         void onGUI()
         {
@@ -29,6 +31,9 @@ namespace GG.CharacterSystem.Editor
             {
                 Debug.LogError("You done fucked up, son");
             }
+            GUILayout.Box("Everything", GUILayout.ExpandWidth(true));
+            GUILayout.TextField("name:");
+
         }
     }
 }
