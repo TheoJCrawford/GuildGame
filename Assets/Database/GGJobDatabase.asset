@@ -11,3 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a58f84f4bab434ea8e4835a9f6756f, type: 3}
   m_Name: GGJobDatabase
   m_EditorClassIdentifier: 
+  database:
+  - _unlockClassReq: 
+  - _unlockClassReq: 
+  - _unlockClassReq: 

@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-using GG.CharacterSystem;
 
-namespace GG{
-    public class JobsDatabase : ScriptableObjectDatabase<Job> {
+namespace GG.CharacterSystem
+{
+    public class JobsDatabase : ScriptableObjectDatabase<Job>
+    {
+
     }
 }

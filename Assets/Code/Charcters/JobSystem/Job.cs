@@ -10,6 +10,7 @@ namespace GG.CharacterSystem
     Ducumentation on classes will be filled in... soon(tm).
     if it works out as intended, this WILL replace the original system    
     */
+    [Serializable]
     public class Job
     {
         #region variables
