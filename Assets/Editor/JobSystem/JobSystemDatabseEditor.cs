@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace GG.CharacterSystem.Editor
 {
-    public class JobDatabseEditor : EditorWindow
+    public class JobSystemDatabseEditor : EditorWindow
     {
         //variables
         private JobsDatabase _classDb;
@@ -16,7 +16,7 @@ namespace GG.CharacterSystem.Editor
         [MenuItem("Horizon Guild/Database/Classes Editor")]
         static void Init()
         {
-            JobDatabseEditor window = EditorWindow.GetWindow<JobDatabseEditor>();
+            JobSystemDatabseEditor window = EditorWindow.GetWindow<JobSystemDatabseEditor>();
             window.titleContent = new GUIContent("Classes Editor");
             window.minSize = new Vector2(800, 800);
         }
@@ -27,12 +27,8 @@ namespace GG.CharacterSystem.Editor
         }
         void onGUI()
         {
-            if(_classDb == null)
-            {
-                Debug.LogError("You done fucked up, son");
-            }
-            GUILayout.Box("Everything", GUILayout.ExpandWidth(true));
-            GUILayout.TextField("name:");
+            GUILayout.Label("Name: ");
+            
 
         }
     }
