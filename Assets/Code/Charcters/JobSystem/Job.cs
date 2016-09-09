@@ -21,79 +21,66 @@ namespace GG.CharacterSystem
         private int _lvlUpReq;
         private int _abilityPoints;
         private int[] _statEvolvers;
+        /*
         private List<string> _unlockClassNames;
         private List<int> _unlockClasskLevels;
         public List<bool> _unlockClassReq;
+        */
         #endregion
         #region Setters and getter
         public Sprite icon
         {
-#if UNITY_EDITOR
             set { icon = value; }
-#endif
             get { return _icon; }
         }
         public string name
         {
-#if UNITY_EDITOR
             set { _name = value; }
-#endif
             get { return _name; }
         }
         public int level
         {
-#if UNITY_EDITOR
             set { _level = value; }
-#endif
             get { return _level; }
         }
         public int lvlUpReq
         {
-#if UNITY_EDITOR
             set { _lvlUpReq = value; }
-#endif
             get { return _lvlUpReq; }
         }
         public int exp
         {
-#if UNITY_EDITOR
             set { _exp = value; }
-#endif
             get { return _exp; }
         }
         public int AP
         {
-#if UNIT_EDITOR
             set { _abilityPoints = value; }
-#endif
             get { return _abilityPoints; }
         }
         public int[] statEvolve
         {
-#if UNITY_EDITOR
             set { _statEvolvers = value; }
-#endif
             get { return _statEvolvers; }
         }
+        /*
         public List<string> unlockNames
         {
             get { return _unlockClassNames; }
-#if UNITY_EDITOR
             set { _unlockClassNames = value; }
-#endif
         }
         public List<int> unlockLevels
         {
             get { return _unlockClasskLevels; }
-#if UNITY_EDITOR
             set { _unlockClasskLevels = value; }
-#endif
+
         }
         public List<bool> unlockMet
         {
             get { return _unlockClassReq; }
             set { _unlockClassReq = value; }
         }
+        */
 #endregion
 #region Constructor
         public Job()
