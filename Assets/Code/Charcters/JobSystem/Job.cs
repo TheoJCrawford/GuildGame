@@ -28,11 +28,12 @@ namespace GG.CharacterSystem
         private int _abilityPoints;
         [SerializeField]
         private int[] _statEvolvers;
-        /*
+        [SerializeField]
         private List<string> _unlockClassNames;
+        [SerializeField]
         private List<int> _unlockClasskLevels;
+        [SerializeField]
         public List<bool> _unlockClassReq;
-        */
         #endregion
         #region Setters and getter
         public Sprite icon
@@ -70,7 +71,6 @@ namespace GG.CharacterSystem
             set { _statEvolvers = value; }
             get { return _statEvolvers; }
         }
-        /*
         public List<string> unlockNames
         {
             get { return _unlockClassNames; }
@@ -87,7 +87,6 @@ namespace GG.CharacterSystem
             get { return _unlockClassReq; }
             set { _unlockClassReq = value; }
         }
-        */
 #endregion
 #region Constructor
         public Job()
