@@ -21,8 +21,7 @@ namespace GG.ItemSystem
 
         public Sprite Icon
         {
-            get
-            { return _icon; }
+            get{ return _icon; }
 
             set { _icon = value; }
         }

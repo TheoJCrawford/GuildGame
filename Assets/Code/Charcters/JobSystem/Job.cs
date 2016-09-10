@@ -14,12 +14,19 @@ namespace GG.CharacterSystem
     public class Job
     {
         #region variables
+        [SerializeField]
         private Sprite _icon;
+        [SerializeField]
         private string _name;
+        [SerializeField]
         private int _level;
+        [SerializeField]
         private int _exp;
+        [SerializeField]
         private int _lvlUpReq;
+        [SerializeField]
         private int _abilityPoints;
+        [SerializeField]
         private int[] _statEvolvers;
         /*
         private List<string> _unlockClassNames;
