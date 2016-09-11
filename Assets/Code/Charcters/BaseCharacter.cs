@@ -276,9 +276,11 @@ namespace GG.CharacterSystem
             {
                 levelUp();
             }
-            if(_jobs.ElementAt(_curJob).exp >= _jobs.ElementAt(_curJob).lvlUpReq)
+            _jobs.ElementAt(_curJob).AddExp(Exp);
+            if (_jobs.ElementAt(_curJob).exp >= _jobs.ElementAt(_curJob).lvlUpReq)
             {
                 _jobs.ElementAt(_curJob).LevelUp();
+                CheckPreReqs();
             }
         }
         public void UpdateVitals()
@@ -309,17 +311,38 @@ namespace GG.CharacterSystem
             newJob.ActivateJob();
             _jobs.Add(newJob);
         }
-        public void UnlockClass()
+        public void CheckPreReqs()
         {
-
+            for(int i = 0; i < _jobs.Count; i++)
+            {
+                if(_jobs.ElementAt(i).unlockNames.Count > 0)
+                {
+                    int saver = 0;
+                   for(int cnt = 0; cnt < _jobs.ElementAt(i).unlockNames.Count; cnt++)
+                    {
+                        if (_jobs.ElementAt(i).unlockNames.ElementAt(cnt) ==_jobs.ElementAt(_curJob).name && _jobs.ElementAt(i).unlockLevels.ElementAt(cnt) == _jobs.ElementAt(_curJob).level)
+                        {
+                            _jobs.ElementAt(i).unlockMet.ElementAt(cnt).Equals(true);
+                        }
+                        if (_jobs.ElementAt(i).unlockMet.ElementAt(cnt))
+                        {
+                            saver++;
+                        }
+                    }
+                   if(saver == _jobs.ElementAt(i).unlockNames.Count)
+                    {
+                        _jobs.ElementAt(i).ActivateJob();
+                    }
+                }
+                
+            }
         }
         public void levelUp() {
-            Job temp = _jobs.ElementAt(_curJob);
             _level++;
             _exp -= _expToLevel;
-            for(int i = 0; i < temp.statEvolve.Length; i++)
+            for(int i = 0; i < _jobs.ElementAt(_curJob).statEvolve.Length; i++)
             {
-                _coreStats[i].baseValue += temp.statEvolve[i];
+                _coreStats[i].baseValue += _jobs.ElementAt(_curJob).statEvolve[i];
                 _coreStats[i].SetFullValue();
             }
         }

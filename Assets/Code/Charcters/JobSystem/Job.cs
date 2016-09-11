@@ -33,7 +33,7 @@ namespace GG.CharacterSystem
         [SerializeField]
         private List<int> _unlockClasskLevels;
         [SerializeField]
-        public List<bool> _unlockClassReq;
+        private List<bool> _unlockClassReq;
         #endregion
         #region Setters and getter
         public Sprite icon
