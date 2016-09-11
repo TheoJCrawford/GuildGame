@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System;
+using System.Linq;
 
 namespace GG.CharacterSystem.Editor{
     public class JSEditor : EditorWindow
@@ -9,7 +10,7 @@ namespace GG.CharacterSystem.Editor{
         private int _selector;
         private bool _preReqs;
         private string _preReqName;
-        private int _preReqNum = 2;
+        private int _preReqNum;
 
         private const string DATABASE_FOLDER_NAME = @"Database";
         private const string DATABASE_FILE_NAME = @"JobDatabase.asset";
@@ -27,7 +28,8 @@ namespace GG.CharacterSystem.Editor{
         {
             _jobDb = JobsDatabase.GetDatabase<JobsDatabase>(DATABASE_FOLDER_NAME, DATABASE_FILE_NAME);
             _selector = -1;
-            _preReqName = " ";
+            _preReqName = string.Empty;
+            _preReqNum = 2;
         }
         void OnGUI()
         {
@@ -38,7 +40,6 @@ namespace GG.CharacterSystem.Editor{
             KMajorEditor();
             GUILayout.EndArea();
         }
-
         #region Non Unity Functions
        void SideBar()
         {
@@ -61,7 +62,11 @@ namespace GG.CharacterSystem.Editor{
                     {
                         _jobDb.SetDirty();
                         _selector = i;
-                        if(_jobDb.Get(_selector).unlockNames.Count < 1)
+                        if(_jobDb.Get(_selector).unlockNames.Count > 0)
+                        {
+                            _preReqs = true;
+                        }
+                        else
                         {
                             _preReqs = false;
                         }
@@ -101,28 +106,50 @@ namespace GG.CharacterSystem.Editor{
                 _preReqs = GUILayout.Toggle(_preReqs, "Are there pre requisite jobs?");
                 if (_preReqs)
                 {
+                    Prerequisites();
+                }   
+            }
+        }
+        void Prerequisites()
+        {
+            GUILayout.BeginHorizontal();
+            _preReqName = GUILayout.TextField(_preReqName);
+            if (GUILayout.Button("+", GUILayout.Width(30)))
+            {
+                _preReqNum++;
+            }
+            GUILayout.Label(_preReqNum.ToString(), GUILayout.Width(80));
+            if (GUILayout.Button("-", GUILayout.Width(30)))
+            {
+                if (_preReqNum > 1)
+                {
+                    _preReqNum--;
+                }
+            }
+            GUILayout.EndHorizontal();
+            if (GUILayout.Button("Add Prequisite"))
+            {
+                _jobDb.Get(_selector).unlockNames.Add(_preReqName);
+                _jobDb.Get(_selector).unlockLevels.Add(_preReqNum);
+                _preReqName = string.Empty;
+                _preReqNum = 2;
+            }
+            if (_jobDb.Get(_selector).unlockNames.Count > 0)
+            {
+                for (int i = 0; i < _jobDb.Get(_selector).unlockNames.Count; i++)
+                {
                     GUILayout.BeginHorizontal();
-                    _preReqName = GUILayout.TextField(_preReqName);
-                    if (GUILayout.Button("+", GUILayout.Width(30)))
+                    GUILayout.Label(_jobDb.Get(_selector).unlockNames.ElementAt(i), GUILayout.Width(200));
+                    GUILayout.Label(_jobDb.Get(_selector).unlockLevels.ElementAt(i).ToString(), GUILayout.Width(60));
+                    if (GUILayout.Button("X", GUILayout.Width(20)))
                     {
-                        _preReqNum++;
-                    }
-                    GUILayout.Label(_preReqNum.ToString(), GUILayout.Width(80));
-                    if (GUILayout.Button("-", GUILayout.Width(30)))
-                    {
-                        if(_preReqNum < 1)
-                        {
-                            _preReqNum--;
-                        }
+                        _jobDb.Get(_selector).unlockNames.RemoveAt(i);
+                        _jobDb.Get(_selector).unlockLevels.RemoveAt(i);
                     }
                     GUILayout.EndHorizontal();
-                    if(GUILayout.Button("Add Prequisite"))
-                    {
-                    }
-
                 }
-                GUILayout.EndVertical();
             }
+            GUILayout.EndVertical();
         }
         #endregion
     }

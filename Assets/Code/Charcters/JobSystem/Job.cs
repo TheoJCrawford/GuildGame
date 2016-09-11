@@ -98,6 +98,9 @@ namespace GG.CharacterSystem
             _lvlUpReq = 1000;
             _abilityPoints = 0;
             _statEvolvers = new int[6] { 2, 2, 2, 2, 2, 2};
+            _unlockClassNames = new List<string>();
+            _unlockClasskLevels = new List<int>();
+            _unlockClassReq = new List<bool>();
             
         }
 #endregion
