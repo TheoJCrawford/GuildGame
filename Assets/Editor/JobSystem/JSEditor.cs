@@ -130,10 +130,20 @@ namespace GG.CharacterSystem.Editor{
             GUILayout.EndHorizontal();
             if (GUILayout.Button("Add Prequisite"))
             {
-                _jobDb.Get(_selector).unlockNames.Add(_preReqName);
-                _jobDb.Get(_selector).unlockLevels.Add(_preReqNum);
-                _preReqName = string.Empty;
-                _preReqNum = 2;
+                for (int i = 0; i < _jobDb.Count; i++)
+                {
+                    if (_jobDb.Get(i).name == _preReqName && _jobDb.Get(_selector).name != _preReqName) {
+                            _jobDb.Get(_selector).unlockNames.Add(_preReqName);
+                            _jobDb.Get(_selector).unlockLevels.Add(_preReqNum);
+                            _preReqName = string.Empty;
+                            _preReqNum = 2;
+                    }
+                    else
+                    {
+                        Debug.LogError("Error: The job nammed " + _preReqName + " does not exist. Please enter a valid name.");
+                        _preReqName = string.Empty;
+                    }
+                }
             }
             if (_jobDb.Get(_selector).unlockNames.Count > 0)
             {
