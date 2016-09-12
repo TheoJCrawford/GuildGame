@@ -11,6 +11,8 @@ namespace GG.CharacterSystem.Editor{
         private bool _preReqs;
         private string _preReqName;
         private int _preReqNum;
+        private Texture2D _selectedTexture;
+        private int _scrollPos;
 
         private const string DATABASE_FOLDER_NAME = @"Database";
         private const string DATABASE_FILE_NAME = @"JobDatabase.asset";
@@ -38,7 +40,6 @@ namespace GG.CharacterSystem.Editor{
             GUILayout.EndArea();
             GUILayout.BeginArea(new Rect(120, 0, 480, 600));
             KMajorEditor();
-            AbilityEditor();
             GUILayout.EndArea();
         }
         #region Non Unity Functions
@@ -59,7 +60,7 @@ namespace GG.CharacterSystem.Editor{
             {
                 for (int i = 0; i < _jobDb.Count; i++)
                 {
-                    if (GUILayout.Button(_jobDb.Get(i).name))
+                    if (GUILayout.Button(new GUIContent(_jobDb.Get(i).name)))
                     {
                         _jobDb.SetDirty();
                         _selector = i;
@@ -78,11 +79,21 @@ namespace GG.CharacterSystem.Editor{
         }
         void KMajorEditor()
         {
-            if(_selector > -1)
+            EditorUtility.SetDirty(_jobDb);
+            if (_selector > -1)
             {
-                EditorUtility.SetDirty(_jobDb);
+                GUILayout.BeginHorizontal();
+                //Naming
                 _jobDb.Get(_selector).name = GUILayout.TextField(_jobDb.Get(_selector).name);
+                //Icon
+                if (GUILayout.Button(_selectedTexture,GUILayout.Width(40), GUILayout.Height(40)))
+                {
+                    int controlerID = EditorGUIUtility.GetControlID(FocusType.Passive);
+                    EditorGUIUtility.ShowObjectPicker<Sprite>(null, true, null, controlerID);
+                }
+                GUILayout.EndHorizontal();
                 GUILayout.BeginVertical();
+                //Stats
                 for(int i = 0; i < Enum.GetNames(typeof(StatNames)).Length; i++)
                 {
                     GUILayout.BeginHorizontal();
@@ -104,11 +115,13 @@ namespace GG.CharacterSystem.Editor{
                     }
                     GUILayout.EndHorizontal();
                 }
+                //PreRequisite jobs
                 _preReqs = GUILayout.Toggle(_preReqs, "Are there pre requisite jobs?");
                 if (_preReqs)
                 {
                     Prerequisites();
-                }   
+                }
+                AbilityListEditor();
             }
         }
         void Prerequisites()
@@ -162,7 +175,7 @@ namespace GG.CharacterSystem.Editor{
             }
             GUILayout.EndVertical();
         }
-        void AbilityEditor()
+        void AbilityListEditor()
         {
 
         }

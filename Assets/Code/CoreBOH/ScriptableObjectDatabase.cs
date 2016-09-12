@@ -10,7 +10,7 @@ namespace GG
 
     public class ScriptableObjectDatabase<T> : ScriptableObject where T: class
     {
-        [SerializeField][HideInInspector]
+        [SerializeField]
         List<T> database = new List<T>();
 #if UNITY_EDITOR
         #region Functions
