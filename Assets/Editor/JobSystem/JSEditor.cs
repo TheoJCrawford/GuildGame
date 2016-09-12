@@ -38,6 +38,7 @@ namespace GG.CharacterSystem.Editor{
             GUILayout.EndArea();
             GUILayout.BeginArea(new Rect(120, 0, 480, 600));
             KMajorEditor();
+            AbilityEditor();
             GUILayout.EndArea();
         }
         #region Non Unity Functions
@@ -150,6 +151,10 @@ namespace GG.CharacterSystem.Editor{
                 }
             }
             GUILayout.EndVertical();
+        }
+        void AbilityEditor()
+        {
+
         }
         #endregion
     }
