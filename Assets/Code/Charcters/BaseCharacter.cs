@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
 using System;
 
 namespace GG.CharacterSystem
@@ -13,14 +14,17 @@ namespace GG.CharacterSystem
         private bool _isMale;
         private int _age;
         private bool _isAgeless;
+        private int _level;
         private int _race;
-        private int _expPool;
+        private int _exp;
+        private int _expToLevel;
        // private int _personality;
         //Stats and vitals
         private Vital[] _vitals;
         private BaseStats[] _coreStats;
-        //Abilities
-
+        //Classes
+        private int _curJob;
+        private List<Job> _jobs;
         //Spells
 
         //Passives
@@ -53,6 +57,16 @@ namespace GG.CharacterSystem
             get { return _race; }
             set { _race = value; }
         }
+        public int curJob
+        {
+            set { _curJob = value; }
+            get { return _curJob; }
+        }
+        public List<Job> job
+        {
+            get { return _jobs; }
+            set { _jobs = value; }
+        }
         //Sets and gets for arrays
         public Vital GetVitals(int index)
         {
@@ -62,10 +76,22 @@ namespace GG.CharacterSystem
         {
             return _coreStats[index];
         }
-        public int expPool
+        public int expToLevel
         {
-            set { _expPool = value; }
-            get { return _expPool; }
+            get { return _expToLevel; }
+            set { _expToLevel = value; }
+        }
+        public int Exp
+        {
+            get
+            {
+                return _exp;
+            }
+
+            set
+            {
+                _exp = value;
+            }
         }
         #endregion
         #region Constructors
@@ -77,7 +103,8 @@ namespace GG.CharacterSystem
             RandomFirstName();
             RandomLastName();
             RandomAge();
-            _expPool = 0;
+            _exp = 0;
+            _expToLevel = 1000;
             _isAgeless = false;
             _coreStats = new BaseStats[Enum.GetNames(typeof(StatNames)).Length];
             for (int i = 0; i < _coreStats.Length; i++)
@@ -97,6 +124,8 @@ namespace GG.CharacterSystem
 
             }
             UpdateVitals();
+            _curJob = 0;
+            _jobs = new List<Job>();
         }
         #endregion
         #region Functions
@@ -240,16 +269,26 @@ namespace GG.CharacterSystem
                 _age++;
             }
         }
-        public void AddToPool(int exp)
+        public void AddExp(int Exp)
         {
-            _expPool += exp;
+            _exp += Exp;
+            if(_exp >= _expToLevel)
+            {
+                levelUp();
+            }
+            _jobs.ElementAt(_curJob).AddExp(Exp);
+            if (_jobs.ElementAt(_curJob).exp >= _jobs.ElementAt(_curJob).lvlUpReq)
+            {
+                _jobs.ElementAt(_curJob).LevelUp();
+                CheckPreReqs();
+            }
         }
         public void UpdateVitals()
         {
             _vitals[0].UpdateStatEffect(_coreStats[2].fullValue);
             _vitals[1].UpdateStatEffect(_coreStats[4].fullValue);
             _vitals[2].UpdateStatEffect(_coreStats[1].fullValue);
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 _vitals[i].UpdateVital();
                 _vitals[i].curValue = _vitals[i].fullValue;
@@ -265,6 +304,46 @@ namespace GG.CharacterSystem
             if(_vitals[index].curValue < 0)
             {
                 _vitals[index].curValue = 0;
+            }
+        }
+        public void AddNewJob(Job newJob)
+        {
+            newJob.ActivateJob();
+            _jobs.Add(newJob);
+        }
+        public void CheckPreReqs()
+        {
+            for(int i = 0; i < _jobs.Count; i++)
+            {
+                if(_jobs.ElementAt(i).unlockNames.Count > 0)
+                {
+                    int saver = 0;
+                   for(int cnt = 0; cnt < _jobs.ElementAt(i).unlockNames.Count; cnt++)
+                    {
+                        if (_jobs.ElementAt(i).unlockNames.ElementAt(cnt) ==_jobs.ElementAt(_curJob).name && _jobs.ElementAt(i).unlockLevels.ElementAt(cnt) == _jobs.ElementAt(_curJob).level)
+                        {
+                            _jobs.ElementAt(i).unlockMet.ElementAt(cnt).Equals(true);
+                        }
+                        if (_jobs.ElementAt(i).unlockMet.ElementAt(cnt))
+                        {
+                            saver++;
+                        }
+                    }
+                   if(saver == _jobs.ElementAt(i).unlockNames.Count)
+                    {
+                        _jobs.ElementAt(i).ActivateJob();
+                    }
+                }
+                
+            }
+        }
+        public void levelUp() {
+            _level++;
+            _exp -= _expToLevel;
+            for(int i = 0; i < _jobs.ElementAt(_curJob).statEvolve.Length; i++)
+            {
+                _coreStats[i].baseValue += _jobs.ElementAt(_curJob).statEvolve[i];
+                _coreStats[i].SetFullValue();
             }
         }
         #endregion

@@ -16,7 +16,3 @@ MonoBehaviour:
     _icon: {fileID: 0}
   - _name: Uncommon
     _icon: {fileID: 0}
-  - _name: Rare
-    _icon: {fileID: 0}
-  - _name: Legendary
-    _icon: {fileID: 0}
