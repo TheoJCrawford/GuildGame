@@ -126,7 +126,6 @@ namespace GG.CharacterSystem
             UpdateVitals();
             _curJob = 0;
             _jobs = new List<Job>();
-            _jobs.ElementAt(0).ActivateJob();
         }
         #endregion
         #region Functions

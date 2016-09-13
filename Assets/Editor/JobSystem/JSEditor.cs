@@ -3,7 +3,8 @@ using UnityEditor;
 using System;
 using System.Linq;
 
-namespace GG.CharacterSystem.Editor{
+namespace GG.CharacterSystem.Editor
+{
     public class JSEditor : EditorWindow
     {
         private JobsDatabase _jobDb;
@@ -24,11 +25,12 @@ namespace GG.CharacterSystem.Editor{
             window.titleContent = new GUIContent("Job Editor");
             window.Show();
             window.minSize = new Vector2(600, 600);
-            window.maxSize = new Vector2(600, 600);
+            window.maxSize = new Vector2(800, 800);
         }
         void OnEnable()
         {
             _jobDb = JobsDatabase.GetDatabase<JobsDatabase>(DATABASE_FOLDER_NAME, DATABASE_FILE_NAME);
+            EditorUtility.SetDirty(_jobDb);
             _selector = -1;
             _preReqName = string.Empty;
             _preReqNum = 2;
@@ -43,28 +45,28 @@ namespace GG.CharacterSystem.Editor{
             GUILayout.EndArea();
         }
         #region Non Unity Functions
-       void SideBar()
+        void SideBar()
         {
             GUILayout.BeginVertical();
-            if(GUILayout.Button("Add Job"))
+            if (GUILayout.Button("Add Job"))
             {
                 _jobDb.Add(new Job());
             }
-            if(GUILayout.Button("Delete Job"))
+            if (GUILayout.Button("Delete Job"))
             {
                 _jobDb.Remove(_selector);
                 _selector--;
             }
-            GUILayout.Box(" ",GUILayout.MinHeight(.1f), GUILayout.MaxHeight(.1f), GUILayout.ExpandWidth(true));
+            GUILayout.Box(" ", GUILayout.MinHeight(.1f), GUILayout.MaxHeight(.1f), GUILayout.ExpandWidth(true));
             if (_jobDb.Count > 0)
             {
                 for (int i = 0; i < _jobDb.Count; i++)
                 {
-                    if (GUILayout.Button(new GUIContent(_jobDb.Get(i).name)))
+                    if (GUILayout.Button(_jobDb.Get(i).name))
                     {
                         _jobDb.SetDirty();
                         _selector = i;
-                        if(_jobDb.Get(_selector).unlockNames.Count > 0)
+                        if (_jobDb.Get(_selector).unlockNames.Count > 0)
                         {
                             _preReqs = true;
                         }
@@ -79,28 +81,22 @@ namespace GG.CharacterSystem.Editor{
         }
         void KMajorEditor()
         {
-            EditorUtility.SetDirty(_jobDb);
             if (_selector > -1)
             {
                 GUILayout.BeginHorizontal();
                 //Naming
                 _jobDb.Get(_selector).name = GUILayout.TextField(_jobDb.Get(_selector).name);
-                //Icon
-                if (GUILayout.Button(_selectedTexture,GUILayout.Width(40), GUILayout.Height(40)))
-                {
-                    int controlerID = EditorGUIUtility.GetControlID(FocusType.Passive);
-                    EditorGUIUtility.ShowObjectPicker<Sprite>(null, true, null, controlerID);
-                }
+                //Icon selector Offline for maintaint
                 GUILayout.EndHorizontal();
+                //Stats                
                 GUILayout.BeginVertical();
-                //Stats
-                for(int i = 0; i < Enum.GetNames(typeof(StatNames)).Length; i++)
+                for (int i = 0; i < Enum.GetNames(typeof(StatNames)).Length; i++)
                 {
                     GUILayout.BeginHorizontal();
                     GUILayout.Label(Enum.GetName(typeof(StatNames), i), GUILayout.Width(100));
                     if (GUILayout.Button("+"))
                     {
-                        if(_jobDb.Get(_selector).statEvolve[i] < 9)
+                        if (_jobDb.Get(_selector).statEvolve[i] < 9)
                         {
                             _jobDb.Get(_selector).statEvolve[i]++;
                         }
@@ -115,6 +111,7 @@ namespace GG.CharacterSystem.Editor{
                     }
                     GUILayout.EndHorizontal();
                 }
+                GUILayout.EndVertical();
                 //PreRequisite jobs
                 _preReqs = GUILayout.Toggle(_preReqs, "Are there pre requisite jobs?");
                 if (_preReqs)
@@ -143,37 +140,24 @@ namespace GG.CharacterSystem.Editor{
             GUILayout.EndHorizontal();
             if (GUILayout.Button("Add Prequisite"))
             {
-                for (int i = 0; i < _jobDb.Count; i++)
-                {
-                    if (_jobDb.Get(i).name == _preReqName && _jobDb.Get(_selector).name != _preReqName) {
-                            _jobDb.Get(_selector).unlockNames.Add(_preReqName);
-                            _jobDb.Get(_selector).unlockLevels.Add(_preReqNum);
-                            _preReqName = string.Empty;
-                            _preReqNum = 2;
-                    }
-                    else
-                    {
-                        Debug.LogError("Error: The job nammed " + _preReqName + " does not exist. Please enter a valid name.");
-                        _preReqName = string.Empty;
-                    }
-                }
+                _jobDb.Get(_selector).unlockNames.Add(_preReqName);
+                _jobDb.Get(_selector).unlockLevels.Add(_preReqNum);
+                _preReqName = string.Empty;
+                _preReqNum = 2;
             }
-            if (_jobDb.Get(_selector).unlockNames.Count > 0)
+            if(_jobDb.Get(_selector).unlockNames.Count > 0)
+                for(int i = 0; i < _jobDb.Get(_selector).unlockNames.Count; i++)
             {
-                for (int i = 0; i < _jobDb.Get(_selector).unlockNames.Count; i++)
-                {
                     GUILayout.BeginHorizontal();
-                    GUILayout.Label(_jobDb.Get(_selector).unlockNames.ElementAt(i), GUILayout.Width(200));
-                    GUILayout.Label(_jobDb.Get(_selector).unlockLevels.ElementAt(i).ToString(), GUILayout.Width(60));
-                    if (GUILayout.Button("X", GUILayout.Width(20)))
+                    GUILayout.Label(_jobDb.Get(_selector).unlockNames.ElementAt(i));
+                    GUILayout.Label(_jobDb.Get(_selector).unlockLevels.ElementAt(i).ToString());
+                    if (GUILayout.Button("x"))
                     {
                         _jobDb.Get(_selector).unlockNames.RemoveAt(i);
                         _jobDb.Get(_selector).unlockLevels.RemoveAt(i);
                     }
                     GUILayout.EndHorizontal();
                 }
-            }
-            GUILayout.EndVertical();
         }
         void AbilityListEditor()
         {
