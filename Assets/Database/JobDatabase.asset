@@ -23,12 +23,12 @@ MonoBehaviour:
     _unlockClasskLevels: 
     _unlockClassReq: 
   - _icon: {fileID: 0}
-    _name: Knight
+    _name: Warrior
     _level: 0
     _exp: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
-    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _statEvolvers: 020000000200000004000000020000000200000002000000
     _unlockClassNames:
     - Rookie
     _unlockClasskLevels: 05000000
@@ -43,4 +43,123 @@ MonoBehaviour:
     _unlockClassNames:
     - Rookie
     _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Aethermancer
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000040000000200000002000000
+    _unlockClassNames:
+    - Rookie
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Medic
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Rookie
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Knight
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000100000003000000020000000200000003000000
+    _unlockClassNames:
+    - Warrior
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Paladin
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames: []
+    _unlockClasskLevels: 
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Marksman
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Ranger
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Rogue
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Ranger
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Chronomancer
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Aethermancer
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Spell Knight
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Knight
+    - Aethermancer
+    _unlockClasskLevels: 0500000004000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Oracle
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Medic
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Tactitian
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames: []
+    _unlockClasskLevels: 
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Lancer
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames: []
+    _unlockClasskLevels: 
     _unlockClassReq: 

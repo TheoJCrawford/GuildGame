@@ -13,7 +13,7 @@ namespace GG.CharacterSystem.Editor
         private string _preReqName;
         private int _preReqNum;
         private Texture2D _selectedTexture;
-        private int _scrollPos;
+        private Vector2 _scrollPos;
 
         private const string DATABASE_FOLDER_NAME = @"Database";
         private const string DATABASE_FILE_NAME = @"JobDatabase.asset";
@@ -47,6 +47,7 @@ namespace GG.CharacterSystem.Editor
         #region Non Unity Functions
         void SideBar()
         {
+            _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, GUILayout.ExpandHeight(true));
             GUILayout.BeginVertical();
             if (GUILayout.Button("Add Job"))
             {
@@ -78,6 +79,7 @@ namespace GG.CharacterSystem.Editor
                 }
             }
             GUILayout.EndVertical();
+            GUILayout.EndScrollView();
         }
         void KMajorEditor()
         {
