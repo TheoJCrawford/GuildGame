@@ -84,8 +84,10 @@ MonoBehaviour:
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 020000000200000002000000020000000200000002000000
-    _unlockClassNames: []
-    _unlockClasskLevels: 
+    _unlockClassNames:
+    - Knight
+    - Medic
+    _unlockClasskLevels: 0500000003000000
     _unlockClassReq: 
   - _icon: {fileID: 0}
     _name: Marksman
@@ -126,7 +128,7 @@ MonoBehaviour:
     _exp: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
-    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _statEvolvers: 040000000200000002000000030000000200000002000000
     _unlockClassNames:
     - Knight
     - Aethermancer
@@ -144,22 +146,13 @@ MonoBehaviour:
     _unlockClasskLevels: 05000000
     _unlockClassReq: 
   - _icon: {fileID: 0}
-    _name: Tactitian
-    _level: 0
-    _exp: 0
-    _lvlUpReq: 1000
-    _abilityPoints: 0
-    _statEvolvers: 020000000200000002000000020000000200000002000000
-    _unlockClassNames: []
-    _unlockClasskLevels: 
-    _unlockClassReq: 
-  - _icon: {fileID: 0}
     _name: Lancer
     _level: 0
     _exp: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 020000000200000002000000020000000200000002000000
-    _unlockClassNames: []
-    _unlockClasskLevels: 
+    _unlockClassNames:
+    - Knight
+    _unlockClasskLevels: 05000000
     _unlockClassReq: 

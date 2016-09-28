@@ -152,8 +152,8 @@ namespace GG.CharacterSystem.Editor
             {
                     GUILayout.BeginHorizontal();
                     GUILayout.Label(_jobDb.Get(_selector).unlockNames.ElementAt(i));
-                    GUILayout.Label(_jobDb.Get(_selector).unlockLevels.ElementAt(i).ToString());
-                    if (GUILayout.Button("x"))
+                    GUILayout.Label(_jobDb.Get(_selector).unlockLevels.ElementAt(i).ToString(), GUILayout.Width(50));
+                    if (GUILayout.Button("x", GUILayout.Width(25)))
                     {
                         _jobDb.Get(_selector).unlockNames.RemoveAt(i);
                         _jobDb.Get(_selector).unlockLevels.RemoveAt(i);
