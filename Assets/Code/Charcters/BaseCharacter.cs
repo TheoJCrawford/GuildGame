@@ -308,7 +308,6 @@ namespace GG.CharacterSystem
         }
         public void AddNewJob(Job newJob)
         {
-            newJob.ActivateJob();
             _jobs.Add(newJob);
         }
         public void CheckPreReqs()
