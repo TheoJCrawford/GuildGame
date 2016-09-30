@@ -90,6 +90,48 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &417587742
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 462598, guid: 10bae0caf35207048987290914af4bf5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 172.26445
+      objectReference: {fileID: 0}
+    - target: {fileID: 462598, guid: 10bae0caf35207048987290914af4bf5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.808714
+      objectReference: {fileID: 0}
+    - target: {fileID: 462598, guid: 10bae0caf35207048987290914af4bf5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 68.08733
+      objectReference: {fileID: 0}
+    - target: {fileID: 462598, guid: 10bae0caf35207048987290914af4bf5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462598, guid: 10bae0caf35207048987290914af4bf5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462598, guid: 10bae0caf35207048987290914af4bf5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462598, guid: 10bae0caf35207048987290914af4bf5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 462598, guid: 10bae0caf35207048987290914af4bf5, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 10bae0caf35207048987290914af4bf5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &876287669
 Prefab:
   m_ObjectHideFlags: 0
@@ -127,7 +169,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011026452108, guid: aec7707cbd61b1a4290b3a694ce13b38, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aec7707cbd61b1a4290b3a694ce13b38, type: 2}
@@ -292,4 +334,4 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
