@@ -13,6 +13,7 @@ namespace GG
         [SerializeField]
         List<T> database = new List<T>();
 #if UNITY_EDITOR
+        #region Functions
         public void Add(T entity)
         {
             database.Add(entity);
@@ -46,8 +47,8 @@ namespace GG
             database[index] = entity;
             EditorUtility.SetDirty(this);
         }
-
-
+        #endregion
+        #region Static Functions        
         public static U GetDatabase<U>(string dbPath, string dbName) where U : ScriptableObject
         {
             string dbFullPath = @"Assets/" + dbPath + "/" + dbName;
@@ -68,6 +69,7 @@ namespace GG
 
 
         }
+        #endregion
 #endif
     }
 }

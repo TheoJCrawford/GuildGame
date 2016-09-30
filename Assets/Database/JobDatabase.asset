@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a58f84f4bab434ea8e4835a9f6756f, type: 3}
+  m_Name: JobDatabase
+  m_EditorClassIdentifier: 
+  database:
+  - _icon: {fileID: 0}
+    _name: Rookie
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 010000000100000001000000010000000100000000000000
+    _unlockClassNames: []
+    _unlockClasskLevels: 
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Warrior
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000004000000020000000200000002000000
+    _unlockClassNames:
+    - Rookie
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Ranger
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 010000000300000001000000020000000100000003000000
+    _unlockClassNames:
+    - Rookie
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Aethermancer
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000040000000200000002000000
+    _unlockClassNames:
+    - Rookie
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Medic
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Rookie
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Knight
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000100000003000000020000000200000003000000
+    _unlockClassNames:
+    - Warrior
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Paladin
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Knight
+    - Medic
+    _unlockClasskLevels: 0500000003000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Marksman
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Ranger
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Rogue
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Ranger
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Chronomancer
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Aethermancer
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Spell Knight
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 040000000200000002000000030000000200000002000000
+    _unlockClassNames:
+    - Knight
+    - Aethermancer
+    _unlockClasskLevels: 0500000004000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Oracle
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Medic
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Lancer
+    _level: 0
+    _exp: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 020000000200000002000000020000000200000002000000
+    _unlockClassNames:
+    - Knight
+    _unlockClasskLevels: 05000000
+    _unlockClassReq: 
