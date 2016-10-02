@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PMGridMovement : MonoBehaviour {
-    private float _speed = 2;
+    private float _speed = 3;
     private Vector3 _pos;
     private Transform _tr;
     private Quaternion _rot;
@@ -17,19 +17,19 @@ public class PMGridMovement : MonoBehaviour {
         #region Movement
         if (Input.GetAxis("Vertical") > 0 && _tr.position == _pos)
         {
-            _pos += Vector3.right;
+            _pos += Vector3.forward;
         }
         if(Input.GetAxis("Vertical") < 0 && _tr.position == _pos)
         {
-            _pos += Vector3.left;
+            _pos += Vector3.back;
         }
         if(Input.GetAxis("Horizontal") > 0 && _tr.position == _pos)
         {
-            _pos += Vector3.forward;
+            _pos += Vector3.right;
         }
         if(Input.GetAxis("Horizontal") < 0 && _tr.position == _pos)
         {
-            _pos += Vector3.back;
+            _pos += Vector3.left;
         }
         #endregion
         /*
@@ -47,7 +47,7 @@ public class PMGridMovement : MonoBehaviour {
         transform.rotation = Quaternion.Lerp(transform.rotation, _rot, Time.deltaTime * _speed);
         if (_tr.rotation == _rot)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _pos, Time.deltaTime * _speed);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, _pos, Time.deltaTime * _speed);
         }
 
     }
