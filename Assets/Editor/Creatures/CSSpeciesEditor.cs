@@ -2,11 +2,15 @@
 using UnityEditor;
 using System.Collections;
 
-public class CSSpeciesEditor : EditorWindow {
-    [MenuItem("Horizon Guild/Database/Species Editor")]
-    public static void Init()
+namespace GG.CreatureSystem.Editor
+{
+    public class CSSpeciesEditor : EditorWindow
     {
-        CSSpeciesEditor window = EditorWindow.GetWindow<CSSpeciesEditor>();
-        window.Show();
+        [MenuItem("Horizon Guild/Database/Species Editor")]
+        public static void Init()
+        {
+            CSSpeciesEditor window = EditorWindow.GetWindow<CSSpeciesEditor>();
+            window.Show();
+        }
     }
 }

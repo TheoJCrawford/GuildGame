@@ -4,11 +4,12 @@ using GG.CharacterSystem;
 
 namespace GG.CreatureSystem
 {
-    public class BaseCreature
+    public class CSBaseCreature
     {
         #region Variables
         private string _name;
         private string _descript;
+        private Sprite _image;
         private Vital _health;
         private BaseStats[] _stats;
         private int _attack;
@@ -26,6 +27,11 @@ namespace GG.CreatureSystem
         {
             get { return _descript; }
             set { _descript = value; }
+        }
+        public Sprite image
+        {
+            get { return _image; }
+            set { _image = value; }
         }
         public Vital health
         {
@@ -60,7 +66,7 @@ namespace GG.CreatureSystem
         #endregion
         #region Constructors
 
-        public BaseCreature()
+        public CSBaseCreature()
         {
             _name = "Goblin";
             _descript = string.Empty;
