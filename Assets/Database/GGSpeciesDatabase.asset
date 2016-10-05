@@ -12,12 +12,9 @@ MonoBehaviour:
   m_Name: GGSpeciesDatabase
   m_EditorClassIdentifier: 
   database:
-  - _name: ' Human'
-    _desript: ' '
+  - _name: Humanoid
+    _desript: 
     _icon: {fileID: 0}
-  - _name: Orc
-    _desript: ' '
-    _icon: {fileID: 0}
-  - _name: ' Draconic'
+  - _name: Draconic
     _desript: ' '
     _icon: {fileID: 0}

@@ -7,8 +7,10 @@ namespace GG.CreatureSystem.Editor
     public class CSSpeciesDatabaseEditor : EditorWindow
     {
         private CSSpeciesDatabase _speciesDb;
+        private Texture2D selectedTexture;
         private int _selector;
 
+        private const int SPRITE_BUTTON_SIZE = 64;
         private const string DATABASE_FOLDER_NAME = @"Database";
         private const string DATABASE_FILE_NAME = "GGSpeciesDatabase.asset";
 
@@ -42,6 +44,11 @@ namespace GG.CreatureSystem.Editor
             {
                 _speciesDb.Add(new CSSpecies());
             }
+            if(GUILayout.Button("Remove Species"))
+            {
+                _speciesDb.Remove(_selector);
+                _selector = -1;
+            }
             if (_speciesDb.Count > 0)
             {
                 for (int i = 0; i < _speciesDb.Count; i++)
@@ -59,6 +66,8 @@ namespace GG.CreatureSystem.Editor
             if(_selector > -1)
             {
                 _speciesDb.Get(_selector).name = GUILayout.TextField(_speciesDb.Get(_selector).name);
+                if (GUILayout.Button(selectedTexture, GUILayout.Width(SPRITE_BUTTON_SIZE), GUILayout.Height(SPRITE_BUTTON_SIZE)))
+                    _speciesDb.Get(_selector).descript = GUILayout.TextArea(_speciesDb.Get(_selector).descript, GUILayout.ExpandHeight(true));
             }
         }
     }
