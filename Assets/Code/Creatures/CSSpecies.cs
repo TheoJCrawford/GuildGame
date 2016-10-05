@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 namespace GG.CreatureSystem
 {
+    [Serializable]
     public class CSSpecies
     {
         #region variables
+        [SerializeField]
         private string _name;
+        [SerializeField]
         private string _desript;
+        [SerializeField]
         private Sprite _icon;
         #endregion
         #region
@@ -29,8 +34,8 @@ namespace GG.CreatureSystem
         #endregion
         public CSSpecies()
         {
-            _name = string.Empty;
-            _desript = string.Empty;
+            _name = " ";
+            _desript = " ";
             _icon = new Sprite();
         }
 
