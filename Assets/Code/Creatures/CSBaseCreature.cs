@@ -8,6 +8,7 @@ namespace GG.CreatureSystem
     {
         #region Variables
         private string _name;
+        private CSSpecies _species;
         private string _descript;
         private Sprite _image;
         private Vital _health;
@@ -37,6 +38,11 @@ namespace GG.CreatureSystem
         {
             get { return _health; }
             set { _health = value; }
+        }
+        public CSSpecies species
+        {
+            get { return _species; }
+            set { _species = value; }
         }
         public BaseStats[] stats
         {
@@ -70,7 +76,9 @@ namespace GG.CreatureSystem
         {
             _name = "Goblin";
             _descript = string.Empty;
+            _image = new Sprite();
             _health = new Vital();
+            _species = new CSSpecies();
             _stats = new BaseStats[6];
             _attack = 0;
             _defense = 0;
