@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using GG.CharacterSystem;
+using System;
 
 namespace GG.CreatureSystem
 {
-    public class CSBaseCreature
+    public class CSBaseCreature:ICSCreature
     {
         #region Variables
         private string _name;
@@ -17,58 +18,51 @@ namespace GG.CreatureSystem
         private int _defense;
         private int _exp;
         private int _gold;
-        #endregion
-        #region Setters and Getters
+
         public string name
         {
-            get { return _name; }
-            set { _name = value; }
+            get{throw new NotImplementedException();}
+            set{throw new NotImplementedException();}
         }
-        public string descript
-        {
-            get { return _descript; }
-            set { _descript = value; }
-        }
+
         public Sprite image
         {
-            get { return _image; }
-            set { _image = value; }
+            get{throw new NotImplementedException();}
+            set{throw new NotImplementedException();}
         }
-        public Vital health
+
+        public string descript
         {
-            get { return _health; }
-            set { _health = value; }
+            get{throw new NotImplementedException();}
+            set{throw new NotImplementedException();}
         }
+
         public CSSpecies species
         {
-            get { return _species; }
-            set { _species = value; }
+            get{throw new NotImplementedException();}
+            set{throw new NotImplementedException();}
         }
-        public BaseStats[] stats
-        {
-            get { return _stats; }
-            set { _stats = value; }
-        }
-        public int attack
-        {
-            get { return _attack; }
-            set { _attack = value; }
-        }
-        public int defence
-        {
-            get { return _defense; }
-            set { _defense = value; }
-        }
+
         public int exp
         {
-            get { return _exp; }
-            set { _exp = value; }
+            get{throw new NotImplementedException();}
+            set{throw new NotImplementedException();}
         }
-        public int gold
+
+        public int money
         {
-            get { return _gold; }
-            set { _gold = value; }
+            get{throw new NotImplementedException();}
+            set{throw new NotImplementedException();}
         }
+
+        public int speed
+        {
+            get{throw new NotImplementedException();}
+            set{throw new NotImplementedException();}
+        }
+        #endregion
+        #region Setters and Getters
+
         #endregion
         #region Constructors
 
