@@ -72,7 +72,7 @@ MonoBehaviour:
     _exp: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
-    _statEvolvers: 020000000100000003000000010000000100000002000000
+    _statEvolvers: 020000000100000003000000020000000200000003000000
     _unlockClassNames:
     - Warrior
     _unlockClasskLevels: 05000000
@@ -106,7 +106,7 @@ MonoBehaviour:
     _exp: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
-    _statEvolvers: 020000000400000000000000010000000100000003000000
+    _statEvolvers: 020000000200000002000000020000000200000002000000
     _unlockClassNames:
     - Ranger
     _unlockClasskLevels: 05000000
@@ -117,7 +117,7 @@ MonoBehaviour:
     _exp: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
-    _statEvolvers: 010000000300000001000000030000000300000002000000
+    _statEvolvers: 020000000200000002000000020000000200000002000000
     _unlockClassNames:
     - Aethermancer
     _unlockClasskLevels: 05000000
@@ -140,7 +140,7 @@ MonoBehaviour:
     _exp: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
-    _statEvolvers: 010000000100000001000000020000000400000004000000
+    _statEvolvers: 020000000200000002000000020000000200000002000000
     _unlockClassNames:
     - Medic
     _unlockClasskLevels: 05000000
@@ -151,7 +151,7 @@ MonoBehaviour:
     _exp: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
-    _statEvolvers: 050000000300000005000000010000000100000001000000
+    _statEvolvers: 020000000200000002000000020000000200000002000000
     _unlockClassNames:
     - Knight
     _unlockClasskLevels: 05000000

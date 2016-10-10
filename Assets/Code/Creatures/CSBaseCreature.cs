@@ -1,32 +1,21 @@
 ﻿using UnityEngine;
-using System;
+using System.Collections;
 using GG.CharacterSystem;
 
 namespace GG.CreatureSystem
 {
-    [Serializable]
     public class CSBaseCreature
     {
         #region Variables
-        [SerializeField]
         private string _name;
-        [SerializeField]
         private CSSpecies _species;
-        [SerializeField]
         private string _descript;
-        [SerializeField]
         private Sprite _image;
-        [SerializeField]
         private Vital _health;
-        [SerializeField]
         private BaseStats[] _stats;
-        [SerializeField]
         private int _attack;
-        [SerializeField]
         private int _defense;
-        [SerializeField]
         private int _exp;
-        [SerializeField]
         private int _gold;
         #endregion
         #region Setters and Getters
