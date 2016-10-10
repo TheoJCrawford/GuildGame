@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using GG.CharacterSystem;
+using GG;
 using System;
 
 namespace GG.CreatureSystem
@@ -12,8 +12,10 @@ namespace GG.CreatureSystem
         private CSSpecies _species;
         private string _descript;
         private Sprite _image;
-        private Vital _health;
-        private BaseStats[] _stats;
+        private Vital _vital;
+        private BaseStats[] _coreStats;
+        private int _speed; //this will be replaced later
+        private FSMSystem _ai;
         private int _attack;
         private int _defense;
         private int _exp;
@@ -21,44 +23,62 @@ namespace GG.CreatureSystem
 
         public string name
         {
-            get{throw new NotImplementedException();}
-            set{throw new NotImplementedException();}
+            get{return _name;}
+            set{_name = value;}
         }
 
         public Sprite image
         {
-            get{throw new NotImplementedException();}
-            set{throw new NotImplementedException();}
+            get{return _image;}
+            set{_image = value;}
         }
 
         public string descript
         {
-            get{throw new NotImplementedException();}
-            set{throw new NotImplementedException();}
+            get{return _descript;}
+            set{_descript = value;}
         }
 
         public CSSpecies species
         {
-            get{throw new NotImplementedException();}
-            set{throw new NotImplementedException();}
+            get{return _species;}
+            set{ _species = value;}
         }
 
         public int exp
         {
-            get{throw new NotImplementedException();}
-            set{throw new NotImplementedException();}
+            get{return _exp;}
+            set{_exp = value;}
         }
 
         public int money
         {
-            get{throw new NotImplementedException();}
-            set{throw new NotImplementedException();}
+            get{return _gold;}
+            set{ _gold = value;}
         }
 
         public int speed
         {
-            get{throw new NotImplementedException();}
-            set{throw new NotImplementedException();}
+            get{return _speed;}
+            set{_speed = value;}
+        }
+
+        public BaseStats[] coreStats
+        {
+            get{return _coreStats;}
+            set{_coreStats = value;}
+        }
+
+        public Vital vitals
+        {
+            set{_vital = value;}
+            get{return _vital;}
+        }
+
+        public FSMSystem ai
+        {
+            get{return _ai;}
+            set{_ai = value;}
         }
         #endregion
         #region Setters and Getters
@@ -71,9 +91,10 @@ namespace GG.CreatureSystem
             _name = "Goblin";
             _descript = string.Empty;
             _image = new Sprite();
-            _health = new Vital();
+            _vital = new Vital();
             _species = new CSSpecies();
-            _stats = new BaseStats[6];
+            _coreStats = new BaseStats[6];
+            _ai = new FSMSystem();
             _attack = 0;
             _defense = 0;
             _exp = 20;
