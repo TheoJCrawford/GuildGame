@@ -1,15 +1,28 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
-public class CSCreatureEditor : MonoBehaviour {
+namespace GG.CreatureSystem
+{
+    public class CSCreatureEditor : EditorWindow
+    {
+        const string DATABASE_NAME = @"CSCreatureDatabase.asset";
+        const string DATABASE_FOLDER = @"Database";
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        private CSCreatureDatabase _db;
+
+        [MenuItem("Horzon Guild/Creatures/Creature Editor")]
+        private static void Init()
+        {
+
+        }
+        void OnEnable()
+        {
+            _db = CSCreatureDatabase.GetDatabase<CSCreatureDatabase>(DATABASE_FOLDER, DATABASE_NAME);
+        }
+        void OnGUI()
+        {
+
+        }
+    }
 }
