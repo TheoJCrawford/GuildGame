@@ -9,12 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3371666fe7f7d944382ce3fdbdd82e15, type: 3}
-  m_Name: GGSpeciesDatabase
+  m_Name: CSSpecies Database
   m_EditorClassIdentifier: 
   database:
-  - _name: Humanoid
-    _desript: 
-    _icon: {fileID: 0}
-  - _name: Draconic
+  - _name: ' Demon'
     _desript: ' '
     _icon: {fileID: 0}

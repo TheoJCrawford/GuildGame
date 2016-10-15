@@ -52,5 +52,9 @@ namespace GG.CreatureSystem
                 }
             }
         }
+        void MainScreen()
+        {
+
+        }
     }
 }
