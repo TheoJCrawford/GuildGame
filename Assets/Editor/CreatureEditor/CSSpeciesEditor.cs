@@ -9,7 +9,7 @@ namespace GG.CreatureSystem.Editor
         private CSSpeciesDatabase _db;
         private float _scrollPos;
         private int _selector;
-
+        const float ICON_BUTTON_SIZE = 40;
         private const string DATABASE_FOLDER_NAME = @"Database";
         private const string DATABASE_NAME = "CSSpecies Database.asset";
 
@@ -27,6 +27,7 @@ namespace GG.CreatureSystem.Editor
         }
         void OnGUI()
         {
+            GUI.skin.textField.wordWrap = true;
             TopBar();
             SideBar();
             MainScreen();
@@ -35,13 +36,18 @@ namespace GG.CreatureSystem.Editor
         void SideBar()
         {
             GUILayout.BeginArea(new Rect(0, 20, 100, 580));
+            GUILayout.BeginVertical();
             if (_db.Count > 0)
             {
-                for (int i = 0; i > _db.Count; i++)
+                for (int i = 0; i < _db.Count; i++)
                 {
-                    GUILayout.Button(_db.Get(i).name);
+                    if (GUILayout.Button(_db.Get(i).name))
+                    {
+                        _selector = i;
+                    }
                 }
             }
+            GUILayout.EndVertical();
             GUILayout.EndArea();
         }
         void TopBar()
@@ -58,7 +64,7 @@ namespace GG.CreatureSystem.Editor
                 _db.Remove(_selector);
                 _selector = -1;
             }
-            GUILayout.Box("Spiecies count: " + _db.Count,GUILayout.ExpandWidth(true));
+            GUILayout.Box("Spiecies count: " + _db.Count, GUILayout.ExpandWidth(true));
             GUILayout.EndHorizontal();
             GUILayout.EndArea();
         }
@@ -67,8 +73,13 @@ namespace GG.CreatureSystem.Editor
             if(_selector > -1)
             {
                 GUILayout.BeginArea(new Rect(100, 20, 400, 480));
+                GUILayout.BeginHorizontal();
                 _db.Get(_selector).name = GUILayout.TextArea(_db.Get(_selector).name);
-                _db.Get(_selector).descript = GUILayout.TextField(_db.Get(_selector).descript);
+                //Icon system
+                GUILayout.Button(" ", GUILayout.Width(ICON_BUTTON_SIZE), GUILayout.Height(ICON_BUTTON_SIZE));
+                GUILayout.EndHorizontal();
+                //Description
+                _db.Get(_selector).descript = GUILayout.TextField(_db.Get(_selector).descript, GUILayout.ExpandHeight(true));
                 GUILayout.EndArea();
             }
         }

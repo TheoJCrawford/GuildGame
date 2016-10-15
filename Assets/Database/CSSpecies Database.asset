@@ -13,5 +13,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   database:
   - _name: ' Demon'
+    _desript: Hailing from one of the dark world, these monsters are not to be taken
+      lightly.
+    _icon: {fileID: 0}
+  - _name: ' Goblin'
+    _desript: ' '
+    _icon: {fileID: 0}
+  - _name: ' Dragon'
+    _desript: ' '
+    _icon: {fileID: 0}
+  - _name: ' Undead'
+    _desript: ' '
+    _icon: {fileID: 0}
+  - _name: ' Plants'
+    _desript: ' '
+    _icon: {fileID: 0}
+  - _name: Cainus
+    _desript: ' '
+    _icon: {fileID: 0}
+  - _name: ' Humanoid'
     _desript: ' '
     _icon: {fileID: 0}
