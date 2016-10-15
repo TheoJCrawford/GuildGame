@@ -5,6 +5,7 @@ using System;
 
 namespace GG.CreatureSystem
 {
+    [Serializable]
     public class CSBaseCreature:ICSCreature
     {
         #region Variables

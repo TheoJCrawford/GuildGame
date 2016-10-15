@@ -12,7 +12,7 @@ namespace GG.CreatureSystem.Editor
         private const string DATABASE_FOLDER_NAME = @"Database";
         private const string DATABASE_NAME = "Species Database.asset";
 
-        [MenuItem("Horizon Guild/Creatures/Species Editor")]
+        [MenuItem("Horizon Guild/Creature/Species Editor")]
         public static void Init()
         {
             CSSpeciesEditor window = EditorWindow.GetWindow<CSSpeciesEditor>();
