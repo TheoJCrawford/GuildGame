@@ -9,6 +9,7 @@ namespace GG.CreatureSystem.Editor
         private CSSpeciesDatabase _db;
         private float _scrollPos;
         private int _selector;
+        private Texture2D _selectedIndex;
         const float ICON_BUTTON_SIZE = 40;
         private const string DATABASE_FOLDER_NAME = @"Database";
         private const string DATABASE_NAME = "CSSpecies Database.asset";
@@ -18,6 +19,7 @@ namespace GG.CreatureSystem.Editor
         {
             CSSpeciesEditor window = EditorWindow.GetWindow<CSSpeciesEditor>();
             window.Show();
+            window.titleContent = new GUIContent("Species Editor");
         }
         void OnEnable()
         {
@@ -76,7 +78,12 @@ namespace GG.CreatureSystem.Editor
                 GUILayout.BeginHorizontal();
                 _db.Get(_selector).name = GUILayout.TextArea(_db.Get(_selector).name);
                 //Icon system
-                GUILayout.Button(" ", GUILayout.Width(ICON_BUTTON_SIZE), GUILayout.Height(ICON_BUTTON_SIZE));
+                if(GUILayout.Button(" ", GUILayout.Width(ICON_BUTTON_SIZE), GUILayout.Height(ICON_BUTTON_SIZE)))
+                {
+                    int ControlerID = EditorGUIUtility.GetControlID(FocusType.Passive);
+                    EditorGUIUtility.ShowObjectPicker<Sprite>(null, true, null, ControlerID);
+                    //_selectedIndex
+                }
                 GUILayout.EndHorizontal();
                 //Description
                 _db.Get(_selector).descript = GUILayout.TextField(_db.Get(_selector).descript, GUILayout.ExpandHeight(true));

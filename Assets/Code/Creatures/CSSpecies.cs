@@ -15,7 +15,7 @@ namespace GG.CreatureSystem
         [SerializeField]
         private Sprite _icon;
         #endregion
-        #region
+        #region Setters and getters
         public string name
         {
             get { return _name; }

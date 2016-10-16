@@ -17,6 +17,7 @@ namespace GG.CreatureSystem
             CSCreatureEditor window = EditorWindow.GetWindow<CSCreatureEditor>();
             window.titleContent = new GUIContent("Creature Editor");
             window.Show();
+            
             window.maxSize = new Vector2(800, 800);
             window.minSize = new Vector2(800, 800);
         }
