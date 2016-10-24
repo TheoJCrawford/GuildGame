@@ -34,3 +34,6 @@ MonoBehaviour:
   - _name: ' Humanoid'
     _desript: ' '
     _icon: {fileID: 0}
+  - _name: ' Felinus'
+    _desript: ' '
+    _icon: {fileID: 0}

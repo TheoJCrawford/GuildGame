@@ -9,10 +9,11 @@ namespace GG.CreatureSystem.Editor
         private CSSpeciesDatabase _db;
         private float _scrollPos;
         private int _selector;
-        private Texture2D _selectedIndex;
+        private Texture2D _selectedIcon;
         const float ICON_BUTTON_SIZE = 40;
         private const string DATABASE_FOLDER_NAME = @"Database";
         private const string DATABASE_NAME = "CSSpecies Database.asset";
+       
 
         [MenuItem("Horizon Guild/Creature/Species Editor")]
         public static void Init()
@@ -77,13 +78,7 @@ namespace GG.CreatureSystem.Editor
                 GUILayout.BeginArea(new Rect(100, 20, 400, 480));
                 GUILayout.BeginHorizontal();
                 _db.Get(_selector).name = GUILayout.TextArea(_db.Get(_selector).name);
-                //Icon system
-                if(GUILayout.Button(" ", GUILayout.Width(ICON_BUTTON_SIZE), GUILayout.Height(ICON_BUTTON_SIZE)))
-                {
-                    int ControlerID = EditorGUIUtility.GetControlID(FocusType.Passive);
-                    EditorGUIUtility.ShowObjectPicker<Sprite>(null, true, null, ControlerID);
-                    //_selectedIndex
-                }
+               
                 GUILayout.EndHorizontal();
                 //Description
                 _db.Get(_selector).descript = GUILayout.TextField(_db.Get(_selector).descript, GUILayout.ExpandHeight(true));
