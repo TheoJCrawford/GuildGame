@@ -78,7 +78,27 @@ namespace GG.CreatureSystem.Editor
                 GUILayout.BeginArea(new Rect(100, 20, 400, 480));
                 GUILayout.BeginHorizontal();
                 _db.Get(_selector).name = GUILayout.TextArea(_db.Get(_selector).name);
-               
+                //Icon
+                if (_db.Get(_selector).icon)
+                {
+                    _selectedIcon = _db.Get(_selector).icon.texture;
+                }
+                else
+                {
+                    _selectedIcon = null;
+                }
+
+                if (GUILayout.Button(_selectedIcon, GUILayout.Width(ICON_BUTTON_SIZE), GUILayout.Height(ICON_BUTTON_SIZE)))
+                {
+                    int ControlerID = EditorGUIUtility.GetControlID(FocusType.Passive);
+                    EditorGUIUtility.ShowObjectPicker<Sprite>(null, true, null, ControlerID);
+                }
+                string commandName = Event.current.commandName;
+                    if (commandName == "ObjectSelectorUpdated")
+                    {
+                        _db.Get(_selector).icon = (Sprite)EditorGUIUtility.GetObjectPickerObject();
+                        Repaint();
+                    }
                 GUILayout.EndHorizontal();
                 //Description
                 _db.Get(_selector).descript = GUILayout.TextField(_db.Get(_selector).descript, GUILayout.ExpandHeight(true));
