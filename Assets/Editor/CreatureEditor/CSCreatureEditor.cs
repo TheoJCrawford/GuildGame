@@ -30,13 +30,7 @@ namespace GG.CreatureSystem
             _db = CSCreatureDatabase.GetDatabase<CSCreatureDatabase>(DATABASE_FOLDER, DATABASE_NAME);
             EditorUtility.SetDirty(_db);
             _speciesDb = CSSpeciesDatabase.GetDatabase<CSSpeciesDatabase>(DATABASE_FOLDER, SPECIES_DATABASE);
-            if (_db.Count > 0)
-            {
-                _selectedCreature = 0;
-            }
-            else {
-                _selectedCreature = -1;
-            }
+            _selectedCreature = -1;
 
         }
         void OnGUI()
@@ -75,14 +69,13 @@ namespace GG.CreatureSystem
         }
         void MainScreen()
         {
-            if(_db.Count > 0)
+            if(_selectedCreature > -1)
             {
                 //name
                 _db.Get(_selectedCreature).name = GUILayout.TextArea(_db.Get(_selectedCreature).name);
                 //Species
-                GUILayout.BeginArea(new Rect(550, 20, 100, 400));
-                GUILayout.Label(_db.Get(_selectedCreature).species.name);
-                GUILayout.BeginScrollView(_scrollPos, "Box", GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
+                GUILayout.Label(_db.Get(_selectedCreature).species.name, GUILayout.Width(150));
+                GUILayout.BeginScrollView(_scrollPos, "Box", GUILayout.Height(200), GUILayout.Width(150));
                 for (int i = 0; i < _speciesDb.Count; i++)
                 {
                    if(GUILayout.Button(new GUIContent(_speciesDb.Get(i).name)))
@@ -90,7 +83,20 @@ namespace GG.CreatureSystem
                         _db.Get(_selectedCreature).species = _speciesDb.Get(i);
                     }
                 }
-                GUILayout.EndArea();
+                GUILayout.EndScrollView();
+                //Image
+
+                //Health
+
+                //Stats
+
+                //Attack and defence (Will be reworked later)
+
+                //EXP
+                GUILayout.Box("Exp: " + _db.Get(_selectedCreature).exp.ToString());
+                //Gold
+                GUILayout.Box("Gold: " + _db.Get(_selectedCreature).money.ToString());
+                //Ai(To be made later)
             }
             
         }
