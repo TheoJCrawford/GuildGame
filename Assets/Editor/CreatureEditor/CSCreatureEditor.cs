@@ -28,8 +28,9 @@ namespace GG.CreatureSystem
         void OnEnable()
         {
             _db = CSCreatureDatabase.GetDatabase<CSCreatureDatabase>(DATABASE_FOLDER, DATABASE_NAME);
-            _speciesDb = CSSpeciesDatabase.GetDatabase<CSSpeciesDatabase>(DATABASE_FOLDER, SPECIES_DATABASE);
+            EditorUtility.SetDirty(_db);
             _selectedCreature = -1;
+            _speciesDb = CSSpeciesDatabase.GetDatabase<CSSpeciesDatabase>(DATABASE_FOLDER, SPECIES_DATABASE);
 
         }
         void OnGUI()
@@ -44,7 +45,6 @@ namespace GG.CreatureSystem
             MainScreen();
             GUILayout.EndArea();
         }
-
         void TopBar()
         {
             GUILayout.Box("Creatures: " + _db.Count, GUILayout.ExpandWidth(true));
@@ -73,7 +73,7 @@ namespace GG.CreatureSystem
             if(_selectedCreature > -1)
             {
                 //name
-                _db.Get(_selectedCreature).name = GUILayout.TextArea(_db.Get(_selectedCreature).name);
+                _db.Get(_selectedCreature).name = GUILayout.TextField(_db.Get(_selectedCreature).name);
                 //Species
                 GUILayout.Label(_db.Get(_selectedCreature).species.name, GUILayout.Width(150));
                 GUILayout.BeginScrollView(_scrollPos, "Box", GUILayout.Height(200), GUILayout.Width(150));
@@ -82,7 +82,7 @@ namespace GG.CreatureSystem
                    if(GUILayout.Button(new GUIContent(_speciesDb.Get(i).name)))
                     {
                         _db.Get(_selectedCreature).species = _speciesDb.Get(i);
-                        _db.SetDirty();
+                        
                     }
                 }
                 GUILayout.EndScrollView();
@@ -109,11 +109,19 @@ namespace GG.CreatureSystem
                 GUILayout.Box("Gold: " + _db.Get(_selectedCreature).money.ToString());
                 if (GUILayout.Button("-1"))
                 {
+                    if(_db.Get(_selectedCreature).money >= 1)
                     _db.Get(_selectedCreature).money--;
                 }
                 if (GUILayout.Button("-5"))
                 {
-                    _db.Get(_selectedCreature).money -= 5;
+                    if (_db.Get(_selectedCreature).money >= 1)
+                    {
+                        _db.Get(_selectedCreature).money -= 5;
+                        if(_db.Get(_selectedCreature).money < 0)
+                        {
+                            _db.Get(_selectedCreature).money = 0;
+                        }
+                    }
                 }
                 GUILayout.EndHorizontal();
                 //Ai(To be made later)

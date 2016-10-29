@@ -37,3 +37,6 @@ MonoBehaviour:
   - _name: ' Felinus'
     _desript: ' '
     _icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  - _name: ' Ancient'
+    _desript: ' Yep... just like it sounds'
+    _icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}

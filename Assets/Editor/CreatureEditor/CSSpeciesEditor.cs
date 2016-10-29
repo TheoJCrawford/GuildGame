@@ -25,7 +25,7 @@ namespace GG.CreatureSystem.Editor
         void OnEnable()
         {
             _db = CSSpeciesDatabase.GetDatabase<CSSpeciesDatabase>(DATABASE_FOLDER_NAME, DATABASE_NAME);
-            _db.SetDirty();
+            EditorUtility.SetDirty(_db);
             _selector = -1;
         }
         void OnGUI()
