@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System;
+using System.Collections.Generic;
+using GG.CharacterSystem;
 
 namespace GG.CreatureSystem
 {
@@ -14,7 +16,8 @@ namespace GG.CreatureSystem
         private CSSpeciesDatabase _speciesDb;
         private int _selectedCreature;
         private Vector2 _scrollPos = Vector2.zero;
-
+        private Texture2D _appearance;
+        private float _CreatureButtonSize = 300;
         [MenuItem("Horizon Guild/Creature/Creature Editor")]
         private static void Init()
         {
@@ -75,6 +78,7 @@ namespace GG.CreatureSystem
                 //name
                 _db.Get(_selectedCreature).name = GUILayout.TextField(_db.Get(_selectedCreature).name);
                 //Species
+                GUILayout.BeginHorizontal();
                 GUILayout.Label(_db.Get(_selectedCreature).species.name, GUILayout.Width(150));
                 GUILayout.BeginScrollView(_scrollPos, "Box", GUILayout.Height(200), GUILayout.Width(150));
                 for (int i = 0; i < _speciesDb.Count; i++)
@@ -87,11 +91,36 @@ namespace GG.CreatureSystem
                 }
                 GUILayout.EndScrollView();
                 //Image
-
-                //Health
-
+                if (_db.Get(_selectedCreature).image)
+                {
+                    _appearance = _db.Get(_selectedCreature).image.texture;
+                }
+                else
+                {
+                    _appearance = null;
+                }
+                if(GUILayout.Button(_appearance, GUILayout.Height(_CreatureButtonSize), GUILayout.Width(_CreatureButtonSize)))
+                {
+                    int ControlerID = EditorGUIUtility.GetControlID(FocusType.Passive);
+                    EditorGUIUtility.ShowObjectPicker<Sprite>(null, true, null, ControlerID);
+                }
+                string commandName = Event.current.commandName;
+                if (commandName == "ObjectSelectorUpdated")
+                {
+                    _db.Get(_selectedCreature).image = (Sprite)EditorGUIUtility.GetObjectPickerObject();
+                    Repaint();
+                }
+                GUILayout.EndHorizontal();
                 //Stats
-
+                GUILayout.BeginVertical();
+                GUILayout.BeginHorizontal();
+                for (int i = 0; i > Enum.GetNames(typeof(StatNames)).Length; i++){
+                    GUILayout.BeginHorizontal();
+                    GUILayout.Label(Enum.GetName(typeof(StatNameAbreviations), i));
+                    GUILayout.Label(_db.Get(_selectedCreature).coreStats[i].fullValue.ToString());
+                    GUILayout.EndHorizontal();
+                }
+                GUILayout.EndVertical();
                 //Attack and defence (Will be reworked later)
 
                 //EXP

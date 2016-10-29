@@ -100,6 +100,7 @@ namespace GG.CreatureSystem
             _defense = 0;
             _exp = 20;
             _gold = 15;
+            
         }
         
         #endregion
