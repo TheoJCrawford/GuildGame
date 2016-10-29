@@ -66,7 +66,7 @@ namespace GG.CreatureSystem
                     if(GUILayout.Button(_db.Get(i).name, GUILayout.ExpandWidth(true)))
                     {
                         _selectedCreature = i;
-                        _db.SetDirty();
+                        EditorUtility.SetDirty(_db);
                     }
                 }
             }
@@ -86,7 +86,7 @@ namespace GG.CreatureSystem
                    if(GUILayout.Button(new GUIContent(_speciesDb.Get(i).name)))
                     {
                         _db.Get(_selectedCreature).species = _speciesDb.Get(i);
-                        
+                        EditorUtility.SetDirty(_db);
                     }
                 }
                 GUILayout.EndScrollView();
@@ -125,23 +125,52 @@ namespace GG.CreatureSystem
 
                 //EXP
                 GUILayout.BeginHorizontal();
-                
+                if(GUILayout.Button("+5", GUILayout.ExpandWidth(false)))
+                {
+                    _db.Get(_selectedCreature).exp += 5;
+                }
+                if(GUILayout.Button("+1", GUILayout.ExpandWidth(false)))
+                {
+                    _db.Get(_selectedCreature).exp++;
+                }
                 GUILayout.Box("Exp: " + _db.Get(_selectedCreature).exp.ToString());
+                if(GUILayout.Button("-1", GUILayout.ExpandWidth(false)))
+                {
+                    if(_db.Get(_selectedCreature).exp > 0)
+                    {
+                        _db.Get(_selectedCreature).exp--;
+                    }
+                }
+                if(GUILayout.Button("-5", GUILayout.ExpandWidth(false)))
+                {
+                    if (_db.Get(_selectedCreature).exp > 0)
+                    {
+                        _db.Get(_selectedCreature).exp -= 5;
+                    }
+                    if(_db.Get(_selectedCreature).exp <= 0)
+                    {
+                        _db.Get(_selectedCreature).exp = 0;
+                    }
+                }
                 GUILayout.EndHorizontal();
                 //Gold
                 GUILayout.BeginHorizontal();
-                if (GUILayout.Button("+1"))
+                if (GUILayout.Button("+5", GUILayout.ExpandWidth(false)))
+                {
+                    _db.Get(_selectedCreature).money += 5;
+                }
+                if (GUILayout.Button("+1", GUILayout.ExpandWidth(false)))
                 {
                     _db.Get(_selectedCreature).money++;
                 }
 
                 GUILayout.Box("Gold: " + _db.Get(_selectedCreature).money.ToString());
-                if (GUILayout.Button("-1"))
+                if (GUILayout.Button("-1", GUILayout.ExpandWidth(false)))
                 {
                     if(_db.Get(_selectedCreature).money >= 1)
                     _db.Get(_selectedCreature).money--;
                 }
-                if (GUILayout.Button("-5"))
+                if (GUILayout.Button("-5", GUILayout.ExpandWidth(false)))
                 {
                     if (_db.Get(_selectedCreature).money >= 1)
                     {
