@@ -112,15 +112,8 @@ namespace GG.CreatureSystem
                 }
                 GUILayout.EndHorizontal();
                 //Stats
-                GUILayout.BeginVertical();
-                GUILayout.BeginHorizontal();
-                for (int i = 0; i > Enum.GetNames(typeof(StatNames)).Length; i++){
-                    GUILayout.BeginHorizontal();
-                    GUILayout.Label(Enum.GetName(typeof(StatNameAbreviations), i));
-                    GUILayout.Label(_db.Get(_selectedCreature).coreStats[i].fullValue.ToString());
-                    GUILayout.EndHorizontal();
-                }
-                GUILayout.EndVertical();
+                GUILayout.Box("Stats");
+                GUILayout.Label("statA");
                 //Attack and defence (Will be reworked later)
 
                 //EXP

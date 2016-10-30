@@ -95,6 +95,10 @@ namespace GG.CreatureSystem
             _vital = new Vital();
             _species = new CSSpecies();
             _coreStats = new BaseStats[6];
+            for(int i = 0; i > _coreStats.Length; i++)
+            {
+                _coreStats[i].name = Enum.GetName(typeof(StatNames), i);
+            }
             _ai = new FSMSystem();
             _attack = 0;
             _defense = 0;
