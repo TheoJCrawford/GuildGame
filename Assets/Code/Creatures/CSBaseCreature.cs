@@ -14,7 +14,7 @@ namespace GG.CreatureSystem
         private string _descript;
         private Sprite _image;
         private Vital _vital;
-        private BaseStats[] _coreStats;
+        private CSCreatureStat[] _coreStats;
         private int _speed; //this will be replaced later
         private FSMSystem _ai;
         private int _attack;
@@ -64,7 +64,7 @@ namespace GG.CreatureSystem
             set{_speed = value;}
         }
 
-        public BaseStats[] coreStats
+        public CSCreatureStat[] coreStats
         {
             get{return _coreStats;}
             set{_coreStats = value;}
@@ -94,10 +94,11 @@ namespace GG.CreatureSystem
             _image = new Sprite();
             _vital = new Vital();
             _species = new CSSpecies();
-            _coreStats = new BaseStats[6];
+            _coreStats = new CSCreatureStat[6];
             for(int i = 0; i > _coreStats.Length; i++)
             {
-                _coreStats[i] = new BaseStats();
+                _coreStats[i] = new CSCreatureStat();
+                _coreStats[i].RanomizeStat();
                 _coreStats[i].name = Enum.GetName(typeof(StatNames), i).ToString();
             }
             _ai = new FSMSystem();

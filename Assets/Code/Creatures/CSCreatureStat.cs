@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
 
 namespace GG.CreatureSystem
 {
@@ -10,6 +9,7 @@ namespace GG.CreatureSystem
         private int _lowerValue;
         private int _upperValue;
         private int _combatValue;
+        private int _alterdVal;
         private double _alterationValue;
         private int _finalValue;
         #endregion
@@ -34,6 +34,11 @@ namespace GG.CreatureSystem
             set { _combatValue = value; }
             get { return _combatValue; }
         }
+        public int alterdVal
+        {
+            set { _alterdVal = value; }
+            get { return _alterdVal; }
+        }
         public double alteration
         {
             set { _alterationValue = value; }
@@ -45,11 +50,32 @@ namespace GG.CreatureSystem
             get { return _finalValue; }
         }
         #endregion 
-        #region
-
+        #region Setter and Getter
+        public CSCreatureStat()
+        {
+            _name = "Mepo";
+            _lowerValue = 5;
+            _upperValue = 100;
+            _combatValue = 50;
+            _alterationValue = 0;
+            _alterdVal = 0;
+            _finalValue = 50;
+        }
         #endregion
-        #region
-
+        #region Functions
+        public void RanomizeStat()
+        {
+            Random sink = new Random();
+            _combatValue = sink.Next(_lowerValue, upperVal);
+        }
+        public void SetAlteredVal()
+        {
+            _alterdVal = Convert.ToInt16(_alterationValue * combatVal);
+        }
+        public void UpdateFinalVal()
+        {
+            _finalValue = _alterdVal + combatVal;
+        }
         #endregion
     }
 }
