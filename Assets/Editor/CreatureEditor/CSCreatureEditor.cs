@@ -138,6 +138,7 @@ namespace GG.CreatureSystem
             {
                 GUILayout.BeginHorizontal();
                 GUILayout.Label(Enum.GetName(typeof(StatNames), i).ToString());
+                //GUILayout.Label(_theBeastie.coreStats[i].lowerVal.ToString());
                 GUILayout.EndHorizontal();
             }
                 //Attack and defence (Will be reworked later)
