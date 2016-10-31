@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System;
-using System.Collections.Generic;
 using GG.CharacterSystem;
 
 namespace GG.CreatureSystem
@@ -17,6 +16,7 @@ namespace GG.CreatureSystem
         private int _selectedCreature;
         private Vector2 _scrollPos = Vector2.zero;
         private Texture2D _appearance;
+        private CSBaseCreature _theBeastie;
         private float _CreatureButtonSize = 300;
         [MenuItem("Horizon Guild/Creature/Creature Editor")]
         private static void Init()
@@ -32,7 +32,13 @@ namespace GG.CreatureSystem
         {
             _db = CSCreatureDatabase.GetDatabase<CSCreatureDatabase>(DATABASE_FOLDER, DATABASE_NAME);
             EditorUtility.SetDirty(_db);
+            _theBeastie = new CSBaseCreature();
             _selectedCreature = -1;
+            if(_selectedCreature != -1)
+            {
+
+            }
+
             _speciesDb = CSSpeciesDatabase.GetDatabase<CSSpeciesDatabase>(DATABASE_FOLDER, SPECIES_DATABASE);
 
         }
@@ -50,15 +56,33 @@ namespace GG.CreatureSystem
         }
         void TopBar()
         {
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Create New Creature"))
+            {
+                _db.Add(_theBeastie);
+                _theBeastie = new CSBaseCreature();
+            }
+            if (GUILayout.Button("Clear"))
+            {
+                _selectedCreature = -1;
+                _theBeastie = new CSBaseCreature();
+            }
+            if (GUILayout.Button("Edit Creature"))
+            {
+                _db.Replace(_selectedCreature, _theBeastie);
+            }
+            if(GUILayout.Button("Delete Creature"))
+            {
+                if(_selectedCreature != -1)
+                {
+                    _db.Remove(_selectedCreature);
+                }
+            }
             GUILayout.Box("Creatures: " + _db.Count, GUILayout.ExpandWidth(true));
+            GUILayout.EndHorizontal();
         }
         void SideBar()
         {
-            if(GUILayout.Button("Create New Creature"))
-            {
-                _db.Add(new CSBaseCreature());
-                _db.SetDirty();
-            }
             if (_db.Count > 0)
             {
                 for(int i = 0; i < _db.Count; i++)
@@ -73,27 +97,24 @@ namespace GG.CreatureSystem
         }
         void MainScreen()
         {
-            if(_selectedCreature > -1)
-            {
                 //name
-                _db.Get(_selectedCreature).name = GUILayout.TextField(_db.Get(_selectedCreature).name);
+                _theBeastie.name = GUILayout.TextField(_theBeastie.name);
                 //Species
                 GUILayout.BeginHorizontal();
-                GUILayout.Label(_db.Get(_selectedCreature).species.name, GUILayout.Width(150));
+                GUILayout.Label(_theBeastie.species.name, GUILayout.Width(150));
                 GUILayout.BeginScrollView(_scrollPos, "Box", GUILayout.Height(200), GUILayout.Width(150));
                 for (int i = 0; i < _speciesDb.Count; i++)
                 {
                    if(GUILayout.Button(new GUIContent(_speciesDb.Get(i).name)))
                     {
-                        _db.Get(_selectedCreature).species = _speciesDb.Get(i);
-                        EditorUtility.SetDirty(_db);
+                    _theBeastie.species = _speciesDb.Get(i);
                     }
                 }
                 GUILayout.EndScrollView();
                 //Image
-                if (_db.Get(_selectedCreature).image)
+                if (_theBeastie.image)
                 {
-                    _appearance = _db.Get(_selectedCreature).image.texture;
+                    _appearance = _theBeastie.image.texture;
                 }
                 else
                 {
@@ -107,42 +128,50 @@ namespace GG.CreatureSystem
                 string commandName = Event.current.commandName;
                 if (commandName == "ObjectSelectorUpdated")
                 {
-                    _db.Get(_selectedCreature).image = (Sprite)EditorGUIUtility.GetObjectPickerObject();
+                _theBeastie.image = (Sprite)EditorGUIUtility.GetObjectPickerObject();
                     Repaint();
                 }
                 GUILayout.EndHorizontal();
                 //Stats
                 GUILayout.Box("Stats");
-                GUILayout.Label("statA");
+                for(int i = 0; i < _theBeastie.coreStats.Length; i++)
+            {
+                GUILayout.BeginHorizontal();
+                GUILayout.Label(Enum.GetName(typeof(StatNames), i).ToString());
+                GUILayout.Button("+");
+                GUILayout.Label(_theBeastie.coreStats[i].baseValue.ToString());
+                GUILayout.Button("-");
+                GUILayout.EndHorizontal();
+            }
                 //Attack and defence (Will be reworked later)
 
                 //EXP
                 GUILayout.BeginHorizontal();
                 if(GUILayout.Button("+5", GUILayout.ExpandWidth(false)))
                 {
-                    _db.Get(_selectedCreature).exp += 5;
+                    _theBeastie.exp += 5;
                 }
                 if(GUILayout.Button("+1", GUILayout.ExpandWidth(false)))
                 {
-                    _db.Get(_selectedCreature).exp++;
+                _theBeastie.exp++;
                 }
-                GUILayout.Box("Exp: " + _db.Get(_selectedCreature).exp.ToString());
+                GUILayout.Box("Exp: " + _theBeastie.exp.ToString());
                 if(GUILayout.Button("-1", GUILayout.ExpandWidth(false)))
                 {
-                    if(_db.Get(_selectedCreature).exp > 0)
+                    if(_theBeastie.exp > 0)
                     {
-                        _db.Get(_selectedCreature).exp--;
+                    _theBeastie.exp--;
                     }
                 }
                 if(GUILayout.Button("-5", GUILayout.ExpandWidth(false)))
                 {
-                    if (_db.Get(_selectedCreature).exp > 0)
+                    if (_theBeastie.exp > 0)
                     {
-                        _db.Get(_selectedCreature).exp -= 5;
+                        _theBeastie.exp -= 5;
                     }
-                    if(_db.Get(_selectedCreature).exp <= 0)
+                    if(_theBeastie.exp <= 0)
                     {
-                        _db.Get(_selectedCreature).exp = 0;
+                    _theBeastie.exp = 0;
                     }
                 }
                 GUILayout.EndHorizontal();
@@ -150,33 +179,32 @@ namespace GG.CreatureSystem
                 GUILayout.BeginHorizontal();
                 if (GUILayout.Button("+5", GUILayout.ExpandWidth(false)))
                 {
-                    _db.Get(_selectedCreature).money += 5;
+                _theBeastie.money += 5;
                 }
                 if (GUILayout.Button("+1", GUILayout.ExpandWidth(false)))
                 {
-                    _db.Get(_selectedCreature).money++;
+                _theBeastie.money++;
                 }
 
-                GUILayout.Box("Gold: " + _db.Get(_selectedCreature).money.ToString());
+                GUILayout.Box("Gold: " + _theBeastie.money.ToString());
                 if (GUILayout.Button("-1", GUILayout.ExpandWidth(false)))
                 {
-                    if(_db.Get(_selectedCreature).money >= 1)
-                    _db.Get(_selectedCreature).money--;
+                    if(_theBeastie.money >= 1)
+                    _theBeastie.money--;
                 }
                 if (GUILayout.Button("-5", GUILayout.ExpandWidth(false)))
                 {
-                    if (_db.Get(_selectedCreature).money >= 1)
+                    if (_theBeastie.money >= 1)
                     {
-                        _db.Get(_selectedCreature).money -= 5;
-                        if(_db.Get(_selectedCreature).money < 0)
+                    _theBeastie.money -= 5;
+                        if(_theBeastie.money < 0)
                         {
-                            _db.Get(_selectedCreature).money = 0;
+                            _theBeastie.money = 0;
                         }
                     }
                 }
                 GUILayout.EndHorizontal();
                 //Ai(To be made later)
-            }
             
         }
     }

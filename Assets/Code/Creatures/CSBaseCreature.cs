@@ -97,7 +97,8 @@ namespace GG.CreatureSystem
             _coreStats = new BaseStats[6];
             for(int i = 0; i > _coreStats.Length; i++)
             {
-                _coreStats[i].name = Enum.GetName(typeof(StatNames), i);
+                _coreStats[i] = new BaseStats();
+                _coreStats[i].name = Enum.GetName(typeof(StatNames), i).ToString();
             }
             _ai = new FSMSystem();
             _attack = 0;
