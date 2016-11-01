@@ -34,11 +34,6 @@ namespace GG.CreatureSystem
             EditorUtility.SetDirty(_db);
             _theBeastie = new CSBaseCreature();
             _selectedCreature = -1;
-            if(_selectedCreature != -1)
-            {
-
-            }
-
             _speciesDb = CSSpeciesDatabase.GetDatabase<CSSpeciesDatabase>(DATABASE_FOLDER, SPECIES_DATABASE);
 
         }
@@ -134,11 +129,11 @@ namespace GG.CreatureSystem
                 GUILayout.EndHorizontal();
                 //Stats
                 GUILayout.Box("Stats");
-                for(int i = 0; i < _theBeastie.coreStats.Length; i++)
+                for(int i = 0; i < Enum.GetNames(typeof(StatNames)).Length; i++)
             {
                 GUILayout.BeginHorizontal();
-                GUILayout.Label(Enum.GetName(typeof(StatNames), i).ToString());
-                //GUILayout.Label(_theBeastie.coreStats[i].lowerVal.ToString());
+                GUILayout.Label(Enum.GetName(typeof(StatNames), i).ToString(), GUILayout.Width(100));
+                    GUILayout.Button("-", GUILayout.ExpandWidth(false));
                 GUILayout.EndHorizontal();
             }
                 //Attack and defence (Will be reworked later)

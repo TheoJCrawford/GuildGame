@@ -6,7 +6,7 @@ using System;
 namespace GG.CreatureSystem
 {
     [Serializable]
-    public class CSBaseCreature:ICSCreature
+    public class CSBaseCreature
     {
         #region Variables
         private string _name;
@@ -14,6 +14,7 @@ namespace GG.CreatureSystem
         private string _descript;
         private Sprite _image;
         private Vital _vital;
+        [SerializeField]
         private CSCreatureStat[] _coreStats;
         private int _speed; //this will be replaced later
         private FSMSystem _ai;
@@ -21,7 +22,8 @@ namespace GG.CreatureSystem
         private int _defense;
         private int _exp;
         private int _gold;
-
+        #endregion
+        #region Setters and Getters
         public string name
         {
             get{return _name;}
@@ -64,10 +66,9 @@ namespace GG.CreatureSystem
             set{_speed = value;}
         }
 
-        public CSCreatureStat[] coreStats
+        public CSCreatureStat coreStats(int index)
         {
-            get{return _coreStats;}
-            set{_coreStats = value;}
+            return _coreStats[index];
         }
 
         public Vital vitals
@@ -82,9 +83,6 @@ namespace GG.CreatureSystem
             set{_ai = value;}
         }
         #endregion
-        #region Setters and Getters
-
-        #endregion
         #region Constructors
 
         public CSBaseCreature()
@@ -95,11 +93,9 @@ namespace GG.CreatureSystem
             _vital = new Vital();
             _species = new CSSpecies();
             _coreStats = new CSCreatureStat[6];
-            for(int i = 0; i > _coreStats.Length; i++)
+            for(int i = 0; i < _coreStats.Length; i++)
             {
                 _coreStats[i] = new CSCreatureStat();
-                _coreStats[i].RanomizeStat();
-                _coreStats[i].name = Enum.GetName(typeof(StatNames), i).ToString();
             }
             _ai = new FSMSystem();
             _attack = 0;
