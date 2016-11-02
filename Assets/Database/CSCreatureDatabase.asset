@@ -11,4 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9886d53708b936f4a9950dfc916d27b8, type: 3}
   m_Name: CSCreatureDatabase
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _coreStats: []
+  - _coreStats: []
