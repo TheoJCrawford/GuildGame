@@ -89,6 +89,7 @@ namespace GG.CreatureSystem
                     if(GUILayout.Button(_db.Get(i).name, GUILayout.ExpandWidth(true)))
                     {
                         _selectedCreature = i;
+                        _theBeastie = _db.Get(i);
                         EditorUtility.SetDirty(_db);
                     }
                 }

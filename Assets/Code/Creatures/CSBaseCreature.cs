@@ -93,10 +93,7 @@ namespace GG.CreatureSystem
             _vital = new Vital();
             _species = new CSSpecies();
             _coreStats = new CSCreatureStat[6];
-            for(int i = 0; i < _coreStats.Length; i++)
-            {
-                _coreStats[i] = new CSCreatureStat();
-            }
+            ActivateStats();
             _ai = new FSMSystem();
             _attack = 0;
             _defense = 0;
@@ -107,6 +104,14 @@ namespace GG.CreatureSystem
         
         #endregion
         #region Fuction
+        public void ActivateStats()
+        {
+            for (int i = 0; i < _coreStats.Length; i++)
+            {
+                _coreStats[i] = new CSCreatureStat();
+                _coreStats[i].name = Enum.GetName(typeof(GG.CharacterSystem.StatNames), i);
+            }
+        }
         #endregion
     }
 }

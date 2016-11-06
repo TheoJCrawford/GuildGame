@@ -2,7 +2,6 @@
 
 namespace GG.CreatureSystem
 {
-    [Serializable]
     public class CSCreatureStat
     {
         #region Variables
