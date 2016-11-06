@@ -65,12 +65,16 @@ namespace GG.CreatureSystem
             if (GUILayout.Button("Edit Creature"))
             {
                 _db.Replace(_selectedCreature, _theBeastie);
+                EditorUtility.SetDirty(_db);
             }
             if(GUILayout.Button("Delete Creature"))
             {
                 if(_selectedCreature != -1)
                 {
                     _db.Remove(_selectedCreature);
+                    EditorUtility.SetDirty(_db);
+                    _selectedCreature = -1;
+                    _theBeastie = new CSBaseCreature();
                 }
             }
             GUILayout.Box("Creatures: " + _db.Count, GUILayout.ExpandWidth(true));
