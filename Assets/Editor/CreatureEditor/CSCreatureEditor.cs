@@ -139,8 +139,24 @@ namespace GG.CreatureSystem
                 GUILayout.BeginHorizontal();
                 GUILayout.Label(Enum.GetName(typeof(StatNames), i).ToString(), GUILayout.Width(100));
                 GUILayout.Box("Range: " + _theBeastie.coreStats(i).lowerVal.ToString() + " - "+ _theBeastie.coreStats(i).upperVal.ToString(), GUILayout.Width(100));
-                GUILayout.Button("+", GUILayout.ExpandWidth(false));
-                    GUILayout.Button("-", GUILayout.ExpandWidth(false));
+                GUILayout.Label("Lower", GUILayout.ExpandWidth(false));
+                if(GUILayout.Button("+", GUILayout.ExpandWidth(false)))
+                {
+                    _theBeastie.coreStats(i).lowerVal++;
+                }
+                    if(GUILayout.Button("-", GUILayout.ExpandWidth(false)))
+                {
+                    _theBeastie.coreStats(i).lowerVal--;
+                }
+                GUILayout.Label("Upper", GUILayout.ExpandWidth(false));
+                if(GUILayout.Button("+", GUILayout.ExpandWidth(false)))
+                {
+                    _theBeastie.coreStats(i).upperVal++;
+                }
+                if(GUILayout.Button("-", GUILayout.ExpandWidth(false)))
+                {
+                    _theBeastie.coreStats(i).upperVal--;
+                }
                 GUILayout.EndHorizontal();
             }
                 //Attack and defence (Will be reworked later)

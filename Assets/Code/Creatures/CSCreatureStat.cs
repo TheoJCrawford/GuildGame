@@ -55,7 +55,7 @@ namespace GG.CreatureSystem
         {
             _name = "Mepo";
             _lowerValue = 5;
-            _upperValue = 100;
+            _upperValue = 20;
             _combatValue = 50;
             _alterationValue = 0;
             _alterdVal = 0;

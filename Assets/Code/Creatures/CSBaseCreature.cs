@@ -9,18 +9,29 @@ namespace GG.CreatureSystem
     public class CSBaseCreature
     {
         #region Variables
+        [SerializeField]
         private string _name;
+        [SerializeField]
         private CSSpecies _species;
+        [SerializeField]
         private string _descript;
+        [SerializeField]
         private Sprite _image;
+        [SerializeField]
         private Vital _vital;
         [SerializeField]
         private CSCreatureStat[] _coreStats;
+        [SerializeField]
         private int _speed; //this will be replaced later
+        [SerializeField]
         private FSMSystem _ai;
+        [SerializeField]
         private int _attack;
+        [SerializeField]
         private int _defense;
+        [SerializeField]
         private int _exp;
+        [SerializeField]
         private int _gold;
         #endregion
         #region Setters and Getters
