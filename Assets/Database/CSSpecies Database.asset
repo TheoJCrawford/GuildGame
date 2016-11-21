@@ -11,4 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3371666fe7f7d944382ce3fdbdd82e15, type: 3}
   m_Name: CSSpecies Database
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _name: ' Goblin'
+    _desript: ' '
+    _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - _name: ' Dragon'
+    _desript: ' '
+    _icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  - _name: Undead
+    _desript: ' '
+    _icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  - _name: ' Beast'
+    _desript: ' '
+    _icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  - _name: ' Deus'
+    _desript: ' '
+    _icon: {fileID: 0}

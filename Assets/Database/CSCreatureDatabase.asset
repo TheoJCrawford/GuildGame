@@ -11,4 +11,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9886d53708b936f4a9950dfc916d27b8, type: 3}
   m_Name: CSCreatureDatabase
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _name: Goblin
+    _species:
+      _name: ' Goblin'
+      _desript: ' '
+      _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    _descript: 
+    _image: {fileID: 0}
+    _speed: 0
+    _attack: 0
+    _defense: 0
+    _exp: 20
+    _gold: 15
+  - _name: Hobgoblin
+    _species:
+      _name: ' Goblin'
+      _desript: ' '
+      _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    _descript: 
+    _image: {fileID: 0}
+    _speed: 0
+    _attack: 0
+    _defense: 0
+    _exp: 20
+    _gold: 15
