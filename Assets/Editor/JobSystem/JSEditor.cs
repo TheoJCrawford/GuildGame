@@ -56,7 +56,7 @@ namespace GG.CharacterSystem.Editor
             if (GUILayout.Button("Delete Job"))
             {
                 _jobDb.Remove(_selector);
-                _selector--;
+                _selector=-1;
             }
             GUILayout.Box(" ", GUILayout.MinHeight(.1f), GUILayout.MaxHeight(.1f), GUILayout.ExpandWidth(true));
             if (_jobDb.Count > 0)
