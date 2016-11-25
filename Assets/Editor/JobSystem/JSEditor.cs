@@ -18,7 +18,7 @@ namespace GG.CharacterSystem.Editor
         private const string DATABASE_FOLDER_NAME = @"Database";
         private const string DATABASE_FILE_NAME = @"JobDatabase.asset";
 
-        [MenuItem("Horizon Guild/Database/Class Database")]
+        [MenuItem("Horizon Guild/Character/Class Database")]
         static void Init()
         {
             JSEditor window = EditorWindow.GetWindow<JSEditor>();

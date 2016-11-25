@@ -22,8 +22,8 @@ MonoBehaviour:
     _speed: 0
     _attack: 0
     _defense: 0
-    _exp: 20
-    _gold: 15
+    _exp: 5
+    _gold: 0
   - _name: Hobgoblin
     _species:
       _name: ' Goblin'
@@ -34,5 +34,5 @@ MonoBehaviour:
     _speed: 0
     _attack: 0
     _defense: 0
-    _exp: 20
-    _gold: 15
+    _exp: 10
+    _gold: 0
