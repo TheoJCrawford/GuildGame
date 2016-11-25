@@ -36,3 +36,15 @@ MonoBehaviour:
     _defense: 0
     _exp: 10
     _gold: 0
+  - _name: Goblin Chief
+    _species:
+      _name: ' Goblin'
+      _desript: ' '
+      _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    _descript: 
+    _image: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+    _speed: 0
+    _attack: 0
+    _defense: 0
+    _exp: 14
+    _gold: 2
