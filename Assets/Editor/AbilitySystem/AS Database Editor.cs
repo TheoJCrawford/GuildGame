@@ -6,7 +6,7 @@ namespace GG.AbilitySystem.Editor
 {
     public class ASObjectEditor:EditorWindow
     {
-        [MenuItem("Horizon Guild/Database/Abilty System Database")]
+        [MenuItem("Horizon Guild/Ability/Abilty System Editor")]
         static void Init()
         {
             ASObjectEditor window = EditorWindow.GetWindow<ASObjectEditor>();
