@@ -6,7 +6,7 @@ namespace GG.ItemSystem.Editor
 {
     public partial class ISObjectEditor : EditorWindow
     {
-        [MenuItem("Horizon Guild/Database/Item System Database %#I")]
+        [MenuItem("Horizon Guild/Item/Item System Database %#I")]
         public static void Init()
         {
             ISObjectEditor window = EditorWindow.GetWindow<ISObjectEditor>();

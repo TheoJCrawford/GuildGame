@@ -23,7 +23,7 @@ namespace GG.ItemSystem.Editor
         const int SPRITE_BUTTON_SIZE = 64;
 
 
-        [MenuItem("Horizon Guild/Database/Quality Editor %#q")]
+        [MenuItem("Horizon Guild/Item/Quality Editor %#q")]
         public static void Init()
         {
             ISQualityDatabaseEditor window = EditorWindow.GetWindow<ISQualityDatabaseEditor>();
