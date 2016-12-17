@@ -56,7 +56,7 @@ MonoBehaviour:
     _unlockClasskLevels: 05000000
     _unlockClassReq: 
   - _icon: {fileID: 0}
-    _name: Medic
+    _name: Cleric
     _level: 0
     _exp: 0
     _lvlUpReq: 1000
