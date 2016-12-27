@@ -11,6 +11,7 @@ namespace GG.Guild
         private string _guildName;              //Name of the Guild (duh)
         private BaseCharacter _leader;          //The leader (you)
         private List<BaseCharacter> _members;  //The members list
+        private List<AIParty> _parties;    //This should hold any if not all AI parties (fingers crossed)
         private int _coinBank;                  //The bank account for the group
         private double _interestRate;           //Allows the user to tax the ammount earned from a mission off the members
         private string _homeTown;               //Town where the guild hall is
@@ -47,6 +48,11 @@ namespace GG.Guild
         {
             set { _members = value; }
             get { return _members; }
+        }
+        public List<AIParty> npcParty
+        {
+            set { _parties = value; }
+            get { return _parties; }
         }
         public int coinBank
         {
