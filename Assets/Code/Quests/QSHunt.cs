@@ -41,6 +41,16 @@ namespace GG.QuestSystem
             get{return _qTime;}
             set{_qTime = value;}
         }
+        public string questGiver
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+        public string questReciever
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
         //uniques
         public int numOfEnemy
         {
