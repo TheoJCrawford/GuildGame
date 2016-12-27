@@ -11,6 +11,5 @@ namespace GG.QuestSystem
                                                  //Item rewards
         int moneyReward { set; get; }           //gold rewards
         int questTime { set; get; }             //Time Length - Maybe for AI parties only
-
     }
 }
