@@ -12,10 +12,9 @@ namespace GG.QuestSystem
         private string _name;
         private string _descript;
         private int _mReward;
-        private int _qTime;
+        private float _qTime;
         //uniques
         //Items needed
-        //quantities required
         private List<int> _quanity;
         private List<int> _remaining;
         #endregion
@@ -30,13 +29,11 @@ namespace GG.QuestSystem
             get{return _mReward;}
             set{_mReward = value; }
         }
-
         public string name
         {
             get{return _name;}
             set{_name = value;}
         }
-
         public string questGiver
         {
             get{throw new NotImplementedException();}
@@ -47,7 +44,7 @@ namespace GG.QuestSystem
             get{throw new NotImplementedException();}
             set{throw new NotImplementedException();}
         }
-        public int questTime
+        public float questTime
         {
             get{ return _qTime; }
             set{ _qTime = value; }
@@ -62,7 +59,6 @@ namespace GG.QuestSystem
             get { return _remaining; }
             set { _remaining = value; }
         }
-
         public bool isComplete
         {
             get{throw new NotImplementedException();}
