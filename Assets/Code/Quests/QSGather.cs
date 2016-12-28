@@ -10,6 +10,7 @@ namespace GG.QuestSystem
         #region variables
         //cores
         private string _name;
+        private bool _isComplete;
         private string _descript;
         private int _mReward;
         private float _qTime;
@@ -61,8 +62,8 @@ namespace GG.QuestSystem
         }
         public bool isComplete
         {
-            get{throw new NotImplementedException();}
-            set{throw new NotImplementedException();}
+            get{ return _isComplete; }
+            set{ _isComplete = value; }
         }
         #endregion
         #region Constructor
@@ -72,6 +73,11 @@ namespace GG.QuestSystem
             _descript = " ";
             _mReward = 0;
             _qTime = 10;
+        }
+
+        public void TargetDown()
+        {
+            
         }
         #endregion
 
