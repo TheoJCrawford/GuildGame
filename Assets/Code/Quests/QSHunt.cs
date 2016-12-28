@@ -12,6 +12,7 @@ namespace GG.QuestSystem
         //Common Variables
         private string _name;       //name of the quest
         private string _descript;   //Description of the quest
+        private bool _isComplete;
         private int _qTime;         //Time it will take to finish quest. Time given is in game based days. Might change it to game based hours
         private int _coinGain;
         //unique Variables
@@ -51,6 +52,11 @@ namespace GG.QuestSystem
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }
         }
+        public bool isComplete
+        {
+            get{ return _isComplete; }
+            set{ _isComplete = value; }
+        }
         //uniques
         public int numOfEnemy
         {
@@ -71,7 +77,8 @@ namespace GG.QuestSystem
         #region Constructor
         public QSHunt()
         {
-
+            _name = "Discus";
+            _isComplete = false;
         }
         #endregion
     }

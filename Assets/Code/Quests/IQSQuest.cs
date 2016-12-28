@@ -7,6 +7,7 @@ namespace GG.QuestSystem
     public interface IQSQuest
     {
         string name { set; get; }               //Name of the Quest
+        bool isComplete { set; get; }           //All conditions for completion
         string descript { set; get; }           //Desscription
         string questGiver { set; get; }         //Who gave the quest
         string questReciever { set; get; }        //Hand in
