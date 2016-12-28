@@ -13,7 +13,7 @@ namespace GG.QuestSystem
         private string _name;       //name of the quest
         private string _descript;   //Description of the quest
         private bool _isComplete;
-        private int _qTime;         //Time it will take to finish quest. Time given is in game based days. Might change it to game based hours
+        private float _qTime;       //Time it will take to finish quest. Time given is in game based days. Might change it to game based hours
         private int _coinGain;
         //unique Variables
         private string _location;
@@ -37,7 +37,7 @@ namespace GG.QuestSystem
             get{return _name;}
             set{ _name = value; }
         }
-        public int questTime
+        public float questTime
         {
             get{return _qTime;}
             set{_qTime = value;}
@@ -79,7 +79,21 @@ namespace GG.QuestSystem
         {
             _name = "Discus";
             _isComplete = false;
+            _numOfEnemy = 1;
+            _remainingEnemy = 1;
         }
         #endregion
+        #region Fucntions
+        public void TargetDown()
+        {
+            if (!_isComplete)
+            {
+                _remainingEnemy--;
+            }
+            if (_remainingEnemy == 0)
+            {
+                _isComplete = true;
+            }
+        }
     }
 }
