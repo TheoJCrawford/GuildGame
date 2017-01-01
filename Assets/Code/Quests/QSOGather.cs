@@ -27,10 +27,9 @@ namespace GG.QuestSystem
         {
             throw new NotImplementedException();
         }
-        public OQSGather()
+        public QSOGather()
         {
-            _completion = false;
-            _descript = " ";
+
         }
     }
 }
