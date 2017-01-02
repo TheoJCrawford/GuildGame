@@ -29,7 +29,8 @@ namespace GG.QuestSystem
         }
         public QSOGather()
         {
-
+            _descript = " ";
+            _completion = false;
         }
     }
 }

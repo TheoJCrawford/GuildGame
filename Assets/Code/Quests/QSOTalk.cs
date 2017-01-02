@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GG.QuestSystem
 {
-    class OQSTalk : IQSObjective
+    class QSOTalk : IQSObjective
     {
         public bool completion
         {
