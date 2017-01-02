@@ -10,6 +10,7 @@ namespace GG.QuestSystem
         #region variables
         private bool _completion;
         private string _descript;
+        private string _locale;
         #endregion
         public bool completion
         {
@@ -21,6 +22,12 @@ namespace GG.QuestSystem
         {
             get{return _descript;}
             set{ _descript = value; }
+        }
+
+        public string location
+        {
+            get{return _locale;}
+            set{ _locale = value; }
         }
 
         public void TriggerNext()

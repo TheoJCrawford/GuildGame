@@ -7,13 +7,22 @@ namespace GG.QuestSystem
 {
     class QSOFind : IQSObjective
     {
+        private bool _complete;
+
+
         public bool completion
+        {
+            get{ return _complete; }
+            set{ _complete = value; }
+        }
+
+        public string descript
         {
             get{throw new NotImplementedException();}
             set{throw new NotImplementedException();}
         }
 
-        public string descript
+        public string location
         {
             get{throw new NotImplementedException();}
             set{throw new NotImplementedException();}

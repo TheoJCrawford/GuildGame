@@ -8,6 +8,7 @@ namespace GG.QuestSystem
     interface IQSObjective
     {
         string descript { set; get; }
+        string location { get; set; }
         bool completion { set; get; }
         void TriggerNext();
     }
