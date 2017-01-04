@@ -11,7 +11,7 @@ namespace GG.QuestSystem
         //Interface related
         private string _descript;
         private string _location;
-        //private NPC _npc;
+        private string _npcTarget;
         private bool _complete;
         #endregion
         #region S&G
@@ -20,7 +20,11 @@ namespace GG.QuestSystem
             get{return _complete; }
             set{ _complete = value;}
         }
-
+        public string npcTarget
+        {
+            get { return _npcTarget; }
+            set { _npcTarget = value; }
+        }
         public string descript
         {
             get{ return _descript; }
@@ -39,9 +43,16 @@ namespace GG.QuestSystem
 
         }
         #endregion
+        #region Functions
         public void TriggerNext()
         {
             throw new NotImplementedException();
         }
+
+        public void TriggerComponentCompletion()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

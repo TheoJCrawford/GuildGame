@@ -10,6 +10,7 @@ namespace GG.QuestSystem
         string descript { set; get; }
         string location { get; set; }
         bool completion { set; get; }
+        void TriggerComponentCompletion();
         void TriggerNext();
     }
 }

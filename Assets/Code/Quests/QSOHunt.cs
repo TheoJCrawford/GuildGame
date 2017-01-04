@@ -20,20 +20,18 @@ namespace GG.QuestSystem
         #region S&G
         public bool completion
         {
-            get{ return _complete; }
-            set{ _complete = value; }
+            get { return _complete; }
+            set { _complete = value; }
         }
-
         public string descript
         {
-            get{ return _descript; }
-            set{ _descript = value; }
+            get { return _descript; }
+            set { _descript = value; }
         }
-
         public string location
         {
-            get{ return _locale; }
-            set{ _locale = value; }
+            get { return _locale; }
+            set { _locale = value; }
         }
         public List<CSBaseCreature> targets
         {
@@ -51,9 +49,17 @@ namespace GG.QuestSystem
             set { _remaining = value; }
         }
         #endregion
+        #region Functions
+        public void TriggerComponentCompletion()
+        {
+            //Check which creature was taken out?
+            //Get its index
+            //Subtract from remaining
+        }
         public void TriggerNext()
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }

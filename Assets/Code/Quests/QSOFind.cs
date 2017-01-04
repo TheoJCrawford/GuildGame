@@ -28,6 +28,11 @@ namespace GG.QuestSystem
             set{throw new NotImplementedException();}
         }
 
+        public void TriggerComponentCompletion()
+        {
+            throw new NotImplementedException();
+        }
+
         public void TriggerNext()
         {
             throw new NotImplementedException();
