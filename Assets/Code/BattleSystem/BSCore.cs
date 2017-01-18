@@ -21,5 +21,14 @@ namespace GG.BattleSystem
         */
         private List<BSCombatant> _combatants;
         
+        void Awake()
+        {
+
+        }
+
+        void Update()
+        {
+
+        }
     }
 }
