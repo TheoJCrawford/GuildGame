@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using GG.CharacterSystem;
-public class GuildMember : MonoBehaviour {
+
+
+public class GuildMember{
     private BaseCharacter _character;
     private string _status;
 
