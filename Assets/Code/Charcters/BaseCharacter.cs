@@ -22,6 +22,7 @@ namespace GG.CharacterSystem
         //Stats and vitals
         private Vital[] _vitals;
         private BaseStats[] _coreStats;
+        private DirievedStat[] _deviStats;
         //Classes
         private int _curJob;
         private List<Job> _jobs;
@@ -72,9 +73,13 @@ namespace GG.CharacterSystem
         {
             return _vitals[index]; 
         }        
-        public BaseStats GetStats(int index)
+        public BaseStats GetBaseStats(int index)
         {
             return _coreStats[index];
+        }
+        public DirievedStat GetDeviStat(int index)
+        {
+            return _deviStats[index];
         }
         public int expToLevel
         {
@@ -124,6 +129,14 @@ namespace GG.CharacterSystem
 
             }
             UpdateVitals();
+            _deviStats = new DirievedStat[Enum.GetNames(typeof(DerievedStatNames)).Length];
+            for(int i = 0; i < _deviStats.Length; i++)
+            {
+                _deviStats[i].name = Enum.GetName(typeof(DerievedStatNames), i);
+            }
+            {
+
+            }
             _curJob = 0;
             _jobs = new List<Job>();
         }

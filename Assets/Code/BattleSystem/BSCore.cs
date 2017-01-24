@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using GG.CharacterSystem;
 
 namespace GG.BattleSystem
 {
-    class BSCore
+    public class BSCore
     {
         /*
         Rules:
@@ -20,15 +21,24 @@ namespace GG.BattleSystem
         4)Once the turn is completed, their guage is set to zero, thus placing them at the bottom of the list. That entity will continue to go up the list until it is the entity's turn based on how fast their guage replenishes. This, again, is based off speed
         */
         private List<BSCombatant> _combatants;
-        
+
         void Awake()
         {
-
+            /*
+            populate the combatants list
+            until one of the guages is full, keep adding the speed
+            Do some quick maths to put the
+            */
+            
         }
-
         void Update()
         {
-
+            
+            //Update the guages to their respective points
+            //Engauge the turn of the first person
+                //Side note: if they have a spell they are channeling, enguage spell
+            //Apply rules given to the action
+            //put him at the bottom of the turn after his action has been forfilled
         }
     }
 }
