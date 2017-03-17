@@ -26,9 +26,10 @@ public class PMGridMovement : MonoBehaviour
     {
         #region Movement
         RotateDirection();
-        if (canMove)
+        while (canMove)
         {
             MovementMotor();
+
         }
         #endregion
         transform.rotation = Quaternion.Lerp(transform.rotation, _rot, rotSpeed * Time.deltaTime);

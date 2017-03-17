@@ -61,7 +61,6 @@ namespace GG.CharacterSystem
     {
         Attack_Speed,                   //Affects the speed at which weaponskills refresh
         Magic_Power,
-        Speed,
         Critical_Chance,
         Critical_Damage,
         Physical_Defence,
