@@ -26,7 +26,7 @@ public class PMGridMovement : MonoBehaviour
     {
         #region Movement
         RotateDirection();
-        while (canMove)
+        if (canMove)
         {
             MovementMotor();
 

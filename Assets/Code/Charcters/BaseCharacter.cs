@@ -129,14 +129,6 @@ namespace GG.CharacterSystem
 
             }
             UpdateVitals();
-            _deviStats = new DirievedStat[Enum.GetNames(typeof(DerievedStatNames)).Length];
-            for(int i = 0; i < _deviStats.Length; i++)
-            {
-                _deviStats[i].name = Enum.GetName(typeof(DerievedStatNames), i);
-            }
-            {
-
-            }
             _curJob = 0;
             _jobs = new List<Job>();
         }
