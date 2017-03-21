@@ -167,9 +167,9 @@ public class PMGridMovement : MonoBehaviour
                     }
                     if (Input.GetAxis("Horizontal") < 0 && _tr.position == _pos)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.up, .5f) == false)
+                        if (Physics.Raycast(_tr.position, Vector3.forward, .5f) == false)
                         {
-                            _pos += Vector3.up;
+                            _pos += Vector3.forward;
                         }
                     }
                     break;
@@ -229,7 +229,7 @@ public class PMGridMovement : MonoBehaviour
                     {
                         if (Physics.Raycast(_tr.position, Vector3.left, .5f) == false)
                         {
-                            _pos += Vector3.left;
+                            _pos += Vector3.back;
                         }
                     }
                     break;
