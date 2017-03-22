@@ -7,11 +7,11 @@ public class PMGridMovement : MonoBehaviour
     public float _speed = 3;
     public float rotSpeed = 20;
     public bool canMove = true;
-
+    public Quaternion panicrot;
     private Vector3 _pos;
     private Transform _tr;
-    private Quaternion _rot;
-    private string _facing;
+    public Quaternion _rot;
+    public string _facing;
     #endregion
     // Use this for initialization
     void Start()
@@ -24,6 +24,8 @@ public class PMGridMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //An error checker
+        panicrot = _tr.rotation;
         #region Movement
         RotateDirection();
         if (canMove)
