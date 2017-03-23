@@ -111,133 +111,130 @@ public class PMGridMovement : MonoBehaviour
     }
     void MovementMotor()
     {
-        if (_tr.rotation == _rot)
+        switch (_facing)
         {
-            switch (_facing)
-            {
-                case "North":
-                    if (Input.GetAxis("Vertical") > 0 && _tr.position == _pos)
+            case "North":
+                if (Input.GetAxis("Vertical") > 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.forward, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.forward, .5f) == false)
-                        {
-                            _pos += Vector3.forward;
-                        }
+                        _pos += Vector3.forward;
                     }
-                    if (Input.GetAxis("Vertical") < 0 && _tr.position == _pos)
+                }
+                if (Input.GetAxis("Vertical") < 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.back, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.back, .5f) == false)
-                        {
-                            _pos += Vector3.back;
-                        }
+                        _pos += Vector3.back;
                     }
-                    if (Input.GetAxis("Horizontal") > 0 && _tr.position == _pos)
+                }
+                if (Input.GetAxis("Horizontal") > 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.right, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.right, .5f) == false)
-                        {
-                            _pos += Vector3.right;
-                        }
+                        _pos += Vector3.right;
                     }
-                    if (Input.GetAxis("Horizontal") < 0 && _tr.position == _pos)
+                }
+                if (Input.GetAxis("Horizontal") < 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.left, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.left, .5f) == false)
-                        {
-                            _pos += Vector3.left;
-                        }
+                        _pos += Vector3.left;
                     }
-                    break;
-                case "East":
-                    if (Input.GetAxis("Vertical") > 0 && _tr.position == _pos)
+                }
+                break;
+            case "East":
+                if (Input.GetAxis("Vertical") > 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.right, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.right, .5f) == false)
-                        {
-                            _pos += Vector3.right;
-                        }
+                        _pos += Vector3.right;
                     }
-                    if (Input.GetAxis("Vertical") < 0 && _tr.position == _pos)
+                }
+                if (Input.GetAxis("Vertical") < 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.left, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.left, .5f) == false)
-                        {
-                            _pos += Vector3.left;
-                        }
+                        _pos += Vector3.left;
                     }
-                    if (Input.GetAxis("Horizontal") > 0 && _tr.position == _pos)
+                }
+                if (Input.GetAxis("Horizontal") > 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.back, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.back, .5f) == false)
-                        {
-                            _pos += Vector3.back;
-                        }
+                        _pos += Vector3.back;
                     }
-                    if (Input.GetAxis("Horizontal") < 0 && _tr.position == _pos)
+                }
+                if (Input.GetAxis("Horizontal") < 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.forward, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.forward, .5f) == false)
-                        {
-                            _pos += Vector3.forward;
-                        }
+                        _pos += Vector3.forward;
                     }
-                    break;
-                case "South":
-                    if (Input.GetAxis("Vertical") > 0 && _tr.position == _pos)
+                }
+                break;
+            case "South":
+                if (Input.GetAxis("Vertical") > 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.back, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.back, .5f) == false)
-                        {
-                            _pos += Vector3.back;
-                        }
+                        _pos += Vector3.back;
                     }
-                    if (Input.GetAxis("Vertical") < 0 && _tr.position == _pos)
+                }
+                if (Input.GetAxis("Vertical") < 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.forward, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.forward, .5f) == false)
-                        {
-                            _pos += Vector3.forward;
-                        }
+                        _pos += Vector3.forward;
                     }
-                    if (Input.GetAxis("Horizontal") > 0 && _tr.position == _pos)
+                }
+                if (Input.GetAxis("Horizontal") > 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.left, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.left, .5f) == false)
-                        {
-                            _pos += Vector3.left;
-                        }
+                        _pos += Vector3.left;
                     }
-                    if (Input.GetAxis("Horizontal") < 0 && _tr.position == _pos)
+                }
+                if (Input.GetAxis("Horizontal") < 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.right, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.right, .5f) == false)
-                        {
-                            _pos += Vector3.right;
-                        }
+                        _pos += Vector3.right;
                     }
-                    break;
-                case "West":
-                    if (Input.GetAxis("Vertical") > 0 && _tr.position == _pos)
+                }
+                break;
+            case "West":
+                if (Input.GetAxis("Vertical") > 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.left, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.left, .5f) == false)
-                        {
-                            _pos += Vector3.left;
-                        }
+                        _pos += Vector3.left;
                     }
-                    if (Input.GetAxis("Vertical") < 0 && _tr.position == _pos)
+                }
+                if (Input.GetAxis("Vertical") < 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.right, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.right, .5f) == false)
-                        {
-                            _pos += Vector3.right;
-                        }
+                        _pos += Vector3.right;
                     }
-                    if (Input.GetAxis("Horizontal") > 0 && _tr.position == _pos)
+                }
+                if (Input.GetAxis("Horizontal") > 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.forward, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.forward, .5f) == false)
-                        {
-                            _pos += Vector3.forward;
-                        }
+                        _pos += Vector3.forward;
                     }
-                    if (Input.GetAxis("Horizontal") < 0 && _tr.position == _pos)
+                }
+                if (Input.GetAxis("Horizontal") < 0 && _tr.position == _pos)
+                {
+                    if (Physics.Raycast(_tr.position, Vector3.left, .5f) == false)
                     {
-                        if (Physics.Raycast(_tr.position, Vector3.left, .5f) == false)
-                        {
-                            _pos += Vector3.back;
-                        }
+                        _pos += Vector3.back;
                     }
-                    break;
-
-            }
+                }
+                break;
         }
+
     }
 
     #endregion
