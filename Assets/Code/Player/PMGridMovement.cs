@@ -23,7 +23,7 @@ public class PMGridMovement : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {
+    { 
         //An error checker
         panicrot = _tr.rotation;
         #region Movement
@@ -36,6 +36,18 @@ public class PMGridMovement : MonoBehaviour
         #endregion
         transform.rotation = Quaternion.Lerp(transform.rotation, _rot, rotSpeed * Time.deltaTime);
         transform.position = Vector3.MoveTowards(transform.position, _pos, Time.deltaTime * _speed);
+    }
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.tag == "AreaEvent")
+        {
+
+        }
+        if(col.tag == "ForcedBattle")
+        {
+            canMove = false;
+        }
+
     }
     #region Non-Unity Functions
     void GetDirection()

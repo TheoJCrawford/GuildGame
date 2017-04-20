@@ -23,6 +23,8 @@ namespace GG.CharacterSystem
         [SerializeField]
         private int _exp;
         [SerializeField]
+        private int _speedVal;
+        [SerializeField]
         private int _lvlUpReq;
         [SerializeField]
         private int _abilityPoints;
@@ -50,6 +52,11 @@ namespace GG.CharacterSystem
         {
             set { _level = value; }
             get { return _level; }
+        }
+        public int speedVal
+        {
+            set { _speedVal = value; }
+            get { return _speedVal; }
         }
         public int lvlUpReq
         {

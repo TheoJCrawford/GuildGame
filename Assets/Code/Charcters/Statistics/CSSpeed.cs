@@ -12,6 +12,12 @@ namespace GG
         private int _dexValue;
         private int _fullValue;
         #endregion
+        #region Setters and Getters
+        public int fullValue
+        {
+            get { return _fullValue; }
+        }
+        #endregion
         #region Constructor
         public CSSpeed()
         {
