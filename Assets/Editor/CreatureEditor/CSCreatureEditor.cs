@@ -146,7 +146,10 @@ namespace GG.CreatureSystem
                 }
                     if(GUILayout.Button("-", GUILayout.ExpandWidth(false)))
                 {
-                    _theBeastie.coreStats(i).lowerVal--;
+                    if( _theBeastie.coreStats(i).lowerVal > 0)
+                    {
+                        _theBeastie.coreStats(i).lowerVal--;
+                    }
                 }
                 GUILayout.Label("Upper", GUILayout.ExpandWidth(false));
                 if(GUILayout.Button("+", GUILayout.ExpandWidth(false)))
@@ -155,10 +158,16 @@ namespace GG.CreatureSystem
                 }
                 if(GUILayout.Button("-", GUILayout.ExpandWidth(false)))
                 {
-                    _theBeastie.coreStats(i).upperVal--;
+                    if(_theBeastie.coreStats(i).upperVal > 0)
+                    {
+                        _theBeastie.coreStats(i).upperVal--;
+                    }
                 }
                 GUILayout.EndHorizontal();
             }
+            GUILayout.BeginHorizontal();
+            GUILayout.Box("Health: " + _theBeastie.vitals.fullValue.ToString());
+            GUILayout.EndHorizontal();
                 //Attack and defence (Will be reworked later)
 
                 //EXP

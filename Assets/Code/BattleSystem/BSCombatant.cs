@@ -8,14 +8,15 @@ namespace GG.BattleSystem
     class BSCombatant
     {
         private int _currentGuage;
-        private int _speed;
-        
+        private int _castGuage;
+        private CSSpeed _speed;
+
         public int currentGuage
         {
             get { return _currentGuage; }
             set { _currentGuage = value; }
         }
-        public int speed
+        public CSSpeed speed
         {
             get { return _speed; }
             set { _speed = value; }
@@ -23,7 +24,7 @@ namespace GG.BattleSystem
         public BSCombatant()
         {
             _currentGuage = 0;
-            _speed = 0;
+            _speed = new CSSpeed();
         }
     }
 }
