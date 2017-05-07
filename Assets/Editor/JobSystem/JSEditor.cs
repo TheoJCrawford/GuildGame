@@ -113,6 +113,22 @@ namespace GG.CharacterSystem.Editor
                     }
                     GUILayout.EndHorizontal();
                 }
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Speed: ");
+                if (GUILayout.Button("-"))
+                {
+                    if(_jobDb.Get(_selector).speedVal > 0)
+                    {
+                        _jobDb.Get(_selector).speedVal--;
+                    }
+                }
+                GUILayout.Label(_jobDb.Get(_selector).speedVal.ToString());
+                if (GUILayout.Button("+"))
+                {
+                    if(_jobDb.Get(_selector).speedVal < 20)
+                    _jobDb.Get(_selector).speedVal++;
+                }
+                GUILayout.EndHorizontal();
                 GUILayout.EndVertical();
                 //PreRequisite jobs
                 _preReqs = GUILayout.Toggle(_preReqs, "Are there pre requisite jobs?");

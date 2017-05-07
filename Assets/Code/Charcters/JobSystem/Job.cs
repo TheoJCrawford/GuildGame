@@ -102,6 +102,7 @@ namespace GG.CharacterSystem
             _name = string.Empty;
             _level = 0;
             _exp = 0;
+            _speedVal = 0;
             _lvlUpReq = 1000;
             _abilityPoints = 0;
             _statEvolvers = new int[6] { 2, 2, 2, 2, 2, 2};

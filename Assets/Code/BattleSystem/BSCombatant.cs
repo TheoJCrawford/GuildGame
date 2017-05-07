@@ -24,7 +24,13 @@ namespace GG.BattleSystem
         public BSCombatant()
         {
             _currentGuage = 0;
+            _castGuage = 0;
             _speed = new CSSpeed();
+        }
+
+        public void UpdateSpeed(int ClassVal, int dexVal)
+        {
+            speed.Setup(ClassVal, dexVal);
         }
     }
 }

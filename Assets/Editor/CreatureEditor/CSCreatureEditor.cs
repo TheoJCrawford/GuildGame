@@ -140,29 +140,31 @@ namespace GG.CreatureSystem
                 GUILayout.Label(Enum.GetName(typeof(StatNames), i).ToString(), GUILayout.Width(100));
                 GUILayout.Box("Range: " + _theBeastie.coreStats(i).lowerVal.ToString() + " - "+ _theBeastie.coreStats(i).upperVal.ToString(), GUILayout.Width(100));
                 GUILayout.Label("Lower", GUILayout.ExpandWidth(false));
-                if(GUILayout.Button("+", GUILayout.ExpandWidth(false)))
+                if (GUILayout.Button("-", GUILayout.ExpandWidth(false)))
                 {
-                    _theBeastie.coreStats(i).lowerVal++;
-                }
-                    if(GUILayout.Button("-", GUILayout.ExpandWidth(false)))
-                {
-                    if( _theBeastie.coreStats(i).lowerVal > 0)
+                    if (_theBeastie.coreStats(i).lowerVal > 0)
                     {
                         _theBeastie.coreStats(i).lowerVal--;
                     }
                 }
-                GUILayout.Label("Upper", GUILayout.ExpandWidth(false));
-                if(GUILayout.Button("+", GUILayout.ExpandWidth(false)))
+                if (GUILayout.Button("+", GUILayout.ExpandWidth(false)))
                 {
-                    _theBeastie.coreStats(i).upperVal++;
+                    _theBeastie.coreStats(i).lowerVal++;
                 }
-                if(GUILayout.Button("-", GUILayout.ExpandWidth(false)))
+                    
+                GUILayout.Label("Upper", GUILayout.ExpandWidth(false));
+                if (GUILayout.Button("-", GUILayout.ExpandWidth(false)))
                 {
-                    if(_theBeastie.coreStats(i).upperVal > 0)
+                    if (_theBeastie.coreStats(i).upperVal > 0)
                     {
                         _theBeastie.coreStats(i).upperVal--;
                     }
                 }
+                if (GUILayout.Button("+", GUILayout.ExpandWidth(false)))
+                {
+                    _theBeastie.coreStats(i).upperVal++;
+                }
+                
                 GUILayout.EndHorizontal();
             }
             GUILayout.BeginHorizontal();

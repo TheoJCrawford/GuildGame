@@ -16,6 +16,7 @@ MonoBehaviour:
     _name: Rookie
     _level: 0
     _exp: 0
+    _speedVal: 5
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 010000000100000001000000010000000100000000000000
@@ -26,6 +27,7 @@ MonoBehaviour:
     _name: Warrior
     _level: 0
     _exp: 0
+    _speedVal: 5
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 020000000200000004000000020000000200000002000000
@@ -37,6 +39,7 @@ MonoBehaviour:
     _name: Ranger
     _level: 0
     _exp: 0
+    _speedVal: 10
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 010000000300000001000000020000000100000003000000
@@ -48,6 +51,7 @@ MonoBehaviour:
     _name: Aethermancer
     _level: 0
     _exp: 0
+    _speedVal: 8
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 020000000200000002000000040000000200000002000000
@@ -59,6 +63,7 @@ MonoBehaviour:
     _name: Cleric
     _level: 0
     _exp: 0
+    _speedVal: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 020000000200000002000000020000000200000002000000
@@ -70,6 +75,7 @@ MonoBehaviour:
     _name: Knight
     _level: 0
     _exp: 0
+    _speedVal: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 020000000100000003000000020000000200000003000000
@@ -81,6 +87,7 @@ MonoBehaviour:
     _name: Paladin
     _level: 0
     _exp: 0
+    _speedVal: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 020000000200000002000000020000000200000002000000
@@ -93,6 +100,7 @@ MonoBehaviour:
     _name: Marksman
     _level: 0
     _exp: 0
+    _speedVal: 8
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 020000000200000002000000020000000200000002000000
@@ -104,6 +112,7 @@ MonoBehaviour:
     _name: Rogue
     _level: 0
     _exp: 0
+    _speedVal: 10
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 020000000200000002000000020000000200000002000000
@@ -115,6 +124,7 @@ MonoBehaviour:
     _name: Chronomancer
     _level: 0
     _exp: 0
+    _speedVal: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 020000000200000002000000020000000200000002000000
@@ -126,6 +136,7 @@ MonoBehaviour:
     _name: Spell Knight
     _level: 0
     _exp: 0
+    _speedVal: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 040000000200000002000000030000000200000002000000
@@ -138,6 +149,7 @@ MonoBehaviour:
     _name: Oracle
     _level: 0
     _exp: 0
+    _speedVal: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 020000000200000002000000020000000200000002000000
@@ -149,6 +161,7 @@ MonoBehaviour:
     _name: Lancer
     _level: 0
     _exp: 0
+    _speedVal: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 020000000200000002000000020000000200000002000000

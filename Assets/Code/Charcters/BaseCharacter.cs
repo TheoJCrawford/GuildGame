@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
 using System;
+using GG.BattleSystem;
 
 namespace GG.CharacterSystem
 {
@@ -131,6 +132,7 @@ namespace GG.CharacterSystem
             UpdateVitals();
             _curJob = 0;
             _jobs = new List<Job>();
+            
         }
         #endregion
         #region Functions
