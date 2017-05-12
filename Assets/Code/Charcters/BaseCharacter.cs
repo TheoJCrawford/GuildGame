@@ -292,26 +292,15 @@ namespace GG.CharacterSystem
         }
         public void UpdateVitals()
         {
-            _vitals[0].UpdateStatEffect(_coreStats[2].fullValue);
-            _vitals[1].UpdateStatEffect(_coreStats[4].fullValue);
-            _vitals[2].UpdateStatEffect(_coreStats[1].fullValue);
             for (int i = 0; i < 3; i++)
             {
                 _vitals[i].UpdateVital();
-                _vitals[i].curValue = _vitals[i].fullValue;
+                _vitals[i].ModifyCurValue(_vitals[i].fullValue);
             }
         }
         public void AddToCurVitals(int index, int val)
         {
-            _vitals[index].curValue += val;
-            if(_vitals[index].curValue > _vitals[index].fullValue)
-            {
-                _vitals[index].curValue = _vitals[index].fullValue;
-            }
-            if(_vitals[index].curValue < 0)
-            {
-                _vitals[index].curValue = 0;
-            }
+            _vitals[index].ModifyCurValue(val);
         }
         public void AddNewJob(Job newJob)
         {

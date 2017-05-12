@@ -31,6 +31,8 @@ namespace GG.CharacterSystem
         [SerializeField]
         private int[] _statEvolvers;
         [SerializeField]
+        private int[] _vitalEvolvers;
+        [SerializeField]
         private List<string> _unlockClassNames;
         [SerializeField]
         private List<int> _unlockClasskLevels;
@@ -105,7 +107,8 @@ namespace GG.CharacterSystem
             _speedVal = 0;
             _lvlUpReq = 1000;
             _abilityPoints = 0;
-            _statEvolvers = new int[6] { 2, 2, 2, 2, 2, 2};
+            _statEvolvers = new int[8] { 2, 2, 2, 2, 2, 2, 2, 2};
+            _vitalEvolvers = new int[2] { 5, 5 };
             _unlockClassNames = new List<string>();
             _unlockClasskLevels = new List<int>();
             _unlockClassReq = new List<bool>();

@@ -8,7 +8,8 @@ namespace GG.CharacterSystem
         #region variables
         private string _name;           //Stat name
         private int _baseValue;         //Stat you see, this one goes up in level!
-        private double _bonus;          //Bonuses if it comes from gear
+        private double _bonusVal;       //Bonuses if it comes from leveling
+        private double _gearVal;        //Effect from gear
         private int _fullValue;         //Shown Value
         private float _percentEffect;   //Effect it plays on certain stats
         #endregion
@@ -28,10 +29,14 @@ namespace GG.CharacterSystem
             set { _fullValue = value; }
             get { return _fullValue; }
         }
-        public double bonus
+        public double bonusVal
         {
-            set { _bonus = value; }
-            get { return _bonus; }
+            set { _bonusVal = value; }
+            get { return _bonusVal; }
+        }
+        public double setGearVal
+        {
+            set { _gearVal = value; }
         }
         public float perEffect
         {
@@ -44,7 +49,7 @@ namespace GG.CharacterSystem
         {
             _name = "Strength";
             _baseValue = 10;
-            _bonus = 0.0;
+            _bonusVal = 0.0;
             _fullValue = 10;
             _percentEffect = .33f;
 
@@ -53,27 +58,30 @@ namespace GG.CharacterSystem
         #region Functions
         public void SetFullValue()
         {
-            _fullValue = _baseValue + Convert.ToInt16(_bonus);
+            _fullValue = _baseValue + Convert.ToInt16(_bonusVal) + Convert.ToInt16(_gearVal);
         }
         #endregion
     }
     #region Enums
     public enum StatNames
     {
-        Strength,
-        Dexterity,
-        Vitality,
-        Intelligence,
-        Mind,
+        Physical_Attack,
+        Magic_Attack,
+        Physical_Defence,
+        Magic_Defence,
+        Speed,
+        Evasion,
+        Insight,
         Charisma
     };
     public enum StatNameAbreviations
     {
-        STR,
-        DEX,
-        VIT,
-        INT,
-        MND,
+        PA,
+        MA,
+        PD,
+        MD,
+        SP,
+        EV,
         CHR
     };
     #endregion

@@ -6,7 +6,7 @@ using GG.CharacterSystem;
 
 namespace GG.BattleSystem
 {
-    class BSPartymember:BSCombatant
+    class BSPartymember
     {
         private BaseCharacter _char;
 
