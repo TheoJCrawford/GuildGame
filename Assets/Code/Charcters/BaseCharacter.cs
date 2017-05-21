@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
 using System;
+using GG.BattleSystem;
 
 namespace GG.CharacterSystem
 {
@@ -22,6 +23,7 @@ namespace GG.CharacterSystem
         //Stats and vitals
         private Vital[] _vitals;
         private BaseStats[] _coreStats;
+        private DirievedStat[] _deviStats;
         //Classes
         private int _curJob;
         private List<Job> _jobs;
@@ -29,7 +31,10 @@ namespace GG.CharacterSystem
 
         //Passives
 
-        //
+        //Crafts
+
+            //Combat realed data
+
         #endregion
         #region Setters and getters
         public string firstName
@@ -72,9 +77,13 @@ namespace GG.CharacterSystem
         {
             return _vitals[index]; 
         }        
-        public BaseStats GetStats(int index)
+        public BaseStats GetBaseStats(int index)
         {
             return _coreStats[index];
+        }
+        public DirievedStat GetDeviStat(int index)
+        {
+            return _deviStats[index];
         }
         public int expToLevel
         {
@@ -126,6 +135,7 @@ namespace GG.CharacterSystem
             UpdateVitals();
             _curJob = 0;
             _jobs = new List<Job>();
+            
         }
         #endregion
         #region Functions
@@ -285,26 +295,15 @@ namespace GG.CharacterSystem
         }
         public void UpdateVitals()
         {
-            _vitals[0].UpdateStatEffect(_coreStats[2].fullValue);
-            _vitals[1].UpdateStatEffect(_coreStats[4].fullValue);
-            _vitals[2].UpdateStatEffect(_coreStats[1].fullValue);
             for (int i = 0; i < 3; i++)
             {
                 _vitals[i].UpdateVital();
-                _vitals[i].curValue = _vitals[i].fullValue;
+                _vitals[i].ModifyCurValue(_vitals[i].fullValue);
             }
         }
         public void AddToCurVitals(int index, int val)
         {
-            _vitals[index].curValue += val;
-            if(_vitals[index].curValue > _vitals[index].fullValue)
-            {
-                _vitals[index].curValue = _vitals[index].fullValue;
-            }
-            if(_vitals[index].curValue < 0)
-            {
-                _vitals[index].curValue = 0;
-            }
+            _vitals[index].ModifyCurValue(val);
         }
         public void AddNewJob(Job newJob)
         {

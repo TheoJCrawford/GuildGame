@@ -41,7 +41,7 @@ namespace GG.CharacterSystem.Editor
             SideBar();
             GUILayout.EndArea();
             GUILayout.BeginArea(new Rect(120, 0, 480, 600));
-            KMajorEditor();
+            MajorEditor();
             GUILayout.EndArea();
         }
         #region Non Unity Functions
@@ -81,7 +81,7 @@ namespace GG.CharacterSystem.Editor
             GUILayout.EndVertical();
             GUILayout.EndScrollView();
         }
-        void KMajorEditor()
+        void MajorEditor()
         {
             if (_selector > -1)
             {
@@ -109,6 +109,28 @@ namespace GG.CharacterSystem.Editor
                         if (_jobDb.Get(_selector).statEvolve[i] > 0)
                         {
                             _jobDb.Get(_selector).statEvolve[i]--;
+                        }
+                    }
+                    GUILayout.EndHorizontal();
+                }
+                //vitals
+                for (int i = 0; i < Enum.GetNames(typeof(VitalNames)).Length; i++)
+                {
+                    GUILayout.BeginHorizontal();
+                    GUILayout.Label(Enum.GetName(typeof(VitalNames), i), GUILayout.Width(100));
+                    if (GUILayout.Button("+"))
+                    {
+                        if (_jobDb.Get(_selector).vitalEvovler[i] < 9)
+                        {
+                            _jobDb.Get(_selector).vitalEvovler[i]++;
+                        }
+                    }
+                    GUILayout.Label(_jobDb.Get(_selector).vitalEvovler[i].ToString());
+                    if (GUILayout.Button("-"))
+                    {
+                        if (_jobDb.Get(_selector).vitalEvovler[i] > 0)
+                        {
+                            _jobDb.Get(_selector).vitalEvovler[i]--;
                         }
                     }
                     GUILayout.EndHorizontal();

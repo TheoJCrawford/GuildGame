@@ -23,11 +23,15 @@ namespace GG.CharacterSystem
         [SerializeField]
         private int _exp;
         [SerializeField]
+        private int _speedVal;
+        [SerializeField]
         private int _lvlUpReq;
         [SerializeField]
         private int _abilityPoints;
         [SerializeField]
         private int[] _statEvolvers;
+        [SerializeField]
+        private int[] _vitalEvolvers;
         [SerializeField]
         private List<string> _unlockClassNames;
         [SerializeField]
@@ -51,6 +55,11 @@ namespace GG.CharacterSystem
             set { _level = value; }
             get { return _level; }
         }
+        public int speedVal
+        {
+            set { _speedVal = value; }
+            get { return _speedVal; }
+        }
         public int lvlUpReq
         {
             set { _lvlUpReq = value; }
@@ -70,6 +79,11 @@ namespace GG.CharacterSystem
         {
             set { _statEvolvers = value; }
             get { return _statEvolvers; }
+        }
+        public int[] vitalEvovler
+        {
+            get { return _vitalEvolvers; }
+            set { _vitalEvolvers = value; }
         }
         public List<string> unlockNames
         {
@@ -95,9 +109,11 @@ namespace GG.CharacterSystem
             _name = string.Empty;
             _level = 0;
             _exp = 0;
+            _speedVal = 0;
             _lvlUpReq = 1000;
             _abilityPoints = 0;
-            _statEvolvers = new int[6] { 2, 2, 2, 2, 2, 2};
+            _statEvolvers = new int[8] { 2, 2, 2, 2, 2, 2, 2, 2};
+            _vitalEvolvers = new int[2] { 5, 5 };
             _unlockClassNames = new List<string>();
             _unlockClasskLevels = new List<int>();
             _unlockClassReq = new List<bool>();

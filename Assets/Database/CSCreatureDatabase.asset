@@ -48,3 +48,15 @@ MonoBehaviour:
     _defense: 0
     _exp: 14
     _gold: 2
+  - _name: Training Dummy
+    _species:
+      _name: ' '
+      _desript: ' '
+      _icon: {fileID: 0}
+    _descript: 
+    _image: {fileID: 0}
+    _speed: 0
+    _attack: 0
+    _defense: 0
+    _exp: 0
+    _gold: 0
