@@ -27,7 +27,7 @@ namespace GG.BattleSystem
             /*
             populate the combatants list
             until one of the gauges is full, keep adding the speed
-            Do some quick maths to put the
+            Do some quick maths to put the characters in order, then we begin!
             */
             
         }
@@ -35,7 +35,7 @@ namespace GG.BattleSystem
         {
             
             //Update the gauges to their respective points
-            //Engauge the turn of the first person
+            //Engauge the turn of the first Combatant
                 //Side note: if they have a spell they are channeling, engauge spell
             //Apply rules given to the action
             //put him at the bottom of the turn after his action has been forfilled

@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using GG.CharacterSystem;
-using GG;
+using GG.BattleSystem;
 using System;
 
 namespace GG.CreatureSystem
 {
     [Serializable]
-    public class CSBaseCreature
+    public class CSBaseCreature:BSCombatant
     {
         #region Variables
         [SerializeField]
@@ -22,13 +22,7 @@ namespace GG.CreatureSystem
         [SerializeField]
         private CSCreatureStat[] _coreStats;
         [SerializeField]
-        private int _speed; //this will be replaced later
-        [SerializeField]
         private FSMSystem _ai;
-        [SerializeField]
-        private int _attack;
-        [SerializeField]
-        private int _defense;
         [SerializeField]
         private int _exp;
         [SerializeField]
@@ -70,13 +64,6 @@ namespace GG.CreatureSystem
             get{return _gold;}
             set{ _gold = value;}
         }
-
-        public int speed
-        {
-            get{return _speed;}
-            set{_speed = value;}
-        }
-
         public CSCreatureStat coreStats(int index)
         {
             return _coreStats[index];
@@ -106,8 +93,6 @@ namespace GG.CreatureSystem
             _coreStats = new CSCreatureStat[6];
             ActivateStats();
             _ai = new FSMSystem();
-            _attack = 0;
-            _defense = 0;
             _exp = 20;
             _gold = 15;
             

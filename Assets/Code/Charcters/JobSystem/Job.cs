@@ -80,6 +80,11 @@ namespace GG.CharacterSystem
             set { _statEvolvers = value; }
             get { return _statEvolvers; }
         }
+        public int[] vitalEvovler
+        {
+            get { return _vitalEvolvers; }
+            set { _vitalEvolvers = value; }
+        }
         public List<string> unlockNames
         {
             get { return _unlockClassNames; }

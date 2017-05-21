@@ -31,7 +31,10 @@ namespace GG.CharacterSystem
 
         //Passives
 
-        //
+        //Crafts
+
+            //Combat realed data
+
         #endregion
         #region Setters and getters
         public string firstName
