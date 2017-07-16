@@ -82,6 +82,7 @@ namespace GG.CharacterSystem
         MD,
         SP,
         EV,
+        INS,
         CHR
     };
     #endregion

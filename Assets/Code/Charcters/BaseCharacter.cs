@@ -23,7 +23,6 @@ namespace GG.CharacterSystem
         //Stats and vitals
         private Vital[] _vitals;
         private BaseStats[] _coreStats;
-        private DirievedStat[] _deviStats;
         //Classes
         private int _curJob;
         private List<Job> _jobs;
@@ -80,10 +79,6 @@ namespace GG.CharacterSystem
         public BaseStats GetBaseStats(int index)
         {
             return _coreStats[index];
-        }
-        public DirievedStat GetDeviStat(int index)
-        {
-            return _deviStats[index];
         }
         public int expToLevel
         {

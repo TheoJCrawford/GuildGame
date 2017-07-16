@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using GG.CharacterSystem;
+using GG;
 
 namespace GG.BattleSystem
 {
@@ -29,6 +30,7 @@ namespace GG.BattleSystem
             until one of the gauges is full, keep adding the speed
             Do some quick maths to put the characters in order, then we begin!
             */
+            
             
         }
         void Update()

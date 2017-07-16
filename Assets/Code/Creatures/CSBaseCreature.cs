@@ -6,7 +6,7 @@ using System;
 namespace GG.CreatureSystem
 {
     [Serializable]
-    public class CSBaseCreature:BSCombatant
+    public class CSBaseCreature
     {
         #region Variables
         [SerializeField]
@@ -95,6 +95,7 @@ namespace GG.CreatureSystem
             _ai = new FSMSystem();
             _exp = 20;
             _gold = 15;
+            
             
         }
         
