@@ -222,46 +222,21 @@ namespace GG.BattleSystem.CharacterSystem
             {
                 //Elf
                 case 1:
-                    _coreStats[1].baseValue++;
-                    _coreStats[1].SetFullValue();
-                    _coreStats[2].baseValue--;
-                    _coreStats[2].SetFullValue();
-
                     break;
                 //Dwalf
                 case 2:
-                    _coreStats[2].baseValue++;
-                    _coreStats[2].SetFullValue();
-                    _coreStats[4].baseValue--;
-                    _coreStats[4].SetFullValue();
                     break;
                 //Halfling
                 case 3:
-                    _coreStats[0].baseValue--;
-                    _coreStats[0].SetFullValue();
-                    _coreStats[1].baseValue++;
-                    _coreStats[1].SetFullValue();
                     break;
                 //Demonkin
                 case 4:
-                    _coreStats[3].baseValue++;
-                    _coreStats[3].SetFullValue();
-                    _coreStats[5].baseValue--;
-                    _coreStats[5].SetFullValue();
                     break;
                 //Angelkin
                 case 5:
-                    _coreStats[4].baseValue++;
-                    _coreStats[4].SetFullValue();
-                    _coreStats[5].baseValue--;
-                    _coreStats[5].SetFullValue();
                     break;
                 //Human
                 default:
-                    _coreStats[0].baseValue++;
-                    _coreStats[0].SetFullValue();
-                    _coreStats[4].baseValue--;
-                    _coreStats[4].SetFullValue();
                     break;
             }
         }
@@ -288,7 +263,7 @@ namespace GG.BattleSystem.CharacterSystem
         }
         public void UpdateVitals()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < Enum.GetNames(typeof(VitalNames)).Length; i++)
             {
                 _vitals[i].UpdateVital();
                 _vitals[i].ModifyCurValue(_vitals[i].fullValue);
