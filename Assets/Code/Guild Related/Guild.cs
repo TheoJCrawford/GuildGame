@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using GG.CharacterSystem;
+using GG.BattleSystem.CharacterSystem;
 
 namespace GG.Guild
 {

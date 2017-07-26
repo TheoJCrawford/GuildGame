@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System;
 
-namespace GG.CharacterSystem
+namespace GG.BattleSystem
 {
     public class BaseStats
     {
         #region variables
         private string _name;           //Stat name
-        private int _baseValue;         //Stat you see, this one goes up in level!
-        private double _bonusVal;       //Bonuses if it comes from leveling
+        private int _baseValue;         //Base value
+        private double _levelBonus;     //levelBonus
+        private double _bonusVal;       //Bonuses from buffs
         private double _gearVal;        //Effect from gear
         private int _fullValue;         //Shown Value
         private float _percentEffect;   //Effect it plays on certain stats
@@ -82,6 +83,7 @@ namespace GG.CharacterSystem
         MD,
         SP,
         EV,
+        INS,
         CHR
     };
     #endregion

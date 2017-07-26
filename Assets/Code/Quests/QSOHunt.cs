@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using GG.CreatureSystem;
+using GG.BattleSystem.CreatureSystem;
 
 namespace GG.QuestSystem
 {
