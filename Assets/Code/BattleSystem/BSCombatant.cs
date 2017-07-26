@@ -5,36 +5,30 @@ using System.Text;
 
 namespace GG.BattleSystem
 {
-    class BSCombatant
+    public class BSCombatant
     {
 #region variables
-        private int _standardBar;      //based on this, how close are you to attacking?
-        private int _casingBar;         //
-        private bool _iscasting;        //
-                                        //ability being cast
-#endregion
-        #region setters and Getters
-        public int standardBar
+        public int standardBar;      //based on this, how close are you to attacking?
+        public int casingBar;         //
+        public bool iscasting;        //ability being cast
+        #endregion
+#region properties
+        public virtual string name{get;set;}
+        public virtual BaseStats GetBaseStats(int index)
         {
-            get { return _standardBar; }
-            set { _standardBar = value; }
+            return new BaseStats();
         }
-        public int castingBar
+        public virtual Vital GetVitals(int index)
         {
-            get { return _casingBar; }
-            set { _casingBar = value; }
+            return new Vital();
         }
-            public bool isCasting
-        {
-            get { return _iscasting; }
-            set { _iscasting = value; }
-        }
-#endregion
+        #endregion
         public BSCombatant()
         {
-            _standardBar = 0;
-            _casingBar = 0;
-            _iscasting = false;
+            standardBar = 0;
+            casingBar = 0;
+            iscasting = false;
+
         }
     }
 }

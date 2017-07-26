@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using GG;
-using GG.CharacterSystem;
+using GG.BattleSystem;
 using System.Collections;
 namespace GG.CreatureSystem
 {

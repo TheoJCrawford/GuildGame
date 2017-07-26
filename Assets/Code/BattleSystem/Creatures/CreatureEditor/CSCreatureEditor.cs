@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System;
-using GG.CharacterSystem;
+using GG.BattleSystem;
+
 
 namespace GG.CreatureSystem
 {

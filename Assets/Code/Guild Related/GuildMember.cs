@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using GG.CharacterSystem;
+using GG.BattleSystem.CharacterSystem;
 
 
 public class GuildMember{

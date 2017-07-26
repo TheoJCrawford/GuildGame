@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-using GG.CharacterSystem;
 using GG;
 
 namespace GG.BattleSystem

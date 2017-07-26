@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-namespace GG.CharacterSystem
+namespace GG.BattleSystem
 {
     public class Vital : BaseStats
     {

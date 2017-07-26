@@ -19,9 +19,6 @@ MonoBehaviour:
       _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     _descript: 
     _image: {fileID: 0}
-    _speed: 0
-    _attack: 0
-    _defense: 0
     _exp: 5
     _gold: 0
   - _name: Hobgoblin
@@ -31,9 +28,6 @@ MonoBehaviour:
       _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     _descript: 
     _image: {fileID: 0}
-    _speed: 0
-    _attack: 0
-    _defense: 0
     _exp: 10
     _gold: 0
   - _name: Goblin Chief
@@ -43,9 +37,6 @@ MonoBehaviour:
       _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     _descript: 
     _image: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-    _speed: 0
-    _attack: 0
-    _defense: 0
     _exp: 14
     _gold: 2
   - _name: Training Dummy
@@ -55,8 +46,5 @@ MonoBehaviour:
       _icon: {fileID: 0}
     _descript: 
     _image: {fileID: 0}
-    _speed: 0
-    _attack: 0
-    _defense: 0
     _exp: 0
     _gold: 0

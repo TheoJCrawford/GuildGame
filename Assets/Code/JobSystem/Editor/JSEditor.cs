@@ -3,7 +3,7 @@ using UnityEditor;
 using System;
 using System.Linq;
 
-namespace GG.CharacterSystem.Editor
+namespace GG.BattleSystem.CharacterSystem.Editor
 {
     public class JSEditor : EditorWindow
     {

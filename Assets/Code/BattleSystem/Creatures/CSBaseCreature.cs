@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using GG.CharacterSystem;
 using GG.BattleSystem;
 using System;
 
@@ -90,7 +89,7 @@ namespace GG.CreatureSystem
             _image = new Sprite();
             _vital = new Vital();
             _species = new CSSpecies();
-            _coreStats = new CSCreatureStat[6];
+            _coreStats = new CSCreatureStat[8];
             ActivateStats();
             _ai = new FSMSystem();
             _exp = 20;
@@ -106,7 +105,7 @@ namespace GG.CreatureSystem
             for (int i = 0; i < _coreStats.Length; i++)
             {
                 _coreStats[i] = new CSCreatureStat();
-                _coreStats[i].name = Enum.GetName(typeof(GG.CharacterSystem.StatNames), i);
+                _coreStats[i].name = Enum.GetName(typeof(StatNames), i);
             }
         }
         #endregion

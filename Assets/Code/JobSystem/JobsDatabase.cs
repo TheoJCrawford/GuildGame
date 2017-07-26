@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace GG.CharacterSystem
+namespace GG.BattleSystem.CharacterSystem
 {
     public class JobsDatabase : ScriptableObjectDatabase<Job>
     {

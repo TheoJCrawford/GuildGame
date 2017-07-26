@@ -20,6 +20,7 @@ MonoBehaviour:
     _lvlUpReq: 1000
     _abilityPoints: 0
     _statEvolvers: 0100000001000000010000000100000001000000000000000100000000000000
+    _vitalEvolvers: 0500000005000000
     _unlockClassNames: []
     _unlockClasskLevels: 
     _unlockClassReq: 
@@ -30,7 +31,8 @@ MonoBehaviour:
     _speedVal: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
-    _statEvolvers: 0100000001000000020000000100000001000000010000000200000000000000
+    _statEvolvers: 0100000000000000020000000100000001000000000000000200000000000000
+    _vitalEvolvers: 0500000005000000
     _unlockClassNames:
     - Novice
     _unlockClasskLevels: 03000000

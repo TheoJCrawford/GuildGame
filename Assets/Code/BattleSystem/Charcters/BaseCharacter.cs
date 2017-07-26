@@ -4,9 +4,9 @@ using System.Linq;
 using System;
 using GG.BattleSystem;
 
-namespace GG.CharacterSystem
+namespace GG.BattleSystem.CharacterSystem
 {
-    public class BaseCharacter
+    public class BaseCharacter : BSCombatant
     {
         #region variables
         //General data
@@ -26,17 +26,16 @@ namespace GG.CharacterSystem
         //Classes
         private int _curJob;
         private List<Job> _jobs;
-        //Spells
 
-        //Passives
-
+        //Selected Passives
         //Crafts
-
-            //Combat realed data
+        //Combat realed data
 
         #endregion
+        #region Combat variables
+        #endregion
         #region Setters and getters
-        public string firstName
+        public /*override*/ string name
         {
             get { return _firstName; }
             set { _firstName = value; }
@@ -72,11 +71,11 @@ namespace GG.CharacterSystem
             set { _jobs = value; }
         }
         //Sets and gets for arrays
-        public Vital GetVitals(int index)
+        public override Vital GetVitals(int index)
         {
-            return _vitals[index]; 
-        }        
-        public BaseStats GetBaseStats(int index)
+            return _vitals[index];
+        }
+        public override BaseStats GetBaseStats(int index)
         {
             return _coreStats[index];
         }
@@ -101,7 +100,7 @@ namespace GG.CharacterSystem
         #region Constructors
         public BaseCharacter()
         {
-            
+
             _race = 0;
             RandomGender();
             RandomFirstName();
@@ -130,7 +129,6 @@ namespace GG.CharacterSystem
             UpdateVitals();
             _curJob = 0;
             _jobs = new List<Job>();
-            
         }
         #endregion
         #region Functions
@@ -279,7 +277,7 @@ namespace GG.CharacterSystem
             _exp += Exp;
             if(_exp >= _expToLevel)
             {
-                levelUp();
+                LevelUp();
             }
             _jobs.ElementAt(_curJob).AddExp(Exp);
             if (_jobs.ElementAt(_curJob).exp >= _jobs.ElementAt(_curJob).lvlUpReq)
@@ -330,7 +328,7 @@ namespace GG.CharacterSystem
                 
             }
         }
-        public void levelUp() {
+        public void LevelUp() {
             _level++;
             _exp -= _expToLevel;
             for(int i = 0; i < _jobs.ElementAt(_curJob).statEvolve.Length; i++)

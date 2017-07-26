@@ -1,4 +1,4 @@
-﻿using GG.CharacterSystem;
+﻿using GG.BattleSystem;
 using UnityEngine;
 
 namespace GG.CreatureSystem
