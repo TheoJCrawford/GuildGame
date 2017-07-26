@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-namespace GG.CreatureSystem
+namespace GG.BattleSystem.CreatureSystem
 {
     [Serializable]
     public class CSSpecies

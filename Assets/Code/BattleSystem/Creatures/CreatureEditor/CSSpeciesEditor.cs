@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections;
 
-namespace GG.CreatureSystem.Editor
+namespace GG.BattleSystem.CreatureSystem.Editor
 {
     public class CSSpeciesEditor : EditorWindow
     {

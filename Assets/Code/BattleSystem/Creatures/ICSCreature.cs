@@ -2,7 +2,7 @@
 using GG;
 using GG.BattleSystem;
 using System.Collections;
-namespace GG.CreatureSystem
+namespace GG.BattleSystem.CreatureSystem
 {
     public interface ICSCreature
     {
@@ -10,7 +10,7 @@ namespace GG.CreatureSystem
         Sprite image { set; get; }
         string descript { set; get; }
         CSSpecies species { set; get; }
-        CSCreatureStat[] coreStats {get; }
+        //CSCreatureStat[] coreStats {get; }
         Vital vitals { get; set; }
         FSMSystem ai { get; set; }
         int exp { set; get; }

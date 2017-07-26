@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
-using GG.BattleSystem;
 using System;
 
-namespace GG.CreatureSystem
+namespace GG.BattleSystem.CreatureSystem
 {
     [Serializable]
-    public class CSBaseCreature
+    public class CSBaseCreature:BSCombatant
     {
         #region Variables
         [SerializeField]
@@ -19,7 +18,7 @@ namespace GG.CreatureSystem
         [SerializeField]
         private Vital _vital;
         [SerializeField]
-        private CSCreatureStat[] _coreStats;
+        private BaseStats[] _coreStats;
         [SerializeField]
         private FSMSystem _ai;
         [SerializeField]
@@ -28,18 +27,16 @@ namespace GG.CreatureSystem
         private int _gold;
         #endregion
         #region Setters and Getters
-        public string name
+        public override string name
         {
             get{return _name;}
             set{_name = value;}
         }
-
         public Sprite image
         {
             get{return _image;}
             set{_image = value;}
         }
-
         public string descript
         {
             get{return _descript;}
@@ -63,17 +60,11 @@ namespace GG.CreatureSystem
             get{return _gold;}
             set{ _gold = value;}
         }
-        public CSCreatureStat coreStats(int index)
-        {
-            return _coreStats[index];
-        }
 
-        public Vital vitals
+        public override Vital GetVitals(int index)
         {
-            set{_vital = value;}
-            get{return _vital;}
+            return _vital;
         }
-
         public FSMSystem ai
         {
             get{return _ai;}
@@ -89,8 +80,8 @@ namespace GG.CreatureSystem
             _image = new Sprite();
             _vital = new Vital();
             _species = new CSSpecies();
-            _coreStats = new CSCreatureStat[8];
-            ActivateStats();
+            _coreStats = new BaseStats[8];
+            //ActivateStats();
             _ai = new FSMSystem();
             _exp = 20;
             _gold = 15;
@@ -100,14 +91,14 @@ namespace GG.CreatureSystem
         
         #endregion
         #region Fuction
-        public void ActivateStats()
+       /* public void ActivateStats()
         {
             for (int i = 0; i < _coreStats.Length; i++)
             {
                 _coreStats[i] = new CSCreatureStat();
                 _coreStats[i].name = Enum.GetName(typeof(StatNames), i);
             }
-        }
+        }*/
         #endregion
     }
 }

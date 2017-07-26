@@ -1,7 +1,7 @@
 ﻿using GG.BattleSystem;
 using UnityEngine;
 
-namespace GG.CreatureSystem
+namespace GG.BattleSystem.CreatureSystem
 {
     public interface ICSBaseCreature
     {
@@ -15,6 +15,5 @@ namespace GG.CreatureSystem
         Vital vitals { get; set; }
 
         void ActivateStats();
-        CSCreatureStat coreStats(int index);
     }
 }
