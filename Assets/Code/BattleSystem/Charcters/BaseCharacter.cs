@@ -210,10 +210,17 @@ namespace GG.BattleSystem.CharacterSystem
         public void RandomStatValues()
         {
             Random rand = new Random();
-
-            for (int i = 0; i < _coreStats.Length; i++) {
-                _coreStats[i].baseValue = rand.Next(12, 18);
-                _coreStats[i].SetFullValue();
+            int sta = 0;
+            foreach (BaseStats stat in _coreStats) {
+                _coreStats[sta].baseValue = rand.Next(12, 18);
+                _coreStats[sta].SetFullValue();
+            }
+            int vit = 0;
+            foreach(Vital vital in _vitals)
+            {
+                _vitals[vit].baseValue = rand.Next(80,120);
+                _vitals[vit].UpdateVital();
+                vit++;
             }
         }
         public void RacialAdjustments()
@@ -225,6 +232,7 @@ namespace GG.BattleSystem.CharacterSystem
                     break;
                 //Dwalf
                 case 2:
+                    _vitals[0].baseValue += 10;
                     break;
                 //Halfling
                 case 3:
