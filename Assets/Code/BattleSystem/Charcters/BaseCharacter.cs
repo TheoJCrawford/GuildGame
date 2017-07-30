@@ -32,10 +32,8 @@ namespace GG.BattleSystem.CharacterSystem
         //Combat realed data
 
         #endregion
-        #region Combat variables
-        #endregion
         #region Setters and getters
-        public /*override*/ string name
+        public override string name
         {
             get { return _firstName; }
             set { _firstName = value; }
@@ -117,8 +115,6 @@ namespace GG.BattleSystem.CharacterSystem
                 _coreStats[i].name = Enum.GetName(typeof(StatNames), i);
 
             }
-            RandomStatValues();
-            RacialAdjustments();
             _vitals = new Vital[Enum.GetNames(typeof(VitalNames)).Length];
             for (int i = 0; i < _vitals.Length; i++)
             {
@@ -126,6 +122,8 @@ namespace GG.BattleSystem.CharacterSystem
                 _vitals[i].name = Enum.GetName(typeof(VitalNames), i);
 
             }
+            RandomStatValues();
+            RacialAdjustments();
             UpdateVitals();
             _curJob = 0;
             _jobs = new List<Job>();
@@ -210,17 +208,14 @@ namespace GG.BattleSystem.CharacterSystem
         public void RandomStatValues()
         {
             Random rand = new Random();
-            int sta = 0;
             foreach (BaseStats stat in _coreStats) {
-                _coreStats[sta].baseValue = rand.Next(12, 18);
-                _coreStats[sta].SetFullValue();
+                stat.baseValue = rand.Next(12, 18);
+                stat.SetFullValue();
             }
-            int vit = 0;
             foreach(Vital vital in _vitals)
             {
-                _vitals[vit].baseValue = rand.Next(80,120);
-                _vitals[vit].UpdateVital();
-                vit++;
+                vital.baseValue = rand.Next(80,120);
+                vital.UpdateVital();
             }
         }
         public void RacialAdjustments()

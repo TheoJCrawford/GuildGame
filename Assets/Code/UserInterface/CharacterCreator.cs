@@ -152,9 +152,13 @@ namespace GG.BattleSystem.CharacterSystem
             for (int i = 0; i < Enum.GetNames(typeof(StatNames)).Length; i++)
             {
                 GUI.Label(new Rect(DEFAULT_OFFSET_X, 175 + (20 * i), 30, 20), Enum.GetName(typeof(StatNameAbreviations), i));
-                GUI.Label(new Rect(DEFAULT_OFFSET_X + DEFAULT_OFFSET_X, 175 + (20 * i), 30, 20), _newCharacter.GetBaseStats(i).fullValue.ToString());
+                GUI.Label(new Rect(DEFAULT_OFFSET_X + 60, 175 + (20 * i), 30, 20), _newCharacter.GetBaseStats(i).fullValue.ToString());
             }
-            if (GUI.Button(new Rect(50, 300, REROLL_BUTTON_HIEGHT, REROLL_BUTTON_HIEGHT), "Reroll"))
+            for(int i = 0; i < Enum.GetNames(typeof(VitalNames)).Length; i++)
+            {
+                GUI.Label(new Rect(DEFAULT_OFFSET_X + 120, 175 + (20 * i), 30, 20), Enum.GetName(typeof(VitalNameAbreviations), i));
+            }
+            if (GUI.Button(new Rect(50, 350, REROLL_BUTTON_HIEGHT, REROLL_BUTTON_HIEGHT), "Reroll"))
             {
                 _newCharacter.RandomStatValues();
             }

@@ -4,46 +4,41 @@ using System;
 
 namespace GG.BattleSystem
 {
-    public class Vital : BaseStats
+    public class Vital
     {
         #region Variables
         private string _name;           //Stat name
-        private int _baseValue;         //Stat you see, this one goes up in level!
-        private double _bonusVal;       //Bonuses if it comes from leveling
+        private int _baseValue;         //Base value
+        private double _levelBonus;     //levelBonus
+        private double _bonusVal;       //Bonuses from buffs
         private double _gearVal;        //Effect from gear
         private int _fullValue;         //Shown Value
-        private float _percentEffect;   //Effect it plays on certain stats
         private int _curValue;                  //The current value of the stat
         #endregion
         #region Setters and Getters
-        public new string name
+        public  string name
         {
             set { _name = value; }
             get { return _name; }
         }
-        public new int baseValue
+        public  int baseValue
         {
             set { _baseValue = value; }
             get { return _baseValue; }
         }
-        public new int fullValue
+        public  int fullValue
         {
             set { _fullValue = value; }
             get { return _fullValue; }
         }
-        public new double bonusVal
+        public  double bonusVal
         {
             set { _bonusVal = value; }
             get { return _bonusVal; }
         }
-        public new double setGearVal
+        public  double setGearVal
         {
             set { _gearVal = value; }
-        }
-        public new float perEffect
-        {
-            get { return _percentEffect; }
-            set { _percentEffect = value; }
         }
         public int GetCurVale
         {
@@ -56,6 +51,7 @@ namespace GG.BattleSystem
             _name = string.Empty;
             _baseValue = 100;
             _gearVal = 0;
+            _bonusVal = 0;
             _fullValue = 100;
             _curValue = _fullValue;
         }
@@ -89,5 +85,10 @@ namespace GG.BattleSystem
         Health,
         Mana
     };
+    public enum VitalNameAbreviations
+    {
+        HP,
+        MP
+    };
     #endregion
-}
+    }

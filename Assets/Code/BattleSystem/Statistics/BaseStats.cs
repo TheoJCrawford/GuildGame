@@ -12,7 +12,6 @@ namespace GG.BattleSystem
         private double _bonusVal;       //Bonuses from buffs
         private double _gearVal;        //Effect from gear
         private int _fullValue;         //Shown Value
-        private float _percentEffect;   //Effect it plays on certain stats
         #endregion
         #region Setters and Getters
         public string name
@@ -39,11 +38,6 @@ namespace GG.BattleSystem
         {
             set { _gearVal = value; }
         }
-        public float perEffect
-        {
-            get { return _percentEffect; }
-            set { _percentEffect = value; }
-        }
         #endregion
         #region Constructors
         public BaseStats()
@@ -52,7 +46,6 @@ namespace GG.BattleSystem
             _baseValue = 10;
             _bonusVal = 0.0;
             _fullValue = 10;
-            _percentEffect = .33f;
 
         }
         #endregion
