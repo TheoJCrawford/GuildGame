@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-using GG;
+using GG.BattleSystem.CharacterSystem;
 
 namespace GG.BattleSystem
 {
@@ -20,16 +20,16 @@ namespace GG.BattleSystem
             d) Attempting to flee - burns the gauge completely and RNG
         4)Once the turn is completed, their gauge is set to zero, thus placing them at the bottom of the list. That entity will continue to go up the list until it is the entity's turn based on how fast their guage replenishes. This, again, is based off speed
         */
-        private List<BSCombatant> _combatants;
+        public List<BSCombatant> Combatants;
 
         void Awake()
         {
+            PlayerParty party = GameObject.Find("Host").GetComponent<PlayerParty>();
             /*
             populate the combatants list
             until one of the gauges is full, keep adding the speed
             Do some quick maths to put the characters in order, then we begin!
             */
-            
             
         }
         void Update()
