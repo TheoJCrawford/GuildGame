@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections.Generic;
 using GG.BattleSystem.CharacterSystem;
 
@@ -12,6 +13,10 @@ namespace GG.BattleSystem
         {
             get { return _party; }
             set { _party = value; }
+        }
+        public BaseCharacter partymember(int index)
+        {
+            return _party.ElementAt(index);
         }
 
         public PlayerParty()

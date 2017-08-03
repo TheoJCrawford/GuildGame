@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Collections;
 using UnityEngine;
 using GG.BattleSystem.CharacterSystem;
 
@@ -25,21 +25,35 @@ namespace GG.BattleSystem
         void Awake()
         {
             PlayerParty party = GameObject.Find("Host").GetComponent<PlayerParty>();
-            /*
-            populate the combatants list
-            until one of the gauges is full, keep adding the speed
-            Do some quick maths to put the characters in order, then we begin!
-            */
-            
+
+            //populate the combatants list
+            for (int i = 0; i < party.party.Count; i++)
+            {
+                Combatants.Add(party.partymember(i) as BSCombatant);
+            }
+            foreach(BSCombatant entity in Combatants)
+            {
+                entity.standardBar += entity.GetBaseStats(4).fullValue;
+            }
+            //until one of the gauges is full, keep adding the speed
+            //Do some quick maths to put the characters in order, then we begin!
         }
         void Update()
         {
-            
+            Combatants.Sort(delegate (BSCombatant EntityA, BSCombatant EntityB)
+            {
+                //This does not include casting
+                if (EntityA.standardBar == 0 && EntityB.standardBar == 0) return 0;
+                else if (EntityA.standardBar == 0) return -1;
+                else if (EntityB.standardBar == 0) return 1;
+                else return EntityA.standardBar.CompareTo(EntityB.standardBar);
+            });
             //Update the gauges to their respective points
             //Engauge the turn of the first Combatant
                 //Side note: if they have a spell they are channeling, engauge spell
             //Apply rules given to the action
             //put him at the bottom of the turn after his action has been forfilled
         }
+
     }
 }
