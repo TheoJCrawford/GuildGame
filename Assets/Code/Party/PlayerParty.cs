@@ -26,15 +26,25 @@ namespace GG.BattleSystem
         #region functions
         public void AddNewMember(BaseCharacter character)
         {
-            _party.Add(character);
+            if (_party.Count < 4)
+            {
+                _party.Add(character);
+            }
+            else
+            {
+                Debug.Log("Can not add more characters");
+            }
         }
         public void RemoveMember(BaseCharacter character)
         {
-            foreach(BaseCharacter chari in _party)
+            if (_party.Count < 0)
             {
-                if(character.name == chari.name && character.lastName == chari.lastName)
+                foreach (BaseCharacter chari in _party)
                 {
-                    _party.Remove(chari);
+                    if (character.name == chari.name && character.lastName == chari.lastName)
+                    {
+                        _party.Remove(chari);
+                    }
                 }
             }
         }

@@ -40,15 +40,25 @@ namespace GG.BattleSystem
         }
         void Update()
         {
+            Combatants.Sort();
+
             Combatants.Sort(delegate (BSCombatant EntityA, BSCombatant EntityB)
             {
-                //This does not include casting
+                //This does not include casting 
                 if (EntityA.standardBar == 0 && EntityB.standardBar == 0) return 0;
                 else if (EntityA.standardBar == 0) return -1;
                 else if (EntityB.standardBar == 0) return 1;
                 else return EntityA.standardBar.CompareTo(EntityB.standardBar);
+                
             });
             //Update the gauges to their respective points
+            if(Combatants.ElementAt(0).standardBar <= 100)
+            {
+                foreach(BSCombatant combatant in Combatants)
+                {
+                    combatant.standardBar += combatant.GetBaseStats(4).fullValue;
+                }
+            }
             //Engauge the turn of the first Combatant
                 //Side note: if they have a spell they are channeling, engauge spell
             //Apply rules given to the action
