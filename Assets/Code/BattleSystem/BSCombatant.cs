@@ -8,12 +8,14 @@ namespace GG.BattleSystem
     public class BSCombatant
     {
 #region variables
-        public int standardBar;      //based on this, how close are you to attacking?
-        public int casingBar;         //
-        public bool iscasting;        //ability being cast
+        //based on this, how close are you to attacking?
+                //ability being cast
         #endregion
 #region properties
         public virtual string name{get;set;}
+        public virtual int standardBar { set; get; }
+        public virtual int castingBar { set; get; }
+        public virtual bool isCasting { set; get; }
         public virtual BaseStats GetBaseStats(int index)
         {
             return new BaseStats();
@@ -23,12 +25,5 @@ namespace GG.BattleSystem
             return new Vital();
         }
         #endregion
-        public BSCombatant()
-        {
-            standardBar = 0;
-            casingBar = 0;
-            iscasting = false;
-
-        }
     }
 }

@@ -5,7 +5,7 @@ using GG.BattleSystem.CharacterSystem;
 
 namespace GG.BattleSystem
 {
-    public class PlayerParty
+    public class PlayerParty:MonoBehaviour
     {
         private List<BaseCharacter> _party;
 

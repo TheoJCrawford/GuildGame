@@ -30,6 +30,9 @@ namespace GG.BattleSystem.CharacterSystem
         //Selected Passives
         //Crafts
         //Combat realed data
+        private int _actBar;
+        private bool _isCasting;
+        private int _castBar;
 
         #endregion
         #region Setters and getters
@@ -94,6 +97,22 @@ namespace GG.BattleSystem.CharacterSystem
                 _exp = value;
             }
         }
+        //Combat data
+        public override int standardBar
+        {
+            get { return _actBar; }
+            set { _actBar = value; }
+        }
+        public override int castingBar
+        {
+            get{return _castBar;}
+            set{_castBar = value;}
+        }
+        public override bool isCasting
+        {
+            get { return _isCasting; }
+            set { _isCasting = value; }
+        } 
         #endregion
         #region Constructors
         public BaseCharacter()

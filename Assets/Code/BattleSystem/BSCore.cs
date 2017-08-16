@@ -7,7 +7,7 @@ using GG.BattleSystem.CharacterSystem;
 
 namespace GG.BattleSystem
 {
-    public class BSCore
+    public class BSCore:MonoBehaviour
     {
         /*
         Rules:
@@ -58,6 +58,14 @@ namespace GG.BattleSystem
                 {
                     combatant.standardBar += combatant.GetBaseStats(4).fullValue;
                 }
+            }
+            if(Combatants.ElementAt(0) is BaseCharacter)
+            {
+                Debug.Log("I am a player character");
+            }
+            else
+            {
+                Debug.Log("I am a creature");
             }
             //Engauge the turn of the first Combatant
                 //Side note: if they have a spell they are channeling, engauge spell
