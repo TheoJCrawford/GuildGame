@@ -37,14 +37,33 @@ namespace GG.BattleSystem.CreatureSystem
         {
             return _vitals[index];
         }
+
         public override int castingBar
         {
             get{return _castBar}
             set{_castBar = value;}
         }
+        public override int standardBar
+        {
+            get{return _actBar;}
+            set{_actBar = value;}
+        }
         #endregion
         #region Constructors
-
+        public BSCreature()
+        {
+            _name = "Meps";
+            _stats = new BaseStats[Enum.GetNames(typeof(StatNames)).Length];
+            for(int i = 0; i < Enum.GetNames(typeof(StatNames)).Length; i++)
+            {
+                _stats[i] = new BaseStats();
+                _stats[i].name = Enum.GetName(typeof(StatNames), i);
+            }
+            for(int i =0; i < Enum.GetNames(typeof(VitalNames)).Length; i++)
+            {
+                _vitals[i].name = Enum.GetName(typeof(VitalNames), i);
+            }
+        }
         #endregion
         #region Fuctions
         #endregion

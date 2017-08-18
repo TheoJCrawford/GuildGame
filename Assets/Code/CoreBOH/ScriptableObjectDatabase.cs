@@ -12,7 +12,6 @@ namespace GG
     {
         [SerializeField]
         List<T> database = new List<T>();
-#if UNITY_EDITOR
         #region Functions
         public void Add(T entity)
         {
@@ -70,6 +69,5 @@ namespace GG
 
         }
         #endregion
-#endif
     }
 }
