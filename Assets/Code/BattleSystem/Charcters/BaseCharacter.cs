@@ -295,9 +295,15 @@ namespace GG.BattleSystem.CharacterSystem
         {
             _vitals[index].ModifyCurValue(val);
         }
-        public void AddNewJob(Job newJob)
+        public void AddNewJob(JobsDatabase newJob)
         {
-            _jobs.Add(newJob);
+            for(int i = 0; i < newJob.Count; i++)
+            {
+                if (_jobs.ElementAt(i) == null)
+                {
+                    _jobs.Add(newJob.Get(i));
+                }
+            }
         }
         public void CheckPreReqs()
         {

@@ -7,7 +7,7 @@ using GG.BattleSystem.CharacterSystem;
 
 namespace GG.BattleSystem
 {
-    public class BSCore:MonoBehaviour
+    public partial class BSCore:MonoBehaviour
     {
         /*
         Rules:
@@ -33,6 +33,9 @@ namespace GG.BattleSystem
             }
             foreach(BSCombatant entity in Combatants)
             {
+                entity.standardBar = 0;
+                entity.castingBar = 0;
+                entity.isCasting = false;
                 entity.standardBar += entity.GetBaseStats(4).fullValue;
             }
             //until one of the gauges is full, keep adding the speed
@@ -62,6 +65,7 @@ namespace GG.BattleSystem
             if(Combatants.ElementAt(0) is BaseCharacter)
             {
                 Debug.Log("I am a player character");
+                PlayerTurn();
             }
             else
             {

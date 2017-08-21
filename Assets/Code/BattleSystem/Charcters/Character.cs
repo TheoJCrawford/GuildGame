@@ -12,10 +12,7 @@ public class Character:MonoBehaviour
     {
         if(player.job.Count == 0)
         {
-            for(int i = 0; i > JobsDatabase.GetDatabase<JobsDatabase>(@"Database", @"JobDatabase.asset").Count; i++)
-            {
-                player.AddNewJob(JobsDatabase.GetDatabase<JobsDatabase>(@"Database", @"JobDatabase.asset").Get(i));
-            }
+                player.AddNewJob(JobsDatabase.GetDatabase<JobsDatabase>(@"Database", @"JobDatabase.asset"));
         }
     }
 

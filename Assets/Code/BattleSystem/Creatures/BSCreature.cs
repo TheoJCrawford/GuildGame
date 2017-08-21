@@ -40,7 +40,7 @@ namespace GG.BattleSystem.CreatureSystem
 
         public override int castingBar
         {
-            get{return _castBar}
+            get{ return _castBar; }
             set{_castBar = value;}
         }
         public override int standardBar
