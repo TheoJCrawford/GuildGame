@@ -144,8 +144,9 @@ namespace GG.BattleSystem.CharacterSystem
             RandomStatValues();
             RacialAdjustments();
             UpdateVitals();
-            _curJob = 0;
             _jobs = new List<Job>();
+            AddNewJob(JobsDatabase.GetDatabase<JobsDatabase>(@"Database", @"JobDatabase.asset"));
+            _curJob = 0;
         }
         #endregion
         #region Functions

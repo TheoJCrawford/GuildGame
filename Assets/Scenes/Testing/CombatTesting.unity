@@ -560,7 +560,7 @@ Prefab:
       objectReference: {fileID: 608875503}
     - target: {fileID: 1699025112774184, guid: 93855a6242a5ff24fb1eedeb3fe9d679, type: 2}
       propertyPath: m_Name
-      value: CombatCanvas
+      value: BaseCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93855a6242a5ff24fb1eedeb3fe9d679, type: 2}

@@ -10,10 +10,7 @@ public class Character:MonoBehaviour
 
     void Awake()
     {
-        if(player.job.Count == 0)
-        {
-                player.AddNewJob(JobsDatabase.GetDatabase<JobsDatabase>(@"Database", @"JobDatabase.asset"));
-        }
+
     }
 
 }
