@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace GG.BattleSystem
 {
@@ -14,6 +15,7 @@ namespace GG.BattleSystem
             switch (order)
             {
                 case "attack":
+                    SelectPlayerTarget();
                     if(target != null)
                     {
                         if(Combatants.ElementAt(0).GetBaseStats(0).fullValue - target.GetBaseStats(2).fullValue < 0)
@@ -21,10 +23,18 @@ namespace GG.BattleSystem
                             target.GetVitals(0).ModifyCurValue(Combatants.ElementAt(0).GetBaseStats(0).fullValue - target.GetBaseStats(2).fullValue);
                         }
                         Reset();
-                        
                     }
                     break;
                 case "Ability":
+                    SelectPlayerTarget();
+                    if (target != null)
+                    {
+                        if (Combatants.ElementAt(0).GetBaseStats(0).fullValue - target.GetBaseStats(2).fullValue < 0)
+                        {
+                           
+                        }
+                        Reset();
+                    }
                     break;
                 case "Item":
                     break;
@@ -36,23 +46,23 @@ namespace GG.BattleSystem
         {
 
         }
-        public void SetAttack()
+        public void SetPlayerAttack()
         {
             order = "Attack";
             //prompt the player to select a target
         }
-        public void SetAbility()
+        public void SetPlayerAbility()
         {
             order = "Ability";
         }
-        public void SetItem()
+        public void SetPlayerItem()
         {
             order = "Item";
         }
 
-        void SelectTarget()
+         BSCombatant SelectPlayerTarget()
         {
-
+            return gameObject.GetComponent<BSCombatant>();
         }
         void Reset()
         {

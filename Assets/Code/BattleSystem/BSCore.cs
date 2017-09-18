@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Collections;
 using UnityEngine;
 using GG.BattleSystem.CharacterSystem;
 
@@ -20,16 +19,22 @@ namespace GG.BattleSystem
             d) Attempting to flee - burns the gauge completely and RNG
         4)Once the turn is completed, their gauge is set to zero, thus placing them at the bottom of the list. That entity will continue to go up the list until it is the entity's turn based on how fast their guage replenishes. This, again, is based off speed
         */
+        PlayerParty party = GameObject.Find("Host").GetComponent<PlayerParty>();
+        EnemyParty eParty = GameObject.Find("Enemies").GetComponent<EnemyParty>();
         public List<BSCombatant> Combatants;
 
         void Awake()
         {
-            PlayerParty party = GameObject.Find("Host").GetComponent<PlayerParty>();
+            
 
             //populate the combatants list
             for (int i = 0; i < party.party.Count; i++)
             {
                 Combatants.Add(party.partymember(i) as BSCombatant);
+            }
+            for(int i = 0; i < eParty.party.Count; i++)
+            {
+                Combatants.Add(eParty.party.ElementAt(i) as BSCombatant);
             }
             foreach(BSCombatant entity in Combatants)
             {
