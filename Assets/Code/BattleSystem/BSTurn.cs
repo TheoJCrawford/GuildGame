@@ -8,6 +8,12 @@ namespace GG.BattleSystem
 {
     public partial class BSCore
     {
+        /*Alright... now here is where we have a massive problem
+         * Players have choice, creatures have AI... Do I know how to get their AI to work, no...
+         * Players have a few options (might add flee as a native option depending upon difficulty)
+         * A player character makes the decision of Attack, use an ability from one of the trees they have assigned, or use an item (considering on making a class just to make the added teedium of them having to KNOW how to use the actual items)
+         * 
+        */
         private string order = " ";
         private BSCombatant target;
         public void PlayerTurn()
