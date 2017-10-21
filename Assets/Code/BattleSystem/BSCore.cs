@@ -10,14 +10,21 @@ namespace GG.BattleSystem
     {
         /*
         Rules:
-        1)When all members of a side are dead, the battle ends. If the player's characters are all dead, then it is a game over state (unless there are guild members that are in a position to act as the next leaders). If all creatures are dead or have fled, then it is the exp of those slain distributed to the party evenly.
-        2)Turns take place in an a speed based system. The faster the character, the faster their time for a turn comes up.
-        3)When the actor's turn does come up the player can choose multiple things
-            a) Attack - selecting a target then - depletes their "gauge" to 0
-            b) Ability - if it has a cast time, depletes the "gauge" then brings it back to full at the spell's speed. If it is an instant cast
-            c) Item - currently toying around with the notion of using items without any form of learning how to use them...
-            d) Attempting to flee - burns the gauge completely and RNG
-        4)Once the turn is completed, their gauge is set to zero, thus placing them at the bottom of the list. That entity will continue to go up the list until it is the entity's turn based on how fast their guage replenishes. This, again, is based off speed
+        1)When all members of either side are down or dead (dead state included), the battle has ended.
+        2)All alive party members gain exp and class points at the end of combat.
+        3) all unconscious members of combat are brought back to life at the end of combat on 1 hit point (might actually make the player take a rest in order for them to come out of the ko state instead. Will ask)
+        while (battle) {
+ 
+Playerchoose();
+Playerattack();
+ 
+EnemyChoose();
+Enemyattack();
+ 
+EndRound();
+ 
+}
+This code above is a just a guid line I might need to use
         */
         PlayerParty party = GameObject.Find("Host").GetComponent<PlayerParty>();
         EnemyParty eParty = GameObject.Find("Enemies").GetComponent<EnemyParty>();

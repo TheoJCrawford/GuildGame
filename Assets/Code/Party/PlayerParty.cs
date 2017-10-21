@@ -12,7 +12,6 @@ namespace GG.BattleSystem
         public List<BaseCharacter> party
         {
             get { return _party; }
-            set { _party = value; }
         }
         public BaseCharacter partymember(int index)
         {
@@ -47,6 +46,10 @@ namespace GG.BattleSystem
                     }
                 }
             }
+        }
+        public void UpadteMember(BaseCharacter character)
+        {
+            
         }
         public void RemoveMember(int index)
         {
