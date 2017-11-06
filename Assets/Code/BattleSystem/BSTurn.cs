@@ -54,6 +54,7 @@ namespace GG.BattleSystem
         }
         public void SetPlayerAttack()
         {
+            
             order = "Attack";
             //prompt the player to select a target
         }
@@ -68,6 +69,10 @@ namespace GG.BattleSystem
 
          BSCombatant SelectPlayerTarget()
         {
+            if (Input.GetAxis("Horizontal") < 0.4f || Input.GetAxis("Horizontal") > -0.4f)
+            {
+
+            }
             return gameObject.GetComponent<BSCombatant>();
         }
         void Reset()

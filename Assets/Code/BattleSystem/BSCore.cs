@@ -26,18 +26,21 @@ EndRound();
 }
 This code above is a just a guid line I might need to use
         */
-        PlayerParty party = GameObject.Find("Host").GetComponent<PlayerParty>();
-        EnemyParty eParty = GameObject.Find("Enemies").GetComponent<EnemyParty>();
+        public PlayerParty party; //The player party
+        public EnemyParty eParty;  //The enemy Party
+            
         public List<BSCombatant> Combatants;
 
         void Awake()
         {
-            
+             party = GameObject.Find("Host").GetComponent<PlayerParty>();
+            eParty = GameObject.Find("Enemies").GetComponent<EnemyParty>();
 
             //populate the combatants list
             for (int i = 0; i < party.party.Count; i++)
             {
                 Combatants.Add(party.partymember(i) as BSCombatant);
+
             }
             for(int i = 0; i < eParty.party.Count; i++)
             {
@@ -50,22 +53,21 @@ This code above is a just a guid line I might need to use
                 entity.isCasting = false;
                 entity.standardBar += entity.GetBaseStats(4).fullValue;
             }
+            SortCombatants();
             //until one of the gauges is full, keep adding the speed
+            while(Combatants.ElementAt(0).standardBar <= 100)
+            {
+                foreach(BSCombatant combi in Combatants)
+                {
+                    combi.standardBar += combi.GetBaseStats(4).fullValue;
+                }
+            }
             //Do some quick maths to put the characters in order, then we begin!
         }
         void Update()
         {
-            Combatants.Sort();
 
-            Combatants.Sort(delegate (BSCombatant EntityA, BSCombatant EntityB)
-            {
-                //This does not include casting 
-                if (EntityA.standardBar == 0 && EntityB.standardBar == 0) return 0;
-                else if (EntityA.standardBar == 0) return -1;
-                else if (EntityB.standardBar == 0) return 1;
-                else return EntityA.standardBar.CompareTo(EntityB.standardBar);
-                
-            });
+            SortCombatants();
             //Update the gauges to their respective points
             if(Combatants.ElementAt(0).standardBar <= 100)
             {
@@ -88,6 +90,29 @@ This code above is a just a guid line I might need to use
             //Apply rules given to the action
             //put him at the bottom of the turn after his action has been forfilled
         }
+        #region Non-Unity Functions
+        void SortCombatants()
+        {
+            Combatants.Sort();
+            //For not-casting
+            Combatants.Sort(delegate (BSCombatant EntityA, BSCombatant EntityB)
+            {
+                //This does not include casting 
+                if (EntityA.standardBar == 0 && EntityB.standardBar == 0) return 0;
+                else if (EntityA.standardBar == 0) return -1;
+                else if (EntityB.standardBar == 0) return 1;
+                else return EntityA.standardBar.CompareTo(EntityB.standardBar);
 
+            });
+            //Update the gauges to their respective points
+            if (Combatants.ElementAt(0).standardBar <= 100)
+            {
+                foreach (BSCombatant combatant in Combatants)
+                {
+                    combatant.standardBar += combatant.GetBaseStats(4).fullValue;
+                }
+            }
+        }
+        #endregion
     }
 }
