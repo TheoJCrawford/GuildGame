@@ -28,6 +28,8 @@ This code above is a just a guid line I might need to use
         */
         public PlayerParty party; //The player party
         public EnemyParty eParty;  //The enemy Party
+        public int pLoseCount;
+        public int eLoseCount;
             
         public List<BSCombatant> Combatants;
 
@@ -35,12 +37,17 @@ This code above is a just a guid line I might need to use
         {
              party = GameObject.Find("Host").GetComponent<PlayerParty>();
             eParty = GameObject.Find("Enemies").GetComponent<EnemyParty>();
-
+            pLoseCount = 0;
             //populate the combatants list
             for (int i = 0; i < party.party.Count; i++)
             {
                 Combatants.Add(party.partymember(i) as BSCombatant);
+                if(party.partymember(i).GetVitals(0).GetCurVale <= 0)
+                {
 
+                    pLoseCount++;
+                }
+                //restart character death timers
             }
             for(int i = 0; i < eParty.party.Count; i++)
             {
@@ -85,6 +92,7 @@ This code above is a just a guid line I might need to use
             {
                 Debug.Log("I am a creature");
             }
+            
             //Engauge the turn of the first Combatant
                 //Side note: if they have a spell they are channeling, engauge spell
             //Apply rules given to the action
