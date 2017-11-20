@@ -11,15 +11,16 @@ namespace GG.BattleSystem.CharacterSystem
         #region variables
         //General data
         private string _firstName;
-        private string _lastName;
-        private bool _isMale;
+        private string _lastName;   
+        private bool _isMale;       //Because it's the gender tick. Calm thy farm
         private int _age;
-        private bool _isAgeless;
-        private int _level;
-        private int _race;
-        private int _exp;
-        private int _expToLevel;
-       // private int _personality;
+        private bool _isAgeless;    //Yeah... might be redundant
+        private int _level;         //What is their current level
+        private int _race;          //What race are they_
+        private int _exp;           //What is their current exp?
+        private int _expToLevel;    //well? How long until they level?
+        // private int _personality;
+        private int _deathTick;     //Timer until the character is killed
         //Stats and vitals
         private Vital[] _vitals;
         private BaseStats[] _coreStats;
@@ -70,6 +71,11 @@ namespace GG.BattleSystem.CharacterSystem
         {
             get { return _jobs; }
             set { _jobs = value; }
+        }
+        public new int deathCount
+        {
+            get{ return _deathTick; }
+            set{_deathTick = value;}
         }
         //Sets and gets for arrays
         public override Vital GetVitals(int index)

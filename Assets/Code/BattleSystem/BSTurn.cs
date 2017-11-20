@@ -18,6 +18,16 @@ namespace GG.BattleSystem
         private BSCombatant target;
         public void PlayerTurn()
         {
+            if(Combatants.ElementAt(0).GetVitals(0).GetCurVale <= 0)
+            {
+                Combatants.ElementAt(0).deathCount++;
+                if(Combatants.ElementAt(0).deathCount == 3)
+                {
+                    //Character can not be revived
+                }
+                Reset();
+            }
+            /*
             switch (order)
             {
                 case "attack":
@@ -47,6 +57,7 @@ namespace GG.BattleSystem
                     case " ":
                     break;
             }
+            */
         }
         public void CreatureTurn()
         {
@@ -80,6 +91,7 @@ namespace GG.BattleSystem
             Combatants.ElementAt(0).standardBar = 0;
             order = " ";
             target = null;
+            SortCombatants();   
 
         }
     }

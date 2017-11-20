@@ -6,7 +6,7 @@ using GG.BattleSystem.CharacterSystem;
 
 namespace GG.BattleSystem
 {
-    public partial class BSCore:MonoBehaviour
+    public partial class BSCore : MonoBehaviour
     {
         /*
         Rules:
@@ -30,41 +30,45 @@ This code above is a just a guid line I might need to use
         public EnemyParty eParty;  //The enemy Party
         public int pLoseCount;
         public int eLoseCount;
-            
+
         public List<BSCombatant> Combatants;
 
         void Awake()
         {
-             party = GameObject.Find("Host").GetComponent<PlayerParty>();
+            party = GameObject.Find("Host").GetComponent<PlayerParty>();
             eParty = GameObject.Find("Enemies").GetComponent<EnemyParty>();
             pLoseCount = 0;
             //populate the combatants list
             for (int i = 0; i < party.party.Count; i++)
             {
                 Combatants.Add(party.partymember(i) as BSCombatant);
-                if(party.partymember(i).GetVitals(0).GetCurVale <= 0)
+                //restart character death timers check
+                if (party.partymember(i).GetVitals(0).GetCurVale <= 0)
                 {
-
+                    party.partymember(i).deathCount = 0;
                     pLoseCount++;
                 }
-                //restart character death timers
+                
             }
-            for(int i = 0; i < eParty.party.Count; i++)
+            //add the enemy party to the list
+            for (int i = 0; i < eParty.party.Count; i++)
             {
                 Combatants.Add(eParty.party.ElementAt(i) as BSCombatant);
             }
-            foreach(BSCombatant entity in Combatants)
+            //Quick reset on the action bars
+            foreach (BSCombatant entity in Combatants)
             {
                 entity.standardBar = 0;
                 entity.castingBar = 0;
                 entity.isCasting = false;
                 entity.standardBar += entity.GetBaseStats(4).fullValue;
             }
+            //sort the comatants in order
             SortCombatants();
             //until one of the gauges is full, keep adding the speed
-            while(Combatants.ElementAt(0).standardBar <= 100)
+            while (Combatants.ElementAt(0).standardBar <= 100)
             {
-                foreach(BSCombatant combi in Combatants)
+                foreach (BSCombatant combi in Combatants)
                 {
                     combi.standardBar += combi.GetBaseStats(4).fullValue;
                 }
@@ -76,14 +80,15 @@ This code above is a just a guid line I might need to use
 
             SortCombatants();
             //Update the gauges to their respective points
-            if(Combatants.ElementAt(0).standardBar <= 100)
+            if (Combatants.ElementAt(0).standardBar <= 100)
             {
-                foreach(BSCombatant combatant in Combatants)
+                foreach (BSCombatant combatant in Combatants)
                 {
                     combatant.standardBar += combatant.GetBaseStats(4).fullValue;
                 }
             }
-            if(Combatants.ElementAt(0) is BaseCharacter)
+            //assuimg the first loop finishes, what kind of turn is it?
+            if (Combatants.ElementAt(0) is BaseCharacter)
             {
                 Debug.Log("I am a player character");
                 PlayerTurn();
@@ -92,9 +97,9 @@ This code above is a just a guid line I might need to use
             {
                 Debug.Log("I am a creature");
             }
-            
+
             //Engauge the turn of the first Combatant
-                //Side note: if they have a spell they are channeling, engauge spell
+            //Side note: if they have a spell they are channeling, engauge spell
             //Apply rules given to the action
             //put him at the bottom of the turn after his action has been forfilled
         }
@@ -120,6 +125,18 @@ This code above is a just a guid line I might need to use
                     combatant.standardBar += combatant.GetBaseStats(4).fullValue;
                 }
             }
+        }
+        public void DismissCombat()
+        {
+
+        }
+        public void DismissVictoryCombat()
+        {
+
+        }
+        public void DismissDefeatCombat()
+        {
+
         }
         #endregion
     }

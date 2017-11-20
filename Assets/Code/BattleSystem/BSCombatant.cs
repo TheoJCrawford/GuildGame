@@ -24,6 +24,7 @@ namespace GG.BattleSystem
         {
             return new Vital();
         }
+        public int deathCount { set; get; }
         #endregion
     }
 }
