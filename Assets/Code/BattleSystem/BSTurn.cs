@@ -27,6 +27,12 @@ namespace GG.BattleSystem
                 }
                 Reset();
             }
+            /*Action selection
+             * If the action is an attack, select the target of the attack and execute
+             * If the action is an ability, open up the ability menu. Allow the selection of the ability. If the ability requires a target, select a target. Should the ability require a cast time, 
+             * If the action is an item, select target for item. The
+             * 
+            */
             /*
             switch (order)
             {

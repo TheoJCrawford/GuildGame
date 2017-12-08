@@ -26,8 +26,10 @@ EndRound();
 }
 This code above is a just a guid line I might need to use
         */
-        public PlayerParty party; //The player party
+        public PlayerParty pParty; //The player party
         public EnemyParty eParty;  //The enemy Party
+
+
         public int pLoseCount;
         public int eLoseCount;
 
@@ -35,17 +37,17 @@ This code above is a just a guid line I might need to use
 
         void Awake()
         {
-            party = GameObject.Find("Host").GetComponent<PlayerParty>();
+            pParty = GameObject.Find("Host").GetComponent<PlayerParty>();
             eParty = GameObject.Find("Enemies").GetComponent<EnemyParty>();
             pLoseCount = 0;
             //populate the combatants list
-            for (int i = 0; i < party.party.Count; i++)
+            for (int i = 0; i < pParty.party.Count; i++)
             {
-                Combatants.Add(party.partymember(i) as BSCombatant);
+                Combatants.Add(pParty.partymember(i) as BSCombatant);
                 //restart character death timers check
-                if (party.partymember(i).GetVitals(0).GetCurVale <= 0)
+                if (pParty.partymember(i).GetVitals(0).GetCurVale <= 0)
                 {
-                    party.partymember(i).deathCount = 0;
+                    pParty.partymember(i).deathCount = 0;
                     pLoseCount++;
                 }
                 
@@ -96,14 +98,31 @@ This code above is a just a guid line I might need to use
             else
             {
                 Debug.Log("I am a creature");
+                CreatureTurn();
             }
 
-            //Engauge the turn of the first Combatant
-            //Side note: if they have a spell they are channeling, engauge spell
+            //Enguage the turn of the first Combatant
+            //Side note: if they have a spell they are channeling, enguage spell
             //Apply rules given to the action
-            //put him at the bottom of the turn after his action has been forfilled
+            //Put him at the bottom of the turn after his action has been forfilled
         }
         #region Non-Unity Functions
+        void StartUp()
+        {
+            
+            int globalSpeed = 0; //Totalspeed of all entities
+            //Add the players to the mix
+            foreach(BSCombatant charles in pParty.party)
+            {
+                globalSpeed += charles.GetBaseStats(4).fullValue;
+            }
+            //Add the creatures to the mix
+            foreach(BSCombatant charles in eParty.party)
+            {
+                globalSpeed += charles.GetBaseStats(4).fullValue;
+            }
+            //Divide up the number of times a combatant can act within the global speed
+        }
         void SortCombatants()
         {
             Combatants.Sort();
@@ -126,6 +145,11 @@ This code above is a just a guid line I might need to use
                 }
             }
         }
+        void InitializeCombat()
+        {
+
+        }
+
         public void DismissCombat()
         {
 
