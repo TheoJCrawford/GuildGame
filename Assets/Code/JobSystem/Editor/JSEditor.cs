@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace GG.BattleSystem.CharacterSystem.Editor
@@ -141,6 +142,15 @@ namespace GG.BattleSystem.CharacterSystem.Editor
                 if (_preReqs)
                 {
                     Prerequisites();
+                }
+                else
+                {
+                    if (_jobDb.Get(_selector).unlockNames.Count > 0)
+                    {
+                        _jobDb.Get(_selector).unlockNames = new List<string>();
+                        _jobDb.Get(_selector).unlockLevels = new List<int>();
+                        _jobDb.Get(_selector).unlockMet = new List<bool>();
+                    }
                 }
                 AbilityListEditor();
             }

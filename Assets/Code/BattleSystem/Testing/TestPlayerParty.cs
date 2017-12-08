@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEditor;
 using GG.BattleSystem.CharacterSystem;
 
@@ -16,15 +16,26 @@ namespace GG.BattleSystem
             {
                 testCase.AddNewMember(new BaseCharacter());
             }
-            if(testCase.party.Count > 0)
+            if (GUILayout.Button("Remove Partymembers"))
             {
-                GUILayout.BeginVertical();
+                
+            }
+            GUILayout.BeginVertical();
+            if (testCase.party.Count > 0)
+            {
+                
                 for(int i =0; i < testCase.party.Count; i++)
                 {
+                    GUILayout.BeginHorizontal();
                     GUILayout.Label(testCase.partymember(i).name);
+                    if (GUILayout.Button("X"))
+                    {
+                        testCase.party.RemoveAt(i);
+                    }
+                    GUILayout.EndHorizontal();
                 }
-                GUILayout.EndVertical();
             }
+            GUILayout.EndVertical();
         }
     }
 }

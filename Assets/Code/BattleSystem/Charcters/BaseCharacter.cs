@@ -151,7 +151,7 @@ namespace GG.BattleSystem.CharacterSystem
             RacialAdjustments();
             UpdateVitals();
             _jobs = new List<Job>();
-            AddNewJob(JobsDatabase.GetDatabase<JobsDatabase>(@"Database", @"JobDatabase.asset"));
+            //AddNewJob(JobsDatabase.GetDatabase<JobsDatabase>(@"Database", @"JobDatabase.asset"));
             _curJob = 0;
         }
         #endregion
