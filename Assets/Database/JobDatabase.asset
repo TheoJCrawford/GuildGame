@@ -11,4 +11,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a58f84f4bab434ea8e4835a9f6756f, type: 3}
   m_Name: JobDatabase
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _icon: {fileID: 0}
+    _name: Novice
+    _level: 0
+    _exp: 0
+    _speedVal: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 0100000001000000010000000000000001000000000000000000000001000000
+    _vitalEvolvers: 0300000003000000
+    _unlockClassNames: []
+    _unlockClasskLevels: 
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Knight
+    _level: 0
+    _exp: 0
+    _speedVal: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 0200000000000000020000000100000001000000020000000200000002000000
+    _vitalEvolvers: 0500000005000000
+    _unlockClassNames:
+    - Novice
+    _unlockClasskLevels: 03000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Aethermancer
+    _level: 0
+    _exp: 0
+    _speedVal: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 0200000002000000020000000200000002000000020000000200000002000000
+    _vitalEvolvers: 0500000005000000
+    _unlockClassNames:
+    - Novice
+    _unlockClasskLevels: 03000000
+    _unlockClassReq: 
