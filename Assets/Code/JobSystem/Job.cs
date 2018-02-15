@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections;
+using System.Xml;
+using System.Xml.Serialization;
 using UnityEditor;
 using System.Collections.Generic;
 namespace GG.BattleSystem.CharacterSystem
@@ -15,8 +16,10 @@ namespace GG.BattleSystem.CharacterSystem
     {
         #region variables
         [SerializeField]
+        [XmlAttribute("Icon")]
         private Sprite _icon;
         [SerializeField]
+        [XmlAttribute("name")]
         private string _name;
         [SerializeField]
         private int _level;

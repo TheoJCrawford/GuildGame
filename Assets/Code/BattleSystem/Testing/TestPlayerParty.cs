@@ -16,9 +16,9 @@ namespace GG.BattleSystem
             {
                 testCase.AddNewMember(new BaseCharacter());
             }
-            if (GUILayout.Button("Remove Partymembers"))
+            if (GUILayout.Button("Clear Party"))
             {
-                
+                testCase.party.Clear();
             }
             GUILayout.BeginVertical();
             if (testCase.party.Count > 0)

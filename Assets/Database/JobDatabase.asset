@@ -25,13 +25,13 @@ MonoBehaviour:
     _unlockClasskLevels: 
     _unlockClassReq: 
   - _icon: {fileID: 0}
-    _name: Knight
+    _name: Warrior
     _level: 0
     _exp: 0
     _speedVal: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
-    _statEvolvers: 0200000000000000020000000100000001000000020000000200000002000000
+    _statEvolvers: 0100000000000000020000000100000001000000020000000200000002000000
     _vitalEvolvers: 0500000005000000
     _unlockClassNames:
     - Novice
@@ -44,9 +44,120 @@ MonoBehaviour:
     _speedVal: 0
     _lvlUpReq: 1000
     _abilityPoints: 0
-    _statEvolvers: 0200000002000000020000000200000002000000020000000200000002000000
+    _statEvolvers: 0000000002000000020000000200000002000000020000000200000002000000
     _vitalEvolvers: 0500000005000000
     _unlockClassNames:
     - Novice
     _unlockClasskLevels: 03000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Cleric
+    _level: 0
+    _exp: 0
+    _speedVal: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 0000000002000000010000000200000001000000010000000100000002000000
+    _vitalEvolvers: 0500000005000000
+    _unlockClassNames:
+    - Novice
+    _unlockClasskLevels: 03000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Hunter
+    _level: 0
+    _exp: 0
+    _speedVal: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 0200000000000000010000000000000003000000020000000100000000000000
+    _vitalEvolvers: 0700000003000000
+    _unlockClassNames:
+    - Novice
+    _unlockClasskLevels: 03000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Shieldbearer
+    _level: 0
+    _exp: 0
+    _speedVal: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 0100000000000000040000000300000000000000010000000100000001000000
+    _vitalEvolvers: 0800000003000000
+    _unlockClassNames:
+    - Warrior
+    _unlockClasskLevels: 04000000
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Rogue
+    _level: 0
+    _exp: 0
+    _speedVal: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 0200000002000000020000000200000002000000020000000200000002000000
+    _vitalEvolvers: 0500000005000000
+    _unlockClassNames: []
+    _unlockClasskLevels: 
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Chronomancer
+    _level: 0
+    _exp: 0
+    _speedVal: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 0200000002000000020000000200000002000000020000000200000002000000
+    _vitalEvolvers: 0500000005000000
+    _unlockClassNames: []
+    _unlockClasskLevels: 
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Diviner
+    _level: 0
+    _exp: 0
+    _speedVal: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 0200000002000000020000000200000002000000020000000200000002000000
+    _vitalEvolvers: 0500000005000000
+    _unlockClassNames: []
+    _unlockClasskLevels: 
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Eidolancer
+    _level: 0
+    _exp: 0
+    _speedVal: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 0200000002000000020000000200000002000000020000000200000002000000
+    _vitalEvolvers: 0500000005000000
+    _unlockClassNames: []
+    _unlockClasskLevels: 
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Lancer
+    _level: 0
+    _exp: 0
+    _speedVal: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 0200000002000000020000000200000002000000020000000200000002000000
+    _vitalEvolvers: 0500000005000000
+    _unlockClassNames: []
+    _unlockClasskLevels: 
+    _unlockClassReq: 
+  - _icon: {fileID: 0}
+    _name: Aether Knight
+    _level: 0
+    _exp: 0
+    _speedVal: 0
+    _lvlUpReq: 1000
+    _abilityPoints: 0
+    _statEvolvers: 0200000002000000020000000200000002000000020000000200000002000000
+    _vitalEvolvers: 0500000005000000
+    _unlockClassNames: []
+    _unlockClasskLevels: 
     _unlockClassReq: 

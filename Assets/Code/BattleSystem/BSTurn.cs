@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnityEngine;
 
 namespace GG.BattleSystem
 {
@@ -14,6 +13,7 @@ namespace GG.BattleSystem
          * A player character makes the decision of Attack, use an ability from one of the trees they have assigned, or use an item (considering on making a class just to make the added teedium of them having to KNOW how to use the actual items)
          * 
         */
+        private int targetEntity = 0;
         private string order = " ";
         private BSCombatant target;
         public void PlayerTurn()
@@ -27,51 +27,18 @@ namespace GG.BattleSystem
                 }
                 Reset();
             }
-            /*Action selection
-             * If the action is an attack, select the target of the attack and execute
-             * If the action is an ability, open up the ability menu. Allow the selection of the ability. If the ability requires a target, select a target. Should the ability require a cast time, 
-             * If the action is an item, select target for item. The
-             * 
-            */
-            /*
-            switch (order)
-            {
-                case "attack":
-                    SelectPlayerTarget();
-                    if(target != null)
-                    {
-                        if(Combatants.ElementAt(0).GetBaseStats(0).fullValue - target.GetBaseStats(2).fullValue < 0)
-                        {
-                            target.GetVitals(0).ModifyCurValue(Combatants.ElementAt(0).GetBaseStats(0).fullValue - target.GetBaseStats(2).fullValue);
-                        }
-                        Reset();
-                    }
-                    break;
-                case "Ability":
-                    SelectPlayerTarget();
-                    if (target != null)
-                    {
-                        if (Combatants.ElementAt(0).GetBaseStats(0).fullValue - target.GetBaseStats(2).fullValue < 0)
-                        {
-                           
-                        }
-                        Reset();
-                    }
-                    break;
-                case "Item":
-                    break;
-                    case " ":
-                    break;
-            }
-            */
+            
         }
         public void CreatureTurn()
         {
-
+            Random randTarget = new Random();
+            targetEntity = randTarget.Next(0, pParty.party.Count);
+            pParty.partymember(targetEntity)
+           
         }
         public void SetPlayerAttack()
         {
-            
+            SelectPlayerTarget();
             order = "Attack";
             //prompt the player to select a target
         }
@@ -86,10 +53,11 @@ namespace GG.BattleSystem
 
          BSCombatant SelectPlayerTarget()
         {
-            if (Input.GetAxis("Horizontal") < 0.4f || Input.GetAxis("Horizontal") > -0.4f)
-            {
-
-            }
+            //Give the player the ability to select a target
+            //if the target is downed, do not allow slection
+            //There needs to be a clause in here for "revive" items/abilities
+            //That being said, allow target selection,
+            //get a confirmation of the "Fire" key
             return gameObject.GetComponent<BSCombatant>();
         }
         void Reset()

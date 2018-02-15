@@ -25,6 +25,22 @@ namespace GG.BattleSystem
             return new Vital();
         }
         public int deathCount { set; get; }
+        public void DealDamage(int IncomingDamage, bool isMagical)
+        {
+            int tempDamage = 0;
+            if (!isMagical)
+            {
+                tempDamage = IncomingDamage - GetBaseStats(3).fullValue;
+            }
+            else
+            {
+                tempDamage = IncomingDamage - GetBaseStats(4).fullValue;
+            }
+            if(tempDamage >= 0)
+            {
+                GetVitals(0).ModifyCurValue(tempDamage);
+            }
+        }
         #endregion
     }
 }
