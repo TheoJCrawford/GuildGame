@@ -18,22 +18,14 @@ namespace GG.BattleSystem
         private BSCombatant target;
         public void PlayerTurn()
         {
-            if(Combatants.ElementAt(0).GetVitals(0).GetCurVale <= 0)
-            {
-                Combatants.ElementAt(0).deathCount++;
-                if(Combatants.ElementAt(0).deathCount == 3)
-                {
-                    //Character can not be revived
-                }
-                Reset();
-            }
+            
             
         }
         public void CreatureTurn()
         {
             Random randTarget = new Random();
             targetEntity = randTarget.Next(0, pParty.party.Count);
-            pParty.partymember(targetEntity)
+            pParty.partymember(targetEntity).DealDamage(Combatants.ElementAt(0).GetBaseStats(0).fullValue, false);
            
         }
         public void SetPlayerAttack()

@@ -35,7 +35,7 @@ This code above is a just a guid line I might need to use
 
         public List<BSCombatant> Combatants;
 
-        void Awake()
+        void Start()
         {
             pParty = GameObject.Find("Host").GetComponent<PlayerParty>();
             eParty = GameObject.Find("Enemies").GetComponent<EnemyParty>();

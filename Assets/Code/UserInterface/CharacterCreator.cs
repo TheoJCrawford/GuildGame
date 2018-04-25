@@ -257,7 +257,7 @@ namespace GG.BattleSystem.CharacterSystem
             {
                 _screenIndex--;
             }
-            if (GUI.Button(new Rect(_windowWidth - DEFAULT_OFFSET_X, _windowHeight - 100f, 50, 50), "Testing Room"))
+            if (GUI.Button(new Rect(_windowWidth - DEFAULT_OFFSET_X, _windowHeight - 100f, 50, 50), "Begin"))
             {
                 /*
                 Analytics.CustomEvent("Chracter Created", new Dictionary<string, object>

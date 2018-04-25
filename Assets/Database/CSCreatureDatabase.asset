@@ -30,7 +30,7 @@ MonoBehaviour:
     _image: {fileID: 0}
     _exp: 10
     _gold: 0
-  - _name: Goblin Chief
+  - _name: Dwemer
     _species:
       _name: ' Goblin'
       _desript: ' '

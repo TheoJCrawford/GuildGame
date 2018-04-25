@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace GG
 {
+    [RequireComponent(typeof(PMMotor))]
     public class PMControl : MonoBehaviour
     {
         #region variables

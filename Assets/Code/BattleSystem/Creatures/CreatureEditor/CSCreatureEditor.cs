@@ -4,7 +4,7 @@ using System;
 using GG.BattleSystem;
 
 
-namespace GG.BattleSystem.CreatureSystem
+namespace GG.BattleSystem.CreatureSystem.Editor
 {
     public class CSCreatureEditor : EditorWindow
     {
@@ -47,21 +47,73 @@ namespace GG.BattleSystem.CreatureSystem
             SideBar();
             GUILayout.EndArea();
             GUILayout.BeginArea(new Rect(150, 20, 650, 780));
-            MainScreen();
+            if (_selectedCreature > -1)
+            {
+                MainScreen();
+            }
             GUILayout.EndArea();
         }
         #region Functions
         void TopBar()
         {
-
+            GUILayout.BeginHorizontal();
+            GUILayout.Button("New Creature", GUILayout.ExpandWidth(false));
+            GUILayout.Button("Delete Selected Creature", GUILayout.ExpandWidth(false));
+            GUILayout.Label("Creatures: " + _db.Count);
+            GUILayout.EndHorizontal();
         }
         void SideBar()
         {
-
+            GUILayout.BeginVertical();
+            if (_db.Count > 0)
+            {
+                for (int i = 0; i < _db.Count; i++)
+                {
+                    if (GUILayout.Button(_db.Get(i).name))
+                    {
+                        _selectedCreature = i;
+                    }
+                }
+            }
+            GUILayout.EndVertical();
         }
         void MainScreen()
         {
-
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Name: ", GUILayout.ExpandWidth(false));
+            _db.Get(_selectedCreature).name = GUILayout.TextField(_db.Get(_selectedCreature).name);
+            GUILayout.EndHorizontal();
+            for(int i = 0; i < Enum.GetNames(typeof(StatNames)).Length; i++)
+            {
+                GUILayout.BeginHorizontal();
+                GUILayout.Label(Enum.GetName(typeof(StatNameAbreviations), i));
+                GUILayout.Label(_db.Get(_selectedCreature).GetBaseStats(i).baseValue.ToString(), GUILayout.Width(50));
+                if(GUILayout.Button("+5", GUILayout.ExpandWidth(false))){
+                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue += 5;
+                    _db.Get(_selectedCreature).GetBaseStats(i).SetFullValue();
+                }
+                if(GUILayout.Button("+1", GUILayout.ExpandWidth(false))){
+                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue++;
+                    _db.Get(_selectedCreature).GetBaseStats(i).SetFullValue();
+                }
+                if(GUILayout.Button("-1", GUILayout.ExpandWidth(false))){
+                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue--;
+                    _db.Get(_selectedCreature).GetBaseStats(i).SetFullValue();
+                }
+                if(GUILayout.Button("-5", GUILayout.ExpandWidth(false))){
+                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue -=5;
+                    _db.Get(_selectedCreature).GetBaseStats(i).SetFullValue();
+                }
+                GUILayout.EndHorizontal();
+            }
+            for(int i = 0; i < Enum.GetNames(typeof(VitalNames)).Length; i++)
+            {
+                GUILayout.BeginHorizontal();
+                GUILayout.Label(Enum.GetName(typeof(VitalNameAbreviations), i));
+                GUILayout.Label(_db.Get(_selectedCreature).GetVitals(i).baseValue.ToString());
+                
+                GUILayout.EndHorizontal();
+            }
         }
         #endregion
     }

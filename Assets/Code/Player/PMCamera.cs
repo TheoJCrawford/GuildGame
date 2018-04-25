@@ -36,12 +36,11 @@ namespace GG
         void Awake()
         {
             Instance = this;
-            /*
             if (_target == null)
             {
                 _target = GameObject.FindGameObjectWithTag("Player").transform;
             }
-            */
+            
         }
         void Start()
         {
