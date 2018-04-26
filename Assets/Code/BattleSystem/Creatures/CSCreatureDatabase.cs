@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace GG.BattleSystem.CreatureSystem
 {
-    public class CSCreatureDatabase : ScriptableObjectDatabase<CSBaseCreature>
+    public class CSCreatureDatabase : ScriptableObjectDatabase<BSCreature>
     {
 
     }

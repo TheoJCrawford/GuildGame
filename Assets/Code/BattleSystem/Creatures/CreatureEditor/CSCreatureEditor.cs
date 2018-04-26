@@ -17,7 +17,7 @@ namespace GG.BattleSystem.CreatureSystem.Editor
         private int _selectedCreature;
         private Vector2 _scrollPos = Vector2.zero;
         private Texture2D _appearance;
-        private CSBaseCreature _theBeastie;
+        private BSCreature _theBeastie;
         private float _CreatureButtonSize = 300;
         [MenuItem("Horizon Guild/Creature/Creature Editor")]
         private static void Init()
@@ -33,7 +33,7 @@ namespace GG.BattleSystem.CreatureSystem.Editor
         {
             _db = CSCreatureDatabase.GetDatabase<CSCreatureDatabase>(DATABASE_FOLDER, DATABASE_NAME);
             EditorUtility.SetDirty(_db);
-            _theBeastie = new CSBaseCreature();
+            _theBeastie = new BSCreature();
             _selectedCreature = -1;
             _speciesDb = CSSpeciesDatabase.GetDatabase<CSSpeciesDatabase>(DATABASE_FOLDER, SPECIES_DATABASE);
 
@@ -89,20 +89,14 @@ namespace GG.BattleSystem.CreatureSystem.Editor
                 GUILayout.Label(Enum.GetName(typeof(StatNameAbreviations), i));
                 GUILayout.Label(_db.Get(_selectedCreature).GetBaseStats(i).baseValue.ToString(), GUILayout.Width(50));
                 if(GUILayout.Button("+5", GUILayout.ExpandWidth(false))){
-                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue += 5;
-                    _db.Get(_selectedCreature).GetBaseStats(i).SetFullValue();
                 }
                 if(GUILayout.Button("+1", GUILayout.ExpandWidth(false))){
-                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue++;
-                    _db.Get(_selectedCreature).GetBaseStats(i).SetFullValue();
+                    _db.Get(_selectedCreature).ModifyBaseStats(i, 1);
                 }
                 if(GUILayout.Button("-1", GUILayout.ExpandWidth(false))){
-                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue--;
-                    _db.Get(_selectedCreature).GetBaseStats(i).SetFullValue();
                 }
                 if(GUILayout.Button("-5", GUILayout.ExpandWidth(false))){
-                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue -=5;
-                    _db.Get(_selectedCreature).GetBaseStats(i).SetFullValue();
+
                 }
                 GUILayout.EndHorizontal();
             }

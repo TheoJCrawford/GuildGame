@@ -13,7 +13,7 @@ namespace GG.QuestSystem
         private string _descript;
         private string _locale;
 
-        private List<CSBaseCreature> _targets;
+        private List<BSCreature> _targets;
         private List<int> _targetsNum;
         private List<int> _remaining;
         #endregion
@@ -33,7 +33,7 @@ namespace GG.QuestSystem
             get { return _locale; }
             set { _locale = value; }
         }
-        public List<CSBaseCreature> targets
+        public List<BSCreature> targets
         {
             get { return _targets; }
             set { _targets = value; }

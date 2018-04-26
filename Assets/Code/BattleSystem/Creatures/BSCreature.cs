@@ -1,38 +1,43 @@
 ﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace GG.BattleSystem.CreatureSystem
 {
-    class BSCreature:BSCombatant
+    [Serializable]
+    class BSCreature : BSCombatant
     {
         #region variables
+        [SerializeField]
         private string _name;
+        [SerializeField]
         private BaseStats[] _stats;
+        [SerializeField]
         private Vital[] _vitals;
         //Combat related
+        [SerializeField]
         private bool _isCasting;
+        [SerializeField]
         private int _actBar;
+        [SerializeField]
         private int _castBar;
+        [SerializeField]
+        private int _exp;
+        //loot table
         #endregion
         #region setters and getters
         public override string name
         {
-            get
-            {
-                return _name; 
-            }
-
-            set
-            {
-                base.name = value;
-            }
+            get{return _name;}
+            set{base.name = value;}
         }
         public override BaseStats GetBaseStats(int index)
         {
             return _stats[index];
         }
+
         public override Vital GetVitals(int index)
         {
             return _vitals[index];
@@ -40,13 +45,30 @@ namespace GG.BattleSystem.CreatureSystem
 
         public override int castingBar
         {
-            get{ return _castBar; }
-            set{_castBar = value;}
+            get { return _castBar; }
+            set { _castBar = value; }
         }
         public override int standardBar
         {
-            get{return _actBar;}
-            set{_actBar = value;}
+            get { return _actBar; }
+            set { _actBar = value; }
+        }
+        public override bool isCasting
+        {
+            get
+            {
+                return _isCasting;
+            }
+
+            set
+            {
+                _isCasting = value;
+            }
+        }
+        public int exp
+        {
+            get { return _exp; }
+            set { _exp = value; }
         }
         #endregion
         #region Constructors
@@ -66,6 +88,10 @@ namespace GG.BattleSystem.CreatureSystem
         }
         #endregion
         #region Fuctions
+        public void ModifyBaseStats(int Index, int ChangeVal)
+        {
+            _stats[Index].baseValue += ChangeVal;
+        }
         #endregion
     }
 }

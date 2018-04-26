@@ -6,9 +6,9 @@ namespace GG.BattleSystem
 {
     public class EnemyParty : MonoBehaviour
     {
-        public List<CSBaseCreature> party;
+        public List<BSCreature> party;
 
-        public CSBaseCreature GetCreature(int index)
+        public BSCreature GetCreature(int index)
         {
             return party.ElementAt(index);
         }
