@@ -31,18 +31,16 @@ namespace GG.BattleSystem.CreatureSystem
         public override string name
         {
             get{return _name;}
-            set{base.name = value;}
+            set{_name = value;}
         }
         public override BaseStats GetBaseStats(int index)
         {
             return _stats[index];
         }
-
         public override Vital GetVitals(int index)
         {
             return _vitals[index];
         }
-
         public override int castingBar
         {
             get { return _castBar; }
@@ -55,15 +53,8 @@ namespace GG.BattleSystem.CreatureSystem
         }
         public override bool isCasting
         {
-            get
-            {
-                return _isCasting;
-            }
-
-            set
-            {
-                _isCasting = value;
-            }
+            get{return _isCasting;}
+            set{_isCasting = value;}
         }
         public int exp
         {
@@ -85,6 +76,8 @@ namespace GG.BattleSystem.CreatureSystem
             {
                 _vitals[i].name = Enum.GetName(typeof(VitalNames), i);
             }
+            _isCasting = false;
+            _exp = 10;
         }
         #endregion
         #region Fuctions
