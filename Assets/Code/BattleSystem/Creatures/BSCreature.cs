@@ -7,7 +7,7 @@ using System.Text;
 namespace GG.BattleSystem.CreatureSystem
 {
     [Serializable]
-    class BSCreature : BSCombatant
+    public class BSCreature : BSCombatant
     {
         #region variables
         [SerializeField]
