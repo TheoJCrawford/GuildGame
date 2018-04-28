@@ -57,7 +57,9 @@ namespace GG.BattleSystem.CreatureSystem.Editor
         void TopBar()
         {
             GUILayout.BeginHorizontal();
-            GUILayout.Button("New Creature", GUILayout.ExpandWidth(false));
+            if(GUILayout.Button("New Creature", GUILayout.ExpandWidth(false))){
+                _db.Add(new BSCreature());
+            }
             GUILayout.Button("Delete Selected Creature", GUILayout.ExpandWidth(false));
             GUILayout.Label("Creatures: " + _db.Count);
             GUILayout.EndHorizontal();
@@ -89,14 +91,16 @@ namespace GG.BattleSystem.CreatureSystem.Editor
                 GUILayout.Label(Enum.GetName(typeof(StatNameAbreviations), i));
                 GUILayout.Label(_db.Get(_selectedCreature).GetBaseStats(i).baseValue.ToString(), GUILayout.Width(50));
                 if(GUILayout.Button("+5", GUILayout.ExpandWidth(false))){
+                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue+=5;
                 }
                 if(GUILayout.Button("+1", GUILayout.ExpandWidth(false))){
-                    _db.Get(_selectedCreature).ModifyBaseStats(i, 1);
+                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue++;
                 }
                 if(GUILayout.Button("-1", GUILayout.ExpandWidth(false))){
+                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue--;
                 }
                 if(GUILayout.Button("-5", GUILayout.ExpandWidth(false))){
-
+                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue-=5;
                 }
                 GUILayout.EndHorizontal();
             }

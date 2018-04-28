@@ -13,7 +13,7 @@ namespace GG.BattleSystem
             EnemyParty testCase = (EnemyParty)target;
             if(GUILayout.Button("Add Creature"))
             {
-                testCase.party.Add(new CSBaseCreature());
+                testCase.party.Add(new BSCreature());
             }
             if (GUILayout.Button("Clear Party"))
             {

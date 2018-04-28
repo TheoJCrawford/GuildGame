@@ -67,13 +67,15 @@ namespace GG.BattleSystem.CreatureSystem
         {
             _name = "Meps";
             _stats = new BaseStats[Enum.GetNames(typeof(StatNames)).Length];
-            for(int i = 0; i < Enum.GetNames(typeof(StatNames)).Length; i++)
+            _vitals = new Vital[Enum.GetNames(typeof(VitalNames)).Length];
+            for (int i = 0; i < Enum.GetNames(typeof(StatNames)).Length; i++)
             {
                 _stats[i] = new BaseStats();
                 _stats[i].name = Enum.GetName(typeof(StatNames), i);
             }
-            for(int i =0; i < Enum.GetNames(typeof(VitalNames)).Length; i++)
+            for(int i  =0; i < Enum.GetNames(typeof(VitalNames)).Length; i++)
             {
+                _vitals[i] = new Vital();
                 _vitals[i].name = Enum.GetName(typeof(VitalNames), i);
             }
             _isCasting = false;
