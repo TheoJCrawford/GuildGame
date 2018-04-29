@@ -97,21 +97,61 @@ namespace GG.BattleSystem.CreatureSystem.Editor
                     _db.Get(_selectedCreature).GetBaseStats(i).baseValue++;
                 }
                 if(GUILayout.Button("-1", GUILayout.ExpandWidth(false))){
-                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue--;
+                    if(_db.Get(_selectedCreature).GetBaseStats(i).baseValue > 0)
+                    {
+                        _db.Get(_selectedCreature).GetBaseStats(i).baseValue--;
+                    }
+                    
                 }
                 if(GUILayout.Button("-5", GUILayout.ExpandWidth(false))){
-                    _db.Get(_selectedCreature).GetBaseStats(i).baseValue-=5;
+                    if (_db.Get(_selectedCreature).GetBaseStats(i).baseValue > 0)
+                    {
+                        _db.Get(_selectedCreature).GetBaseStats(i).baseValue -= 5;
+                    }
                 }
                 GUILayout.EndHorizontal();
             }
             for(int i = 0; i < Enum.GetNames(typeof(VitalNames)).Length; i++)
             {
                 GUILayout.BeginHorizontal();
-                GUILayout.Label(Enum.GetName(typeof(VitalNameAbreviations), i));
+                GUILayout.Label(Enum.GetName(typeof(VitalNameAbreviations), i), GUILayout.ExpandWidth(false));
                 GUILayout.Label(_db.Get(_selectedCreature).GetVitals(i).baseValue.ToString());
-                
+                if(GUILayout.Button("+10", GUILayout.ExpandWidth(false))){
+                    _db.Get(_selectedCreature).GetVitals(i).baseValue += 10;
+                }
+                if(GUILayout.Button("+5", GUILayout.ExpandWidth(false)))
+                {
+                    _db.Get(_selectedCreature).GetVitals(i).baseValue += 5;
+                }
+                if(GUILayout.Button("+1", GUILayout.ExpandWidth(false)))
+                {
+                    _db.Get(_selectedCreature).GetVitals(i).baseValue++;
+                }
+                if(GUILayout.Button("-1", GUILayout.ExpandWidth(false)))
+                {
+                    _db.Get(_selectedCreature).GetVitals(i).baseValue--;
+                }
+                if(GUILayout.Button("-5", GUILayout.ExpandWidth(false)))
+                {
+                    _db.Get(_selectedCreature).GetVitals(i).baseValue -= 5;
+                }
+                if(GUILayout.Button("-10", GUILayout.ExpandWidth(false)))
+                {
+                    _db.Get(_selectedCreature).GetVitals(i).baseValue -= 10;
+                }
+
                 GUILayout.EndHorizontal();
             }
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Abilities: ");
+            GUILayout.Button("Add ability", GUILayout.MaxWidth(150));
+            GUILayout.EndHorizontal();
+
+            GUILayout.Label("A.I. Type: ");
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Loot Table: ");
+            GUILayout.Button("Add Item", GUILayout.MaxWidth(150));
+            GUILayout.EndHorizontal();
         }
         #endregion
     }

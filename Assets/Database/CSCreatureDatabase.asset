@@ -17,3 +17,8 @@ MonoBehaviour:
     _actBar: 0
     _castBar: 0
     _exp: 10
+  - _name: Punching Dummy
+    _isCasting: 0
+    _actBar: 0
+    _castBar: 0
+    _exp: 10
