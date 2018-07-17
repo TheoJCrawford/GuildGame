@@ -4,9 +4,11 @@ using System.Collections;
 public class GameMaster : MonoBehaviour
 {
      public string state;
+    public static GameMaster gm;
     // Use this for initialization
     void Start()
     {
+        gm = this;
         state = "Normal";
     }
 

@@ -17,7 +17,7 @@ namespace GG.BattleSystem
  
 Playerchoose();
 Playerattack();
- 
+ CheckTurn();
 EnemyChoose();
 Enemyattack();
  
